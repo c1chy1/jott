@@ -55,21 +55,10 @@
   </UFooter>
 </template>
 <script lang="ts" setup>
-import type {NavigationMenuItem} from '@nuxt/ui'
+
 const {$gsap} = useNuxtApp()
 const footerTop = ref<HTMLElement | null>(null)
-const items: NavigationMenuItem[] = [{
-  label: '.Impressum',
-  to: '/imprint',
-  target: '_blank',
-}, {
-  label: '.Datenschutz',
-  to: '/privacy',
-  target: '_blank'
-}]
-defineOptions({
-  inheritAttrs: false
-})
+
 const setupParallax = (): void => {
   if (footerTop.value) {
     $gsap.fromTo(
