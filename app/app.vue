@@ -1,3 +1,4 @@
+
 <template>
   <UApp>
     <UMain
@@ -5,19 +6,60 @@
         :style="{ '--mouse-x': cursorX + 'px', '--mouse-y': cursorY + 'px' }"
         class="custom-cursor overflow-x-hidden scroll-smooth"
     >
-      <NuxtLayout>
-        <NuxtPage/>
-      </NuxtLayout>
+      <Transition
+          mode="out-in"
+          :css="false"
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @leave="leave"
+      >
+        <div :key="$route.fullPath">
+          <NuxtLayout>
+            <NuxtPage/>
+          </NuxtLayout>
+        </div>
+      </Transition>
     </UMain>
   </UApp>
 </template>
 
 <script lang="ts" setup>
+import { gsap } from 'gsap'
+
+const route = useRoute()
 const cursorX = ref(0);
 const cursorY = ref(0);
 const isMouseDown = ref(false);
 const isMouseShow = ref(true);
 
+const beforeEnter = (el: Element) => {
+  console.log('beforeEnter called') // Debug
+  gsap.set(el, { opacity: 0, y: 30 })
+}
+
+const enter = (el: Element, done: () => void) => {
+  console.log('enter called') // Debug
+  gsap.to(el, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power2.out",
+    onComplete: done
+  })
+}
+
+const leave = (el: Element, done: () => void) => {
+  console.log('leave called') // Debug
+  gsap.to(el, {
+    opacity: 0,
+    y: -30,
+    duration: 0.4,
+    ease: "power2.in",
+    onComplete: done
+  })
+}
+
+// ... existing code ...
 const updateCursorPosition = (e: MouseEvent) => {
   isMouseShow.value = true;
   cursorX.value = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
@@ -46,43 +88,16 @@ onUnmounted(() => {
 </script>
 
 <style>
-@media (hover: hover) {
-  * {
-    cursor: none !important;
-  }
+/* ... existing styles ... */
 
-  .custom-cursor {
-    --mouse-x: 0;
-    --mouse-y: 0;
-    position: relative;
-  }
-
-  .custom-cursor {
-    &.cursor-down::before {
-      width: 40px;
-      height: 40px;
-    }
-
-    &.cursor-show::before {
-      opacity: 1;
-    }
-
-    &::before {
-      transition: width 0.1s ease-out, height 0.1s ease-out, opacity 0.1s ease-out;
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: white;
-      border-radius: 50%;
-      mix-blend-mode: difference;
-      pointer-events: none;
-      left: var(--mouse-x);
-      top: var(--mouse-y);
-      transform: translate(-50%, -50%);
-      z-index: 99999;
-      opacity: 0;
-    }
-  }
+/* Usuń lub zakomentuj CSS przejścia */
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.4s;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  filter: blur(1rem);
 }
 </style>
