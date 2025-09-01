@@ -4,7 +4,10 @@ export default defineNuxtConfig({
     modules: ['@nuxt/ui-pro', '@nuxt/content', '@pinia/nuxt', '@nuxt/image'],
     devtools: {enabled: true},
     app: {
-        pageTransition: false,
+        pageTransition: {
+            name: 'page',
+            mode: 'out-in'
+        },
         layoutTransition: false
     }
 })
