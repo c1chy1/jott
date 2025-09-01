@@ -325,8 +325,8 @@
 <script lang="ts" setup>
 import {useTeamStore} from '~/stores/teamStore'
 import {useArticleStore} from '~/stores/articleStore'
+import { gsap } from 'gsap'
 
-const {$gsap} = useNuxtApp()
 
 const headerGrey = ref<HTMLElement | null>(null)
 const headerGreenTop = ref<HTMLElement | null>(null)
@@ -336,12 +336,9 @@ const greyBottom = ref<HTMLElement | null>(null)
 const greenTop = ref<HTMLElement | null>(null)
 const greenBottom = ref<HTMLElement | null>(null)
 
-
-
-
 const setupParallax = (): void => {
   if (headerGrey.value) {
-    $gsap.fromTo(
+    gsap.fromTo(
         headerGrey.value,
         {backgroundPositionX: '0px'},
         {
@@ -358,7 +355,7 @@ const setupParallax = (): void => {
   }
 
   if (headerGreenTop.value) {
-    $gsap.fromTo(
+    gsap.fromTo(
         headerGreenTop.value,
         {backgroundPositionX: '0'},
         {
@@ -376,7 +373,7 @@ const setupParallax = (): void => {
 
 
   if (headerGreenBottom.value) {
-    $gsap.fromTo(
+    gsap.fromTo(
         headerGreenBottom.value,
         {backgroundPositionX: '0'},
         {
@@ -393,7 +390,7 @@ const setupParallax = (): void => {
   }
 
   if (greyTop.value) {
-    $gsap.fromTo(
+    gsap.fromTo(
         greyTop.value,
         {backgroundPositionX: '0'},
         {
@@ -410,7 +407,7 @@ const setupParallax = (): void => {
   }
 
   if (greyBottom.value) {
-    $gsap.fromTo(
+    gsap.fromTo(
         greyBottom.value,
         {backgroundPositionX: '0'},
         {
@@ -427,7 +424,7 @@ const setupParallax = (): void => {
   }
 
   if (greenTop.value) {
-    $gsap.fromTo(
+    gsap.fromTo(
         greenTop.value,
         {backgroundPositionX: '0'},
         {
@@ -444,7 +441,7 @@ const setupParallax = (): void => {
   }
 
   if (greenBottom.value) {
-    $gsap.fromTo(
+    gsap.fromTo(
         greenBottom.value,
         {backgroundPositionX: '0'},
         {
