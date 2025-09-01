@@ -55,13 +55,14 @@
   </UFooter>
 </template>
 <script lang="ts" setup>
+import { gsap } from 'gsap'
 
-const {$gsap} = useNuxtApp()
+
 const footerTop = ref<HTMLElement | null>(null)
 
 const setupParallax = (): void => {
   if (footerTop.value) {
-    $gsap.fromTo(
+    gsap.fromTo(
         footerTop.value,
         {backgroundPositionX: '0px'},
         {
