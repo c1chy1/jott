@@ -1,24 +1,20 @@
-
 <template>
   <UApp>
     <UMain
         :class="{'cursor-down': isMouseDown, 'cursor-show': isMouseShow}"
         :style="{ '--mouse-x': cursorX + 'px', '--mouse-y': cursorY + 'px' }"
-        class="custom-cursor overflow-x-hidden scroll-smooth"
+        class="custom-cursor overflow-x-hidden scroll-smooth relative"
     >
-      <Transition
-          mode="out-in"
-          :css="false"
-          @before-enter="beforeEnter"
-          @enter="enter"
-          @leave="leave"
-      >
-        <div :key="$route.fullPath">
-          <NuxtLayout>
-            <NuxtPage/>
-          </NuxtLayout>
-        </div>
-      </Transition>
+      <div
+          ref="overlayRef"
+          class="fixed inset-0 bg-black z-[9999] pointer-events-none"
+          :style="{ opacity: overlayVisible ? 1 : 0 }"
+      ></div>
+      <div :style="{ visibility: contentVisible ? 'visible' : 'hidden' }">
+        <NuxtLayout>
+          <NuxtPage/>
+        </NuxtLayout>
+      </div>
     </UMain>
   </UApp>
 </template>
@@ -26,40 +22,48 @@
 <script lang="ts" setup>
 import { gsap } from 'gsap'
 
-const route = useRoute()
 const cursorX = ref(0);
 const cursorY = ref(0);
 const isMouseDown = ref(false);
 const isMouseShow = ref(true);
+const overlayRef = ref<HTMLElement | null>(null);
+const overlayVisible = ref(true);
+const contentVisible = ref(false);
 
-const beforeEnter = (el: Element) => {
-  console.log('beforeEnter called') // Debug
-  gsap.set(el, { opacity: 0, y: 30 })
-}
+onMounted(async () => {
+  await nextTick()
 
-const enter = (el: Element, done: () => void) => {
-  console.log('enter called') // Debug
-  gsap.to(el, {
-    opacity: 1,
-    y: 0,
-    duration: 0.6,
-    ease: "power2.out",
-    onComplete: done
+  if (!overlayRef.value) return
+
+  const overlay = overlayRef.value!
+  gsap.set(overlay, {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%, 0% 50%, 100% 50%, 100% 100%, 0% 100%)"
   })
-}
 
-const leave = (el: Element, done: () => void) => {
-  console.log('leave called') // Debug
-  gsap.to(el, {
-    opacity: 0,
-    y: -30,
-    duration: 0.4,
-    ease: "power2.in",
-    onComplete: done
-  })
-}
+  console.log('Starting page load animation...')
 
-// ... existing code ...
+  setTimeout(() => {
+    const tl = gsap.timeline({
+      onComplete: () => {
+        overlayVisible.value = false
+        console.log('Page load animation complete!')
+      }
+    })
+
+    tl.call(() => {
+      contentVisible.value = true
+      console.log('Content now visible under closed shutters')
+    }, [], 0.2)
+
+        .to(overlay, {
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%, 0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+          duration: 0.8,
+          ease: "power2.out"
+        }, 0.3)
+
+  }, 200)
+})
+
 const updateCursorPosition = (e: MouseEvent) => {
   isMouseShow.value = true;
   cursorX.value = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
@@ -86,18 +90,3 @@ onUnmounted(() => {
   window.removeEventListener('mousemove', updateCursorPosition);
 });
 </script>
-
-<style>
-/* ... existing styles ... */
-
-/* Usuń lub zakomentuj CSS przejścia */
-.page-enter-active,
-.page-leave-active {
-  transition: all 0.4s;
-}
-.page-enter-from,
-.page-leave-to {
-  opacity: 0;
-  filter: blur(1rem);
-}
-</style>
