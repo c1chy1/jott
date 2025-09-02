@@ -39,17 +39,18 @@
         </template>
         <template #headline>
           <h5 class="animated-bold text-6xl mt-6">
-            Machen wir es<br>
-            <span class="text-(--color-nuxt-ui-primary-50) uppercase">einfach:</span>
+            {{ t('make.we') }}<br>
+            <span class="text-(--color-nuxt-ui-primary-50) uppercase">
+              {{ t('make.simple') }}</span>
             <b class="uppercase"> digital</b>.
           </h5>
         </template>
         <template #body>
           <UButton
+              :label="t('makeSimpleButton')"
               :to="{ path: '/', hash: '#machen' }"
               class="mb-10 mt-4 hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
               color="secondary"
-              label="Einfach machen"
               outline="false"
               size="lg"
               variant="outline"
@@ -58,7 +59,11 @@
         <template #footer>
           <div>
             <h2 class="animated-bold uppercase text-2xl xl:text-3xl mt-8 mb-3">
-              Dein Büro <span class="lowercase">für</span> <b>Entwicklung und Design.</b>
+              {{ t('office.your') }}
+              <span class="lowercase">
+                       {{ t('office.for') }}
+              </span>
+              <b>{{ t('office.development') }}</b>
             </h2>
             <NuxtLink
                 :to="{ path: '/', hash: '#machen' }"
@@ -79,14 +84,21 @@
           id="machen"
           class="min-h-[400px] z-10"
       >
-        <h6>Das bekommst du <b class="uppercase">von uns</b></h6>
+        <h6>
+          {{ t('get.what') }}
+          <b class="uppercase">
+            {{ t('get.fromUs') }}</b>
+        </h6>
         <h3>
-          <b>Mehr Zeit</b>, sodass du deine Energie auf den <b>Erfolg</b> und das Wachstum deines
-          Unternehmens fokussieren kannst. Dazu vereinfachen und digitalisieren wir deine Prozesse – und sorgen so für
-          <b>mehr Effizienz, Zufriedenheit und Qualität</b> für dein Business.
+          <b>
+            {{ t('get.time') }}
+          </b> {{ t('get.energy') }}
+          <b> {{ t('get.success') }}</b>
+          {{ t('get.growth') }}
+          <b> {{ t('get.efficiency') }}</b>
+          {{ t('get.business') }}
         </h3>
       </UContainer>
-
     </div>
     <div
         ref="headerGreenBottom"
@@ -101,31 +113,39 @@
 
     <UContainer class="xl:max-w-(--container-2xl) w-2/3 mx-0 lg:mx-auto text-left relative py-10">
       <h6 class="animated-bold animation-h1">
-        Die wichtigste <b class="uppercase">Frage</b>
+        {{ t('question.important') }}<b class="uppercase">Frage</b>
       </h6>
       <h2 class="font-[400]">
-        „<b class="uppercase">Was</b> genau <b class="uppercase">braucht dein
-        Unternehmen wirklich?</b>"
+        „<b class="uppercase">
+        {{ t('question.question') }}
+      </b>
+        {{ t('question.exactly') }}
+        <b class="uppercase">
+          {{ t('question.need') }}</b>"
       </h2>
     </UContainer>
 
     <UContainer class="max-w-(--container-2xl) relative pt-4 text-left">
-      <h6>So arbeiten wir <b class="uppercase">für Dich</b></h6>
+      <h6> {{ t('work.we') }}<b class="uppercase"> {{ t('work.forYou') }}</b></h6>
       <h4 class="text-(--color-jm-primary-brown)">
-        <b>Ehrlich. zuverlässig. partnerschaftlich.</b>
+        <b>{{ t('work.honesty') }}</b>
       </h4>
       <Paragraph>
-        Die Lösung muss immer zum Problem passen. Darum steht bei uns <b>an erster Stelle</b> die Analyse
-        deiner Herausforderung. Erst, wenn diese glasklar ist, widmen wir uns der <b>Konzeption und Umsetzung</b> des
-        tatsächlichen Produkts, wie auch immer das in deinem konkreten Fall aussehen mag. Damit das funktioniert, ist
-        eine ehrliche, zuverlässige und partnerschaftliche Zusammenarbeit – <b>auf Augenhöhe</b> und auf beiden Seiten
-        – unabdingbar.
+        {{ t('solution.problem') }}
+        <b>
+          {{ t('solution.solution') }}
+        </b> <b>{{ t('solution.priority') }}</b>
+        {{ t('solution.analyze') }}
+        <b>{{ t('solution.conception') }}</b>
+        {{ t('solution.products') }}
+        <b> {{ t('solution.equal') }}</b>
+        {{ t('solution.sides') }}
       </Paragraph>
     </UContainer>
 
     <UButton
+        :label="t('startButton')"
         color="secondary"
-        label="Lass uns gemeinsam loslegen"
         outline="true"
         size="lg"
         target="_blank"
@@ -135,7 +155,6 @@
 
     <UContainer class="max-w-(--container-4xl) relative xl:pt-4 z-10 text-left">
       <div class="mt-16">
-
         <UBlogPosts class="!flex !gap-y-0">
           <div
               v-for="(person, index) in teamStore.team"
@@ -207,9 +226,9 @@
 
     <UContainer class="max-w-(--container-2xl) relative xl:pt-4 z-10">
       <UButton
+          :label="t('knowButton')"
           class="mt-40"
           color="secondary"
-          label="Lerne uns kennen"
           outline="true"
           size="lg"
           target="_blank"
@@ -219,13 +238,13 @@
     </UContainer>
 
     <div class="bg-(--color-jm-primary-green) mt-64">
-
-
       <UContainer class="max-w-(--container-2xl) relative text-left pt-4 z-10">
-        <h6>Das leisten wir <b class="uppercase">für dich</b></h6>
+        <h6> {{ t('we.do') }}<b class="uppercase"> {{ t('we.forYou') }}</b></h6>
         <h2 class="font-[400] uppercase text-3xl pt-4">
-          Wir entwickeln und designen <b class="text-(--color-jm-primary-brown)">digitale
-          Premiumlösungen</b> <b>individuell für dein Unternehmen.</b>
+          {{ t('we.development') }}
+          <b class="text-(--color-jm-primary-brown)">
+            {{ t('we.digital') }}</b>
+          <b>{{ t('we.customise') }}</b>
         </h2>
         <div
             ref="greenTop"
@@ -243,18 +262,25 @@
     <UContainer class="max-w-(--container-2xl) pt-6 text-left z-10">
       <Paragraph>
         <b class="text-(--color-jm-primary-brown) uppercase">
-          Konzeption, Prototyping, Programmierung & Design
-        </b> von
-        <b>digitalen Lösungen</b>, mit denen du deine Herausforderungen optimal <b>meisterst</b>. Anders gesagt: <b>wir
-        machen Kompliziertes einfach</b> – und räumen Wachstumsbremsen aus dem Weg. <b>Ganz gleich, ob Webseite,
-        Web-Applikation oder App</b>: Unsere Lösungen zeichnen sich durch beeindruckende Funktionalität,
-        begeisternde Userfreundlichkeit und <b>bestechende Ästhetik</b> aus. Hand drauf.
+          {{ t('challenges.conception') }}
+        </b> {{ t('challenges.of') }}
+        <b>{{ t('challenges.digital') }}</b>
+        {{ t('challenges.challenge') }}
+        <b>{{ t('challenges.master') }}</b>
+        {{ t('challenges.other') }}<b>
+        {{ t('challenges.complicated') }}
+      </b> {{ t('challenges.obstacles') }}<b>
+        {{ t('challenges.website') }}</b>
+        {{ t('challenges.solutions') }}<b>
+        {{ t('challenges.aesthetics') }}
+      </b>
+        {{ t('challenges.start') }}
       </Paragraph>
     </UContainer>
 
     <UButton
+        :label=" t('goButton') "
         color="secondary"
-        label="Los geht's"
         outline="true"
         size="lg"
         target="_blank"
@@ -264,8 +290,8 @@
 
     <UContainer class="max-w-(--container-5xl) py-20">
       <h2 class="pb-8 leading-9 xl:leading-5 text-3xl xl:text-4xl lowercase">
-        <b class="text-(--color-jm-primary-brown) uppercase">Neues</b> aus der
-        <b class="text-(--color-jm-primary-brown) uppercase"> digitalen Welt </b>
+        <b class="text-(--color-jm-primary-brown) uppercase">{{ t('world.new') }}</b> {{ t('world.from') }}
+        <b class="text-(--color-jm-primary-brown) uppercase"> {{ t('world.digital') }} </b>
       </h2>
 
       <UBlogPosts class="mt-10 gap-y-8 grid-cols-1! lg:grid-cols-2! 2xl:grid-cols-3!" orientation="horizontal">
@@ -311,9 +337,9 @@
       </UBlogPosts>
 
       <UButton
+          :label="t('blogButton')"
           class="mt-8"
           color="secondary"
-          label="Zum Blog"
           outline="true"
           size="lg"
           to="blog"
@@ -325,7 +351,14 @@
 <script lang="ts" setup>
 import {useTeamStore} from '~/stores/teamStore'
 import {useArticleStore} from '~/stores/articleStore'
-import { gsap } from 'gsap'
+import {gsap} from 'gsap'
+
+const localePath = useLocalePath()
+
+const {t, locale} = useI18n()
+useHead({
+  title: 'Dein Büro für Entwicklung und Design – JOTT.MEDIA'
+})
 
 
 const headerGrey = ref<HTMLElement | null>(null)
