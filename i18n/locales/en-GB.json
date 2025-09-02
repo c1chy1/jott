@@ -1,0 +1,182 @@
+{
+  "pageTitle": "Your Office for Development and Design – JOTT.MEDIA",
+  "make": {
+    "we": "Let's make it",
+    "simple": "simple: "
+  },
+  "makeSimpleButton": "Make it simple",
+  "office": {
+    "your": "Your office",
+    "for": "for",
+    "development": " development and design."
+  },
+  "get": {
+    "what": "What you get",
+    "fromUs": "from us",
+    "time": "More time",
+    "energy": ", so you can focus your energy on the",
+    "success": "success",
+    "growth": "and growth of your company. To do this, we simplify and digitise your processes – ensuring",
+    "efficiency": "more efficiency, satisfaction and quality",
+    "business": "for your business."
+  },
+  "question": {
+    "important": "The most important",
+    "question": "question",
+    "what": "What",
+    "exactly": "exactly",
+    "need": "does your\n company really need?"
+  },
+  "work": {
+    "we": "This is how we work",
+    "forYou": "for you",
+    "honesty": "Honestly. reliably. in partnership."
+  },
+  "solution": {
+    "problem": "The solution must always fit the problem. That's why",
+    "solution": "solution",
+    "priority": "comes first",
+    "analyze": "we analyse\n your challenge. Only when this is crystal clear do we turn to the",
+    "conception": "conception and implementation",
+    "products": " of the\n actual product, whatever that may look like in your specific case. For this to work, an honest, reliable and partnership-based collaboration –",
+    "equal": "on equal terms",
+    "sides": " and on both sides\n – is essential."
+  },
+  "startButton": "Let's get started together",
+  "knowButton": "Get to know us",
+  "we": {
+    "do": "This is what we do",
+    "forYou": "for you",
+    "development": "We develop and design",
+    "digital": "digital\n premium solutions",
+    "customise": " customised for your company."
+  },
+  "challenges": {
+    "conception": "Conception, prototyping, programming & design",
+    "of": "of",
+    "digital": "digital solutions",
+    "challenge": ", with which you can optimally",
+    "master": " master your challenges.",
+    "other": "In other words:",
+    "complicated": "we\n make complicated things simple",
+    "obstacles": " – and remove growth obstacles.",
+    "website": "Whether it's a website,\n Web application or App:",
+    "solutions": " Our solutions are characterised by impressive functionality,\n inspiring user-friendliness and",
+    "aesthetics": "striking aesthetics.",
+    "start": "Hand on heart."
+  },
+  "goButton": "Let's go",
+  "world": {
+    "new": "News",
+    "from": "from the",
+    "digital": "digital world"
+  },
+  "blogButton": "To the blog",
+  "blog": {
+    "agency": "Here we would like to share our knowledge about the digital future,\n technologies, design and life in a digital agency with you, stay tuned,\n we are too.",
+    "no-posts": "No further posts",
+    "show": "Show more"
+  },
+  "imprint": "Imprint",
+  "privacy": "Privacy",
+  "menu": {
+    "home": ".Home",
+    "blog": ".Blog",
+    "follow": "Follow us:"
+  },
+  "director": "Managing Directors: ",
+  "rights": "All rights reserved",
+  "imprintSite": {
+    "information": "Information according to § 5 TMG:",
+    "contact": "Contact: ",
+    "phone": "Phone: ",
+    "register": "Commercial Register Entry: ",
+    "registerCommercial": "Entry in the commercial register.",
+    "registerCourt": "Register Court: Local court",
+    "registerNumber": "Register Number: ",
+    "vat": "VAT: ",
+    "vatNumber": "VAT Identification Number according to §27 a of the German VAT Act: ",
+    "liability": "Information about professional liability insurance",
+    "registeredName": "Name and location of the insurer: ",
+    "scope": "Scope of insurance: worldwide",
+    "responsible": "Responsible for content according to § 18 Abs. 2 MStV:",
+    "dispute": "Dispute Resolution",
+    "eu": "The European Commission provides a platform for online dispute resolution (ODR):",
+    "findUs": "You can find our email address above in the imprint.",
+    "disputeResolution": "We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.",
+    "liabilityContent": "Liability for Content",
+    "liabilityText": "As a service provider, we are responsible for our own content on these pages according to § 7 Abs.1 TMG under the general laws. According to §§ 8 to 10 TMG, we are not obliged as a service provider to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.",
+    "liabilityObligations": "Obligations to remove or block the use of information under general laws remain unaffected. However, liability in this regard is only possible from the time of knowledge of a specific infringement. Upon becoming aware of such violations, we will remove this content immediately.",
+    "liabilityLinks": "Liability for Links",
+    "liabilityLinksText": "Our offer contains links to external websites of third parties, on whose contents we have no influence. Therefore, we cannot assume any liability for these external contents. The respective provider or operator of the pages is always responsible for the contents of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal contents were not recognizable at the time of linking.",
+    "liabilityLinksRemoval": "A permanent content control of the linked pages is not reasonable without concrete evidence of a violation of the law. Upon becoming aware of legal violations, we will remove such links immediately.",
+    "copyright": "Copyright",
+    "copyrightContent": "The content and works created by the site operators on these pages are subject to German copyright law. The duplication, processing, distribution, and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use.",
+    "informUs": "Insofar as the content on this site was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is marked as such. Should you nevertheless become aware of a copyright infringement, please inform us accordingly. Upon becoming aware of legal violations, we will remove such content immediately."
+  },
+  "privacySite": {
+    "title": "Privacy Policy",
+    "intro": "This privacy policy informs you about the nature, scope, and purpose of the processing of personal data (hereinafter referred to as \"data\") within our online offering and the associated websites, functions, and content as well as external online presences, such as our social media profiles (hereinafter collectively referred to as \"online offering\"). With regard to the terms used, such as \"processing\" or \"controller\", we refer to the definitions in Article 4 of the General Data Protection Regulation (GDPR).",
+    "responsible": "Controller",
+    "dataTypes": "Types of data processed:",
+    "dataTypesList": {
+      "inventoryData": "Inventory data (e.g., names, addresses).",
+      "contactData": "Contact data (e.g., email, phone numbers).",
+      "contentData": "Content data (e.g., text input, photographs, videos).",
+      "usageData": "Usage data (e.g., visited websites, interest in content, access times).",
+      "metaData": "Meta/communication data (e.g., device information, IP addresses)."
+    },
+    "processingPurpose": "Purpose of processing",
+    "processingPurposeList": {
+      "provision": "Provision of the online offering, its functions, and content.",
+      "contact": "Responding to contact requests and communication with users.",
+      "security": "Security measures.",
+      "reach": "Reach measurement/marketing"
+    },
+    "definitions": "Definitions of terms used",
+    "definitionsText": "\"Personal data\" means any information relating to an identified or identifiable natural person (hereinafter \"data subject\"); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier (e.g., cookie), or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person.\n\n\"Processing\" means any operation or set of operations which is performed on personal data or on sets of personal data, whether or not by automated means. The term is broad and covers practically any handling of data.\n\n\"Controller\" means the natural or legal person, public authority, agency, or other body which, alone or jointly with others, determines the purposes and means of the processing of personal data.",
+    "legalBasis": "Relevant legal bases",
+    "legalBasisText": "In accordance with Article 13 GDPR, we inform you of the legal bases of our data processing. If the legal basis is not mentioned in the privacy policy, the following applies: The legal basis for obtaining consent is Article 6(1)(a) and Article 7 GDPR, the legal basis for processing for the performance of our services and carrying out contractual measures as well as responding to inquiries is Article 6(1)(b) GDPR, the legal basis for processing to fulfil our legal obligations is Article 6(1)(c) GDPR, and the legal basis for processing to protect our legitimate interests is Article 6(1)(f) GDPR. In the event that vital interests of the data subject or another natural person require the processing of personal data, Article 6(1)(d) GDPR serves as the legal basis.",
+    "securityMeasures": "Security measures",
+    "securityMeasuresText": "We ask you to regularly inform yourself about the content of our privacy policy. We will adapt the privacy policy as soon as changes in the data processing we carry out make this necessary. We will inform you as soon as the changes require your cooperation (e.g., consent) or other individual notification.",
+    "collaboration": "Collaboration with processors and third parties",
+    "collaborationText": "If, in the course of our processing, we disclose data to other persons and companies (processors or third parties), transmit it to them, or otherwise grant them access to the data, this will only be done on the basis of a legal permission (e.g., if a transmission of the data to third parties, such as payment service providers, is necessary for the performance of the contract pursuant to Article 6(1)(b) GDPR), you have consented, a legal obligation provides for this, or on the basis of our legitimate interests (e.g., when using agents, web hosts, etc.).\n\nIf we commission third parties to process data on the basis of a so-called \"processing contract\", this is done on the basis of Article 28 GDPR.",
+    "thirdCountryTransfers": "Transfers to third countries",
+    "thirdCountryTransfersText": "If we process data in a third country (i.e., outside the European Union (EU) or the European Economic Area (EEA)) or if this occurs in the context of the use of third-party services or disclosure, or transmission of data to third parties, this will only be done if it is to fulfil our (pre)contractual obligations, on the basis of your consent, due to a legal obligation, or on the basis of our legitimate interests. Subject to legal or contractual permissions, we process or allow the data to be processed in a third country only if the special requirements of Articles 44 et seq. GDPR are met. This means that the processing is carried out, for example, on the basis of special guarantees, such as the officially recognized determination of a level of data protection corresponding to the EU (e.g., for the USA through the \"Privacy Shield\") or compliance with officially recognized special contractual obligations (so-called \"standard contractual clauses\").",
+    "dataSubjectRights": "Rights of data subjects",
+    "dataSubjectRightsText": "You have the right to request confirmation as to whether data concerning you is being processed and to information about this data as well as to further information and a copy of the data in accordance with Article 15 GDPR.\n\nYou have the right in accordance with Article 16 GDPR to request the completion of the data concerning you or the correction of incorrect data concerning you.\n\nYou have the right in accordance with Article 17 GDPR to request that relevant data be deleted immediately, or alternatively in accordance with Article 18 GDPR to request a restriction of the processing of the data.\n\nYou have the right to request that the data concerning you that you have provided to us be received in accordance with Article 20 GDPR and to request its transmission to other controllers.\n\nYou also have the right to lodge a complaint with the competent supervisory authority in accordance with Article 77 GDPR.",
+    "withdrawalRight": "Right of withdrawal",
+    "withdrawalRightText": "You have the right to revoke consents granted in accordance with Article 7(3) GDPR with effect for the future.",
+    "objectionRight": "Right to object",
+    "objectionRightText": "You can object to the future processing of data concerning you in accordance with Article 21 GDPR at any time. The objection can be made in particular against processing for direct marketing purposes.",
+    "cookies": "Cookies and right to object to direct marketing",
+    "cookiesText": "Cookies are small files that are stored on users' computers. Various information can be stored within the cookies. A cookie is primarily used to store information about a user (or the device on which the cookie is stored) during or after their visit to an online offering. Temporary cookies, or \"session cookies\" or \"transient cookies\", are cookies that are deleted after a user leaves an online offering and closes their browser. In such a cookie, for example, the content of a shopping cart in an online store or a login status can be stored. \"Permanent\" or \"persistent\" cookies are cookies that remain stored even after the browser is closed. For example, the login status can be stored if users visit it after several days. Likewise, the interests of users can be stored in such a cookie, which is used for reach measurement or marketing purposes. \"Third-party cookies\" are cookies that are offered by providers other than the controller who operates the online offering (otherwise, if it is only their cookies, they are referred to as \"first-party cookies\").\n\nWe may use temporary and permanent cookies and clarify this in the context of our privacy policy.\n\nIf users do not want cookies to be stored on their computer, they are asked to disable the corresponding option in the system settings of their browser. Stored cookies can be deleted in the system settings of the browser. The exclusion of cookies can lead to functional restrictions of this online offering.\n\nA general objection to the use of cookies used for online marketing purposes can be declared for a variety of services, especially in the case of tracking, via the US site http://www.aboutads.info/choices/ or the EU site http://www.youronlinechoices.com/. Furthermore, the storage of cookies can be achieved by switching them off in the settings of the browser. Please note that not all functions of this online offering may then be usable.",
+    "dataDeletion": "Deletion of data",
+    "dataDeletionText": "The data processed by us will be deleted or restricted in their processing in accordance with Articles 17 and 18 GDPR. Unless expressly stated in this privacy policy, the data stored by us will be deleted as soon as they are no longer required for their intended purpose and the deletion does not conflict with any statutory retention obligations. If the data is not deleted because it is required for other and legally permissible purposes, its processing will be restricted. This means that the data will be blocked and not processed for other purposes. This applies, for example, to data that must be retained for commercial or tax law reasons.\n\nAccording to legal requirements in Germany, the retention is in particular for 10 years according to §§ 147(1) AO, 257(1) Nos. 1 and 4, (4) HGB (books, records, management reports, accounting records, commercial books, documents relevant for taxation, etc.) and 6 years according to § 257(1) Nos. 2 and 3, (4) HGB (commercial letters).\n\nAccording to legal requirements in Austria, the retention is in particular for 7 years according to § 132(1) BAO (accounting documents, receipts/invoices, accounts, receipts, business papers, statement of income and expenses, etc.), for 22 years in connection with properties, and for 10 years for documents related to electronically provided services, telecommunications, broadcasting, and television services provided to non-entrepreneurs in EU member states and for which the Mini-One-Stop-Shop (MOSS) is used.",
+    "businessProcessing": {
+      "related": "Business related processing",
+      "process": "Additionally, we process",
+      "contract": "Contract data (e.g., subject matter of the contract, term, customer category).",
+      "paymentData": "Payment data (e.g., bank details, payment history)",
+      "clients": "of our customers, prospects, and business partners for the purpose of providing contractual services, service, and customer care, marketing, advertising, and market research."
+    },
+    "businessProcessingText": "Additionally, we process\n- Contract data (e.g., subject matter of the contract, term, customer category).\n- Payment data (e.g., bank details, payment history)\nof our customers, prospects, and business partners for the purpose of providing contractual services, service, and customer care, marketing, advertising, and market research.",
+    "hosting": "The hosting services we use serve to provide the following services: infrastructure and platform services, computing capacity, storage space and database services, security services, and technical maintenance services that we use for the purpose of operating this online offering.\n\nIn this context, we, or our hosting provider, process inventory data, contact data, content data, contract data, usage data, meta and communication data of customers, prospects, and visitors to this online offering based on our legitimate interests in an efficient and secure provision of this online offering in accordance with Article 6(1)(f) GDPR in conjunction with Article 28 GDPR (conclusion of a processing contract).",
+    "accessData": "Collection of access data and log files",
+    "accessDataText": "We, or our hosting provider, collect data on the basis of our legitimate interests in the sense of Article 6(1)(f) GDPR about every access to the server on which this service is located (so-called server log files). The access data includes the name of the accessed website, file, date and time of access, amount of data transferred, notification of successful access, browser type and version, the user's operating system, referrer URL (the previously visited page), IP address, and the requesting provider.\n\nLog file information is stored for security reasons (e.g., to investigate misuse or fraud) for a maximum of 7 days and then deleted. Data that needs to be retained for evidence purposes is excluded from deletion until the respective incident is finally clarified.",
+    "agencyServices": "Agency services",
+    "agencyServicesText": "We process the data of our customers in the context of our contractual services, which include conceptual and strategic consulting, campaign planning, software and design development/consulting or maintenance, implementation of campaigns and processes/handling, server administration, data analysis/consulting services, and training services.\n\nIn this context, we process inventory data (e.g., customer master data, such as names or addresses), contact data (e.g., email, phone numbers), content data (e.g., text input, photographs, videos), contract data (e.g., subject matter of the contract, term), payment data (e.g., bank details, payment history), usage and metadata (e.g., in the context of evaluating and measuring the success of marketing measures). We generally do not process special categories of personal data unless they are part of a commissioned processing. The data subjects include our customers, prospects, and their customers, users, website visitors, or employees as well as third parties. The purpose of the processing is the provision of contractual services, billing, and our customer service. The legal bases of the processing result from Article 6(1)(b) GDPR (contractual services), Article 6(1)(f) GDPR (analysis, statistics, optimization, security measures). We process data that is necessary for the justification and fulfilment of the contractual services and point out the necessity of their disclosure. Disclosure to external parties only takes place if it is required in the context of an order. When processing the data provided to us in the context of an order, we act in accordance with the instructions of the clients as well as the legal requirements of a commissioned processing in accordance with Article 28 GDPR and process the data for no other purposes than those specified in the order.\n\nWe delete the data after the expiry of statutory warranty and comparable obligations. The necessity of retaining the data is reviewed every three years; in the case of statutory archiving obligations, the deletion takes place after their expiry (6 years in accordance with § 257(1) HGB, 10 years in accordance with § 147(1) AO). In the case of data disclosed to us in the context of an order by the client, we delete the data in accordance with the specifications of the order, generally after the end of the order.",
+    "contractualServices": "Provision of contractual services",
+    "contractualServicesText": "We process inventory data (e.g., names and addresses as well as contact details of users), contract data (e.g., services used, names of contact persons, payment information) for the purpose of fulfilling our contractual obligations and services in accordance with Art. 6 para. 1 lit. b GDPR. The entries marked as mandatory in online forms are required for the conclusion of the contract.\n\nAs part of the use of our online services, we store the IP address and the time of the respective user action. The storage is based on our legitimate interests, as well as the users' interests in protection against misuse and other unauthorized use. A transfer of this data to third parties does not take place in principle, unless it is necessary for the pursuit of our claims or there is a legal obligation in accordance with Art. 6 para. 1 lit. c GDPR.\n\nWe process usage data (e.g., the visited websites of our online offer, interest in our products) and content data (e.g., entries in the contact form or user profile) for advertising purposes in a user profile, in order to show the user e.g. product information based on their previously used services.\n\nThe deletion of the data takes place after the expiry of statutory warranty and comparable obligations, the necessity of the retention of the data is reviewed every three years; in the case of statutory archiving obligations, the deletion takes place after their expiry. Information in any customer account remains until it is deleted.",
+    "administration": "Administration, financial accounting, office organization, contact management",
+    "administrationText": "We process data in the context of administrative tasks as well as the organization of our business, financial accounting, and compliance with legal obligations, such as archiving. In this context, we process the same data that we process in the context of providing our contractual services. The processing bases are Art. 6 para. 1 lit. c GDPR, Art. 6 para. 1 lit. f GDPR. Customers, interested parties, business partners, and website visitors are affected by the processing. The purpose and our interest in the processing lie in the administration, financial accounting, office organization, archiving of data, i.e., tasks that serve the maintenance of our business activities, performance of our tasks, and provision of our services. The deletion of the data with regard to contractual services and the contractual communication corresponds to the information provided in these processing activities.\n\nWe disclose or transmit data to the financial administration, consultants, such as tax advisors or auditors, as well as other fee offices and payment service providers.\n\nFurthermore, we store information on suppliers, event organizers, and other business partners based on our business interests, e.g., for the purpose of later contact. These predominantly company-related data are stored permanently.",
+    "applicationProcess": "Privacy information in the application process",
+    "applicationProcessText": "We process applicant data only for the purpose and within the scope of the application process in accordance with the legal requirements. The processing of applicant data takes place to fulfill our (pre)contractual obligations within the scope of the application process in the sense of Art. 6 para. 1 lit. b GDPR Art. 6 para. 1 lit. f GDPR if the data processing becomes necessary for us, e.g., in the context of legal procedures (in Germany, § 26 BDSG additionally applies).\n\nThe application process requires that applicants provide us with the applicant data. The necessary applicant data are, if we offer an online form, marked, otherwise result from the job descriptions and generally include the information about the person, postal and contact addresses, and the documents belonging to the application, such as cover letter, CV, and certificates. In addition, applicants can voluntarily provide us with additional information.\n\nBy submitting the application to us, applicants agree to the processing of their data for the purposes of the application process in accordance with the type and scope set out in this privacy policy.\n\nInsofar as special categories of personal data within the meaning of Art. 9 para. 1 GDPR are voluntarily communicated within the scope of the application process, their processing additionally takes place in accordance with Art. 9 para. 2 lit. b GDPR (e.g., health data, such as severely disabled status or ethnic origin). Insofar as special categories of personal data within the meaning of Art. 9 para. 1 GDPR are requested from applicants within the scope of the application process, their processing additionally takes place in accordance with Art. 9 para. 2 lit. a GDPR (e.g., health data, if these are necessary for the exercise of the profession).\n\nIf provided, applicants can submit their applications via an online form on our website. The data will be transmitted to us encrypted according to the state of the art.\nFurthermore, applicants can send us their applications via email. However, we ask you to note that emails are generally not sent encrypted and applicants must ensure the encryption themselves. We can therefore not take any responsibility for the transmission path of the application between the sender and the reception on our server and therefore recommend using an online form or postal dispatch. Instead of applying via the online form and email, applicants still have the option of sending us the application by post.\n\nThe data provided by the applicants can be further processed by us in the event of a successful application for the purposes of the employment relationship. Otherwise, if the application for a job offer is not successful, the applicants' data will be deleted. The applicants' data will also be deleted if an application is withdrawn, which applicants are entitled to do at any time.\n\nThe deletion takes place, subject to a justified revocation of the applicants, after the expiry of a period of six months, so that we can answer any follow-up questions about the application and meet our obligations to provide evidence under the Equal Treatment Act. Invoices for any travel expense reimbursements are archived in accordance with tax regulations.",
+    "contact": "Contact",
+    "contactText": "When contacting us (e.g., via contact form, email, phone, or social media), the user's details are processed for the purpose of handling the contact request and its processing in accordance with Art. 6 para. 1 lit. b GDPR. The user's details can be stored in a Customer-Relationship-Management System (\"CRM System\") or comparable inquiry organization.\n\nWe delete the inquiries if they are no longer necessary. We review the necessity every two years; furthermore, the statutory archiving obligations apply.",
+    "socialMedia": "Online presences in social media",
+    "socialMediaText": "We maintain online presences within social networks and platforms in order to communicate with the customers, interested parties, and users active there and to inform them about our services. When calling up the respective networks and platforms, the terms and conditions and the data processing guidelines of their respective operators apply.\n\nUnless otherwise stated in our privacy policy, we process the data of users if they communicate with us within the social networks and platforms, e.g., write posts on our online presences or send us messages.",
+    "thirdPartyServices": "Integration of third-party services and content",
+    "thirdPartyServicesText": "We use content or service offers from third-party providers within our online offer based on our legitimate interests (i.e., interest in the analysis, optimization, and economic operation of our online offer in the sense of Art. 6 para. 1 lit. f GDPR) to integrate their content and services, such as videos or fonts (hereinafter uniformly referred to as \"content\").\n\nThis always requires that the third-party providers of this content perceive the IP address of the users, as they could not send the content to their browser without the IP address. The IP address is therefore required for the presentation of this content. We strive to use only such content whose respective providers use the IP address only for the delivery of the content. Third-party providers can also use so-called pixel tags (invisible graphics, also referred to as \"web beacons\") for statistical or marketing purposes. Through the \"pixel tags\", information such as visitor traffic on the pages of this website can be evaluated. The pseudonymous information can also be stored in cookies on the user's device and include, among other things, technical information about the browser and operating system, referring websites, visit time, and other information about the use of our online offer, as well as being linked to such information from other sources."
+  }
+}
