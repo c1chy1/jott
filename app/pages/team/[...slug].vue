@@ -20,7 +20,7 @@
                    name="i-mdi-close-thick"/>
           </button>
           <h1 class="text-lg uppercase font-extrabold" v-html="person?.meta.name"/>
-          <p class="font-light text-base!"> {{ person?.seo.description }}</p>
+          <p class="font-light text-base!"> {{ person?.description }}</p>
           <UContainer class="relative pt-0 z-10 text-center">
             <NuxtLink href="https://calendar.app.google/rBDjAnPNYEQpfMvJ9" target="_blank">
               <button
@@ -42,12 +42,14 @@ definePageMeta({
   layout: 'minimal'
 });
 
+
 const teamStore = useTeamStore()
 const route = useRoute()
+const {slug} = route.params;
 
-console.log('Current route path:', route.path)
+console.log('Current route path:', slug)
 
-await teamStore.fetchPerson(route.path)
+await teamStore.fetchPerson(slug)
 
 const person = computed(() => teamStore.person)
 
