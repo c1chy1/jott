@@ -1,6 +1,5 @@
-import { defineStore } from 'pinia'
+import {defineStore} from 'pinia'
 
-// Definicja interfejsu dla artykułu
 interface ArticleMeta {
     categories?: string[]
     date?: string
@@ -14,6 +13,14 @@ interface Article {
     title?: string
     description?: string
     body?: any
+    date?: string
+    slug?: string
+    url?: string
+    path?: string
+    seo?: {
+        description?: string
+    }
+
     [key: string]: any
 }
 
@@ -34,42 +41,114 @@ export const useArticleStore = defineStore('articleStore', {
             );
         },
         loadMoreButtonLabel: (state) => {
-            return state.articles?.length < state.pageMaxArticles ? 'Keine weiteren Beiträge' : 'Mehr Anzeigen';
+            const {t} = useI18n()
+            return state.articles?.length < state.pageMaxArticles
+                ? t('blog.no-posts')
+                : t('blog.show');
         }
     },
     actions: {
-        async fetchArticle(path: string) {
-            const { data } = await useAsyncData(`blog-${path}`, () =>
-                queryCollection('blog')
-                    .path(path)
+        async fetchArticle(slug: string) {
+            const {locale} = useI18n()
+            console.log('Fetching article for slug:', slug)
+
+            const {data: article} = await useAsyncData(`article-${slug}-${locale.value}`, async () => {
+                return await queryCollection(`articles_${locale.value}`)
+                    .where("slug", "=", slug)
+                    .select(
+                        "title",
+                        "slug",
+                        "description",
+                        "body",
+                        "meta",
+                        "date",
+                        "url"
+                    )
                     .first()
-            )
-            this.article = data.value || null
-            console.log(data.value)
+            }, {
+                watch: [locale],
+            })
+
+            if (article.value) {
+                this.article = {
+                    ...article.value,
+                    date: new Date(article.value.date).toISOString().slice(0, 10).replace(/-/g, '.')
+                }
+            } else {
+                this.article = null
+            }
+
+            console.log('Article query result:', this.article)
+            return this.article
         },
 
         async fetchArticles() {
-            const { data } = await useAsyncData('blog', () =>
-                queryCollection('blog')
+            const {locale} = useI18n()
+            const {data} = await useAsyncData(async () => {
+                const collection = `articles_${locale.value}` as keyof Collections
+                const articles = await queryCollection(collection)
                     .limit(this.pageMaxArticles)
                     .skip(this.pageMaxArticles * (this.page - 1))
-                    .order('id', 'DESC')
-                    .all())
+                    .order('date', 'DESC')
+                    .all() as Collections['articles_en'][] | Collections['articles_de'][]
+
+                return articles.map(article => ({
+                    ...article,
+                    date: new Date(article.date).toISOString().slice(0, 10).replace(/-/g, '.')
+                }))
+            }, {
+                watch: [locale],
+                key: `articles-${locale.value}-${this.page}-${this.pageMaxArticles}`,
+            })
 
             this.articles = data.value || []
             this.fetchCategories()
         },
 
         async loadMorePosts() {
+            const {locale} = useI18n()
             this.pageMaxArticles += 6
-            const { data } = await useAsyncData('blog', () =>
-                queryCollection('blog')
-                    .order('id', 'DESC')
+
+            const {data} = await useAsyncData(async () => {
+                const collection = `articles_${locale.value}` as keyof Collections
+                const articles = await queryCollection(collection)
+                    .order('date', 'DESC')
                     .limit(this.pageMaxArticles)
-                    .all()
-            )
+                    .all() as Collections['articles_en'][] | Collections['articles_de'][]
+
+                return articles.map(article => ({
+                    ...article,
+                    date: new Date(article.date).toISOString().slice(0, 10).replace(/-/g, '.')
+                }))
+            }, {
+                watch: [locale],
+                key: `articles-load-more-${locale.value}-${this.pageMaxArticles}`,
+            })
+
             this.articles = data.value || []
             this.fetchCategories()
+        },
+
+        async fetchLatestArticles() {
+            const {locale} = useI18n()
+            const {data} = await useAsyncData(async () => {
+                const collection = `articles_${locale.value}` as keyof Collections
+                const articles = await queryCollection(collection)
+                    .limit(3)
+                    .order('date', 'DESC')
+                    .all() as Collections['articles_en'][] | Collections['articles_de'][]
+
+                return articles.map(article => ({
+                    ...article,
+                    date: new Date(article.date).toISOString().slice(0, 10).replace(/-/g, '.')
+                }))
+            }, {
+                watch: [locale],
+                key: `latest-articles-${locale.value}`,
+                server: true,
+            })
+
+            return data.value || []
         },
 
         fetchCategories() {
@@ -83,7 +162,8 @@ export const useArticleStore = defineStore('articleStore', {
             this.selectedCategory = category
         },
 
-        truncateText(text: string, maxLength: number) {
+        truncateText(text: string, maxLength: number): string {
+            if (!text) return '';
             if (text.length > maxLength) {
                 return text.substring(0, maxLength) + '...';
             }
@@ -91,3 +171,9 @@ export const useArticleStore = defineStore('articleStore', {
         }
     }
 })
+
+export type Collections = {
+    [K in `articles_${'en' | 'de'}`]: Article[]
+} & {
+    [K in `team_${'en' | 'de'}`]: any[]
+}

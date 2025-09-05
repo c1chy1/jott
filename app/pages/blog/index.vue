@@ -35,7 +35,7 @@
                 :key="index"
                 :authors="[{ name: article.meta.author as string , class: 'text-(--color-jm-primary-green)' }]"
                 :image="{ src: article.meta.image, width: 480, height: 274, format: 'webp' , aspectRatio: 'cover' }"
-                :to="article.path"
+                :to="localePath(`/blog/${article.slug}`)"
                 as="li"
                 class="bg-(--color-jm-secondary-grey-lighter)"
                 v-bind="article">
@@ -90,6 +90,7 @@
 <script lang="ts" setup>
 const articleStore = useArticleStore()
 await articleStore.fetchArticles()
+const localePath = useLocalePath()
 
 useHead({
   title: 'Blog - JOTT.MEDIA'

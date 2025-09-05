@@ -5,8 +5,10 @@
           ref="headerBox"
           alt="Header Box"
           class="absolute bottom-0 -left-1/12 pointer-events-none object-cover z-[2]"
+          fetchpriority="high"
           format="webp"
           height="1100"
+          loading="eager"
           src="/images/header-box.png"
           width="760"
       />
@@ -39,17 +41,18 @@
         </template>
         <template #headline>
           <h5 class="animated-bold text-6xl mt-6">
-            Machen wir es<br>
-            <span class="text-(--color-nuxt-ui-primary-50) uppercase">einfach:</span>
+            {{ t('make.we') }}<br>
+            <span class="text-(--color-nuxt-ui-primary-50) uppercase">
+              {{ t('make.simple') }}</span>
             <b class="uppercase"> digital</b>.
           </h5>
         </template>
         <template #body>
           <UButton
+              :label="t('makeSimpleButton')"
               :to="{ path: '/', hash: '#machen' }"
               class="mb-10 mt-4 hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
               color="secondary"
-              label="Einfach machen"
               outline="false"
               size="lg"
               variant="outline"
@@ -58,7 +61,11 @@
         <template #footer>
           <div>
             <h2 class="animated-bold uppercase text-2xl xl:text-3xl mt-8 mb-3">
-              Dein Büro <span class="lowercase">für</span> <b>Entwicklung und Design.</b>
+              {{ t('office.your') }}
+              <span class="lowercase">
+                       {{ t('office.for') }}
+              </span>
+              <b>{{ t('office.development') }}</b>
             </h2>
             <NuxtLink
                 :to="{ path: '/', hash: '#machen' }"
@@ -79,14 +86,21 @@
           id="machen"
           class="min-h-[400px] z-10"
       >
-        <h6>Das bekommst du <b class="uppercase">von uns</b></h6>
+        <h6>
+          {{ t('get.what') }}
+          <b class="uppercase">
+            {{ t('get.fromUs') }}</b>
+        </h6>
         <h3>
-          <b>Mehr Zeit</b>, sodass du deine Energie auf den <b>Erfolg</b> und das Wachstum deines
-          Unternehmens fokussieren kannst. Dazu vereinfachen und digitalisieren wir deine Prozesse – und sorgen so für
-          <b>mehr Effizienz, Zufriedenheit und Qualität</b> für dein Business.
+          <b>
+            {{ t('get.time') }}
+          </b> {{ t('get.energy') }}
+          <b> {{ t('get.success') }}</b>
+          {{ t('get.growth') }}
+          <b> {{ t('get.efficiency') }}</b>
+          {{ t('get.business') }}
         </h3>
       </UContainer>
-
     </div>
     <div
         ref="headerGreenBottom"
@@ -95,37 +109,46 @@
     <UContainer class="max-w-(--container-4xl) relative py-10 z-10">
       <Image
           alt="Arian und Jan im Termin"
+          loading="lazy"
           src="team.jpg"
       />
     </UContainer>
 
     <UContainer class="xl:max-w-(--container-2xl) w-2/3 mx-0 lg:mx-auto text-left relative py-10">
       <h6 class="animated-bold animation-h1">
-        Die wichtigste <b class="uppercase">Frage</b>
+        {{ t('question.important') }}<b class="uppercase">Frage</b>
       </h6>
       <h2 class="font-[400]">
-        „<b class="uppercase">Was</b> genau <b class="uppercase">braucht dein
-        Unternehmen wirklich?</b>"
+        „<b class="uppercase">
+        {{ t('question.question') }}
+      </b>
+        {{ t('question.exactly') }}
+        <b class="uppercase">
+          {{ t('question.need') }}</b>"
       </h2>
     </UContainer>
 
     <UContainer class="max-w-(--container-2xl) relative pt-4 text-left">
-      <h6>So arbeiten wir <b class="uppercase">für Dich</b></h6>
+      <h6> {{ t('work.we') }}<b class="uppercase"> {{ t('work.forYou') }}</b></h6>
       <h4 class="text-(--color-jm-primary-brown)">
-        <b>Ehrlich. zuverlässig. partnerschaftlich.</b>
+        <b>{{ t('work.honesty') }}</b>
       </h4>
       <Paragraph>
-        Die Lösung muss immer zum Problem passen. Darum steht bei uns <b>an erster Stelle</b> die Analyse
-        deiner Herausforderung. Erst, wenn diese glasklar ist, widmen wir uns der <b>Konzeption und Umsetzung</b> des
-        tatsächlichen Produkts, wie auch immer das in deinem konkreten Fall aussehen mag. Damit das funktioniert, ist
-        eine ehrliche, zuverlässige und partnerschaftliche Zusammenarbeit – <b>auf Augenhöhe</b> und auf beiden Seiten
-        – unabdingbar.
+        {{ t('solution.problem') }}
+        <b>
+          {{ t('solution.solution') }}
+        </b> <b>{{ t('solution.priority') }}</b>
+        {{ t('solution.analyze') }}
+        <b>{{ t('solution.conception') }}</b>
+        {{ t('solution.products') }}
+        <b> {{ t('solution.equal') }}</b>
+        {{ t('solution.sides') }}
       </Paragraph>
     </UContainer>
 
     <UButton
+        :label="t('startButton')"
         color="secondary"
-        label="Lass uns gemeinsam loslegen"
         outline="true"
         size="lg"
         target="_blank"
@@ -133,38 +156,39 @@
         variant="outline"
     />
 
+    <!-- Team Section - Pinia powered -->
     <UContainer class="max-w-(--container-4xl) relative xl:pt-4 z-10 text-left">
       <div class="mt-16">
-
         <UBlogPosts class="!flex !gap-y-0">
           <div
               v-for="(person, index) in teamStore.team"
               :key="index"
               :class="[
               'flex',
-              (person as any).meta.align === 'right' ? 'justify-end' : 'justify-start'
+              (person as any).meta?.align === 'right' ? 'justify-end' : 'justify-start'
             ]"
           >
             <div class="md:w-2/5 relative">
               <UBlogPost
                   :key="index"
-                  :to="(person as any).path"
+                  :to="localePath(`/team/${(person as any).slug || (person as any).meta?.name?.toLowerCase()}`)"
                   class="text-left ring-0 overflow-visible h-[416px] relative"
               >
                 <template #header>
                   <NuxtImg
-                      :alt="(person as any).meta.imageAlt || (person as any).name"
+                      :alt="(person as any).meta?.imageAlt || (person as any).meta?.name"
                       :aspect-ratio="16/9"
                       :height="416"
-                      :src="(person as any).meta.src"
+                      :src="(person as any).meta?.src"
                       :width="416"
                       class="w-full h-full block m-0 cover bg-center"
                       format="webp"
+                      loading="lazy"
                   />
                 </template>
                 <template #badge>
                   <NuxtLink
-                      :to="(person as any).path"
+                      :to="localePath(`/team/${(person as any).slug || (person as any).meta?.name?.toLowerCase()}`)"
                       class="p-0"
                   >
                     <button
@@ -182,13 +206,13 @@
               <div class="md:absolute">
                 <h5
                     class="text-lg uppercase h-animation-bigger pt-4"
-                    v-html="(person as any).meta.quote"
+                    v-html="(person as any).meta?.quote"
                 />
                 <Paragraph
-                    v-if="(person as any).meta.hint != null"
+                    v-if="(person as any).meta?.hint"
                     class="italic text-sm mb-0 pt-2"
                 >
-                  {{ (person as any).meta.hint }}
+                  {{ (person as any).meta?.hint }}
                 </Paragraph>
               </div>
             </div>
@@ -207,9 +231,9 @@
 
     <UContainer class="max-w-(--container-2xl) relative xl:pt-4 z-10">
       <UButton
+          :label="t('knowButton')"
           class="mt-40"
           color="secondary"
-          label="Lerne uns kennen"
           outline="true"
           size="lg"
           target="_blank"
@@ -219,13 +243,13 @@
     </UContainer>
 
     <div class="bg-(--color-jm-primary-green) mt-64">
-
-
       <UContainer class="max-w-(--container-2xl) relative text-left pt-4 z-10">
-        <h6>Das leisten wir <b class="uppercase">für dich</b></h6>
+        <h6> {{ t('we.do') }}<b class="uppercase"> {{ t('we.forYou') }}</b></h6>
         <h2 class="font-[400] uppercase text-3xl pt-4">
-          Wir entwickeln und designen <b class="text-(--color-jm-primary-brown)">digitale
-          Premiumlösungen</b> <b>individuell für dein Unternehmen.</b>
+          {{ t('we.development') }}
+          <b class="text-(--color-jm-primary-brown)">
+            {{ t('we.digital') }}</b>
+          <b>{{ t('we.customise') }}</b>
         </h2>
         <div
             ref="greenTop"
@@ -237,24 +261,41 @@
         />
       </UContainer>
     </div>
-    <UContainer class="max-w-(--container-4xl) py-10">
-      <Carousel :items="carouselItems"/>
-    </UContainer>
+
+    <!-- Lazy load carousel - below the fold -->
+    <Suspense>
+      <UContainer class="max-w-(--container-4xl) py-10">
+        <LazyCarousel :items="carouselItems"/>
+      </UContainer>
+      <template #fallback>
+        <div class="max-w-(--container-4xl) py-10 mx-auto">
+          <div class="h-64 bg-gray-200 rounded animate-pulse"></div>
+        </div>
+      </template>
+    </Suspense>
+
     <UContainer class="max-w-(--container-2xl) pt-6 text-left z-10">
       <Paragraph>
         <b class="text-(--color-jm-primary-brown) uppercase">
-          Konzeption, Prototyping, Programmierung & Design
-        </b> von
-        <b>digitalen Lösungen</b>, mit denen du deine Herausforderungen optimal <b>meisterst</b>. Anders gesagt: <b>wir
-        machen Kompliziertes einfach</b> – und räumen Wachstumsbremsen aus dem Weg. <b>Ganz gleich, ob Webseite,
-        Web-Applikation oder App</b>: Unsere Lösungen zeichnen sich durch beeindruckende Funktionalität,
-        begeisternde Userfreundlichkeit und <b>bestechende Ästhetik</b> aus. Hand drauf.
+          {{ t('challenges.conception') }}
+        </b> {{ t('challenges.of') }}
+        <b>{{ t('challenges.digital') }}</b>
+        {{ t('challenges.challenge') }}
+        <b>{{ t('challenges.master') }}</b>
+        {{ t('challenges.other') }}<b>
+        {{ t('challenges.complicated') }}
+      </b> {{ t('challenges.obstacles') }}<b>
+        {{ t('challenges.website') }}</b>
+        {{ t('challenges.solutions') }}<b>
+        {{ t('challenges.aesthetics') }}
+      </b>
+        {{ t('challenges.start') }}
       </Paragraph>
     </UContainer>
 
     <UButton
+        :label=" t('goButton') "
         color="secondary"
-        label="Los geht's"
         outline="true"
         size="lg"
         target="_blank"
@@ -262,72 +303,101 @@
         variant="outline"
     />
 
-    <UContainer class="max-w-(--container-5xl) py-20">
-      <h2 class="pb-8 leading-9 xl:leading-5 text-3xl xl:text-4xl lowercase">
-        <b class="text-(--color-jm-primary-brown) uppercase">Neues</b> aus der
-        <b class="text-(--color-jm-primary-brown) uppercase"> digitalen Welt </b>
-      </h2>
+    <!-- Articles Section - Pinia powered with lazy loading -->
+    <Suspense>
+      <UContainer class="max-w-(--container-5xl) py-20">
+        <h2 class="pb-8 leading-9 xl:leading-5 text-3xl xl:text-4xl lowercase">
+          <b class="text-(--color-jm-primary-brown) uppercase">{{ t('world.new') }}</b> {{ t('world.from') }}
+          <b class="text-(--color-jm-primary-brown) uppercase"> {{ t('world.digital') }} </b>
+        </h2>
 
-      <UBlogPosts class="mt-10 gap-y-8 grid-cols-1! lg:grid-cols-2! 2xl:grid-cols-3!" orientation="horizontal">
-        <UBlogPost
-            v-for="(article, index) in articleStore.articles"
-            :key="index"
-            :image="{ src: article.meta.image, width: 418, height: 418, format: 'webp', aspectRatio: 'cover' }"
-            :to="article.path"
-            class="text-left ring-0"
-        >
-          <template #title>
-            <div v-html="article.title"/>
-          </template>
-          <template #date>
-            <NuxtLink
-                :to="`/team/${article?.meta?.author?.toLowerCase()}`"
-                class="text-(--color-jm-primary-green) font-extrabold z-10"
-            >
-              {{ article.meta.author }}
-            </NuxtLink>
-          </template>
-          <template #description>
-            <div/>
-          </template>
-          <template #badge>
-            <p class="text-sm font-light">
-              {{ article.meta.date as string | Date | undefined }} von
-            </p>
-          </template>
-          <template #authors>
-            <UBadge
-                v-for="(category, index) in (article.meta.categories as unknown[]).slice(1)"
-                :key="index"
-                class="px-2 text-xs text-(--color-jm-secondary-white) bg-(--color-jm-primary-brown) font-extrabold uppercase"
-                color="primary"
-                size="xs"
-                variant="solid"
-            >
-              {{ category }}
-            </UBadge>
-          </template>
-        </UBlogPost>
-      </UBlogPosts>
+        <UBlogPosts class="mt-10 gap-y-8 grid-cols-1! lg:grid-cols-2! 2xl:grid-cols-3!" orientation="horizontal">
+          <UBlogPost
+              v-for="(article, index) in latestArticles"
+              :key="index"
+              :image="{ src: article.meta?.image, width: 418, height: 418, format: 'webp', aspectRatio: 'cover' }"
+              :to="localePath(`/blog/${article.slug}`)"
+              class="text-left ring-0"
+          >
+            <template #title>
+              <div v-html="article.title"/>
+            </template>
+            <template #date>
+              <NuxtLink
+                  :to="localePath(`/team/${article.meta?.author?.toLowerCase()}`)"
+                  class="text-(--color-jm-primary-green) font-extrabold z-10"
+              >
+                {{ article.meta?.author }}
+              </NuxtLink>
+            </template>
+            <template #description>
+              <div/>
+            </template>
+            <template #badge>
+              <p class="text-sm font-light">
+                {{ article.date }} von
+              </p>
+            </template>
+            <template #authors>
+              <UBadge
+                  v-for="(category, categoryIndex) in (article.meta?.categories as string[])?.slice(0, 2)"
+                  :key="categoryIndex"
+                  class="px-2 text-xs text-(--color-jm-secondary-white) bg-(--color-jm-primary-brown) font-extrabold uppercase"
+                  color="primary"
+                  size="xs"
+                  variant="solid"
+              >
+                {{ category }}
+              </UBadge>
+            </template>
+          </UBlogPost>
+        </UBlogPosts>
 
-      <UButton
-          class="mt-8"
-          color="secondary"
-          label="Zum Blog"
-          outline="true"
-          size="lg"
-          to="blog"
-          variant="outline"
-      />
-    </UContainer>
+        <UButton
+            :label="t('blogButton')"
+            :to="localePath('/blog')"
+            class="mt-8"
+            color="secondary"
+            outline="true"
+            size="lg"
+            variant="outline"
+        />
+      </UContainer>
+
+      <template #fallback>
+        <div class="max-w-(--container-5xl) py-20 mx-auto">
+          <div class="space-y-4">
+            <div class="h-8 bg-gray-200 rounded w-1/2 mx-auto animate-pulse"></div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-8 mt-10">
+              <div v-for="i in 3" :key="i" class="h-96 bg-gray-200 rounded animate-pulse"></div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </Suspense>
   </UPageBody>
 </template>
+
 <script lang="ts" setup>
 import {useTeamStore} from '~/stores/teamStore'
 import {useArticleStore} from '~/stores/articleStore'
-import { gsap } from 'gsap'
+import {gsap} from 'gsap'
 
+const localePath = useLocalePath()
+const {t, locale} = useI18n()
 
+// SEO & Meta
+useHead({
+  title: () => locale.value === 'de' ? 'Dein Büro für Entwicklung und Design – JOTT.MEDIA' : 'Your Office for Development and Design – JOTT.MEDIA'
+})
+
+// Lazy load components for below-the-fold content
+const LazyCarousel = defineAsyncComponent(() => import('~/components/Carousel.vue'))
+
+const teamStore = useTeamStore()
+const articleStore = useArticleStore()
+
+// Refs for parallax
 const headerGrey = ref<HTMLElement | null>(null)
 const headerGreenTop = ref<HTMLElement | null>(null)
 const headerGreenBottom = ref<HTMLElement | null>(null)
@@ -336,135 +406,14 @@ const greyBottom = ref<HTMLElement | null>(null)
 const greenTop = ref<HTMLElement | null>(null)
 const greenBottom = ref<HTMLElement | null>(null)
 
-const setupParallax = (): void => {
-  if (headerGrey.value) {
-    gsap.fromTo(
-        headerGrey.value,
-        {backgroundPositionX: '0px'},
-        {
-          backgroundPositionX: '300px',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: headerGrey.value,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1.5,
-          },
-        }
-    )
-  }
+// ABOVE-THE-FOLD: Team data - SSR z Pinia cache
+await teamStore.fetchTeam()
 
-  if (headerGreenTop.value) {
-    gsap.fromTo(
-        headerGreenTop.value,
-        {backgroundPositionX: '0'},
-        {
-          backgroundPositionX: '-300px',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: headerGreenTop.value,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1.8,
-          },
-        }
-    )
-  }
+// BELOW-THE-FOLD: Latest articles - lazy loaded z Pinia cache
+const latestArticles = await articleStore.fetchLatestArticles()
 
-
-  if (headerGreenBottom.value) {
-    gsap.fromTo(
-        headerGreenBottom.value,
-        {backgroundPositionX: '0'},
-        {
-          backgroundPositionX: '400px',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: headerGreenBottom.value,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1.6,
-          },
-        }
-    )
-  }
-
-  if (greyTop.value) {
-    gsap.fromTo(
-        greyTop.value,
-        {backgroundPositionX: '0'},
-        {
-          backgroundPositionX: '-380px',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: greyTop.value,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1.4,
-          },
-        }
-    )
-  }
-
-  if (greyBottom.value) {
-    gsap.fromTo(
-        greyBottom.value,
-        {backgroundPositionX: '0'},
-        {
-          backgroundPositionX: '320px',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: greyBottom.value,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1.7,
-          },
-        }
-    )
-  }
-
-  if (greenTop.value) {
-    gsap.fromTo(
-        greenTop.value,
-        {backgroundPositionX: '0'},
-        {
-          backgroundPositionX: '-260px',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: greenTop.value,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1.5,
-          },
-        }
-    )
-  }
-
-  if (greenBottom.value) {
-    gsap.fromTo(
-        greenBottom.value,
-        {backgroundPositionX: '0'},
-        {
-          backgroundPositionX: '290px',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: greenBottom.value,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1.3,
-          },
-        }
-    )
-  }
-}
-
-interface CarouselItem {
-  id: string
-  src: string
-  alt: string
-}
-
-const carouselItems = ref<CarouselItem[]>([
+// Carousel items
+const carouselItems = ref([
   {
     id: '1',
     src: '1-team-arian-annika.jpg',
@@ -492,16 +441,41 @@ const carouselItems = ref<CarouselItem[]>([
   },
 ])
 
-onMounted(() => {
-  setTimeout(() => {
-    setupParallax()
-  }, 500)
-})
+// Parallax setup - optimized with requestIdleCallback
+const setupParallax = (): void => {
+  if (typeof window === 'undefined') return
 
-useHead({
-  title: 'Dein Büro für Entwicklung und Design – JOTT.MEDIA',
-})
+  const elements = [
+    {ref: headerGrey, config: {from: '0px', to: '300px', scrub: 1.5}},
+    {ref: headerGreenTop, config: {from: '0', to: '-300px', scrub: 1.8}},
+    {ref: headerGreenBottom, config: {from: '0', to: '400px', scrub: 1.6}},
+    {ref: greyTop, config: {from: '0', to: '-380px', scrub: 1.4}},
+    {ref: greyBottom, config: {from: '0', to: '320px', scrub: 1.7}},
+    {ref: greenTop, config: {from: '0', to: '-260px', scrub: 1.5}},
+    {ref: greenBottom, config: {from: '0', to: '290px', scrub: 1.3}}
+  ]
 
+  elements.forEach(({ref, config}) => {
+    if (ref.value) {
+      gsap.fromTo(
+          ref.value,
+          {backgroundPositionX: config.from},
+          {
+            backgroundPositionX: config.to,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: ref.value,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: config.scrub,
+            },
+          }
+      )
+    }
+  })
+}
+
+// Smooth scroll function
 function scrollTo(event: Event): void {
   event.preventDefault()
   const target = document.getElementById('machen')
@@ -510,8 +484,12 @@ function scrollTo(event: Event): void {
   }
 }
 
-const articleStore = useArticleStore()
-await articleStore.fetchArticles()
-const teamStore = useTeamStore()
-await teamStore.fetchTeam()
+// Initialize parallax after mount with performance optimization
+onMounted(() => {
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => setupParallax(), {timeout: 1000})
+  } else {
+    setTimeout(setupParallax, 500)
+  }
+})
 </script>
