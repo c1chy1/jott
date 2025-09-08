@@ -1,5 +1,5 @@
 // app/composables/useElementAnimation.ts
-import {ref, onMounted, onUnmounted, watch, computed} from 'vue'
+import {computed, onMounted, onUnmounted, ref, watch} from 'vue'
 
 export function useElementAnimation() {
     const width = ref(0)
@@ -9,14 +9,17 @@ export function useElementAnimation() {
         width.value = window?.innerWidth || 0
     }
 
-    onMounted(() => {
+    function setupResizeListener() {
         updateWidth()
         window.addEventListener('resize', updateWidth)
-    })
+    }
 
-    onUnmounted(() => {
+    function cleanupResizeListener() {
         window.removeEventListener('resize', updateWidth)
-    })
+    }
+
+    onMounted(setupResizeListener)
+    onUnmounted(cleanupResizeListener)
 
     // Klassen für verschiedene Elementtypen basierend auf Bildschirmbreite
     const typeToClass = computed(() => ({
@@ -59,10 +62,12 @@ export function useElementAnimation() {
             observer.observe(elementRef.value)
         }
 
-        onMounted(() => {
+        function setupObserver() {
             // Zeitverzögerung, um sicherzustellen, dass das Element vorhanden ist
             setTimeout(initObserver, 100)
-        })
+        }
+
+        onMounted(setupObserver)
 
         // Überwache Änderungen am Element-Ref
         watch(() => elementRef.value, (newVal) => {
@@ -71,12 +76,14 @@ export function useElementAnimation() {
             }
         })
 
-        onUnmounted(() => {
+        function cleanupObserver() {
             if (observer && elementRef.value) {
                 observer.unobserve(elementRef.value)
                 observer.disconnect()
             }
-        })
+        }
+
+        onUnmounted(cleanupObserver)
 
         return {isVisible, wasVisible}
     }
