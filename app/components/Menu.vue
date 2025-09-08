@@ -34,14 +34,14 @@
                 <button
                     :class="{ 'font-bold': currentLocale === 'de' }"
                     class="mr-2 text-lg text-(--color-jm-contrast-black) hover:font-bold transition-all duration-200 cursor-pointer"
-                    @click="setLocale('de')">
+                    @click="handleLanguageChange('de')">
                   DE
                 </button>
                 <span class="text-(--color-jm-contrast-black) text-lg">|</span>
                 <button
                     :class="{ 'font-bold': currentLocale === 'en' }"
                     class="ml-2 text-lg text-(--color-jm-contrast-black) hover:font-bold transition-all duration-200 cursor-pointer"
-                    @click="setLocale('en')">
+                    @click="handleLanguageChange('en')">
                   EN
                 </button>
               </div>
@@ -89,4 +89,11 @@ const {t, locale, setLocale} = useI18n()
 const localePath = useLocalePath()
 const open = ref(false)
 const currentLocale = computed(() => locale.value)
+const {$animatedLanguageChange} = useNuxtApp()
+
+const handleLanguageChange = async (newLocale: string) => {
+  if (currentLocale.value === newLocale) return
+
+  await $animatedLanguageChange(setLocale, newLocale)
+}
 </script>
