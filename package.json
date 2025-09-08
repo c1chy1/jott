@@ -18,7 +18,7 @@
     "@pinia/nuxt": "^0.11.2",
     "better-sqlite3": "^12.2.0",
     "gsap": "^3.13.0",
-    "nuxt": "^4.1.1",
+    "nuxt": "4.0.3",
     "pinia": "^3.0.3",
     "vue": "^3.5.21",
     "vue-router": "^4.5.1"
@@ -35,12 +35,13 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "sharp",
-      "esbuild",
       "@parcel/watcher",
-      "vue-demi",
+      "@tailwindcss/oxide",
+      "better-sqlite3",
+      "esbuild",
       "puppeteer",
-      "better-sqlite3"
+      "sharp",
+      "vue-demi"
     ]
   }
 }
