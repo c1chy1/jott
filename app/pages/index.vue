@@ -22,25 +22,18 @@
               ref="headerGreenTop"
               class="absolute pointer-events-none w-screen h-[32rem] bottom-0 -z-[1] bg-header-green-top"
           />
-
           <div
               ref="headerGrey"
               class="absolute pointer-events-none w-screen h-[35rem] bottom-0 -z-[2] bg-header-grey"
           />
-          <NuxtLink
-              class="inline-block no-underline border-0"
-              to="/"
+          <NuxtLink class="inline-block no-underline w-full mt-6 sm:w-[325px] border-0" to="/"
           >
-            <Image
-                :parallax="false"
-                :shine="false"
-                alt="JOTT.MEDIA GmbH"
-                src="logo.svg"
-            />
+            <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH" class="w-full"
+                   src="logo.svg"/>
           </NuxtLink>
         </template>
         <template #headline>
-          <h5 class="animated-bold text-6xl mt-6">
+          <h5 class="animated-bold text-6xl mt-4">
             {{ t('make.we') }}<br>
             <span class="text-(--color-nuxt-ui-primary-50) uppercase">
               {{ t('make.simple') }}</span>
