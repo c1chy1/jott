@@ -50,13 +50,12 @@
           ref="footerTop"
           class="absolute pointer-events-none left-1/2 bg-repeat-x -translate-x-1/2 w-screen h-[35rem] bottom-0 -z-0 bg-center bg-footer-top"
       />
-
     </template>
   </UFooter>
 </template>
-<script lang="ts" setup>
-import { gsap } from 'gsap'
 
+<script lang="ts" setup>
+import {gsap} from 'gsap'
 
 const footerTop = ref<HTMLElement | null>(null)
 
@@ -76,11 +75,14 @@ const setupParallax = (): void => {
           },
         }
     )
-  }}
-onMounted(() => {
+  }
+}
+
+function initializeParallax() {
   setTimeout(() => {
     setupParallax()
   }, 500)
-})
+}
 
+onMounted(initializeParallax)
 </script>
