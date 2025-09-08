@@ -7,8 +7,8 @@
     >
       <div
           ref="overlayRef"
-          class="fixed inset-0 bg-black z-[9999] pointer-events-none"
           :style="{ opacity: overlayVisible ? 1 : 0 }"
+          class="fixed inset-0 bg-black z-[9999] pointer-events-none"
       ></div>
       <div :style="{ visibility: contentVisible ? 'visible' : 'hidden' }">
         <NuxtLayout>
@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import { gsap } from 'gsap'
+import {gsap} from 'gsap'
 
 const cursorX = ref(0);
 const cursorY = ref(0);
@@ -30,7 +30,21 @@ const overlayRef = ref<HTMLElement | null>(null);
 const overlayVisible = ref(true);
 const contentVisible = ref(false);
 
-onMounted(async () => {
+const updateCursorPosition = (e: MouseEvent) => {
+  isMouseShow.value = true;
+  cursorX.value = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+  cursorY.value = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+};
+
+const updateCursorDown = (e: MouseEvent) => {
+  isMouseDown.value = true;
+};
+
+const updateCursorUp = (e: MouseEvent) => {
+  isMouseDown.value = false;
+};
+
+async function initializeOverlayAnimation() {
   await nextTick()
 
   if (!overlayRef.value) return
@@ -62,31 +76,21 @@ onMounted(async () => {
         }, 0.3)
 
   }, 200)
-})
+}
 
-const updateCursorPosition = (e: MouseEvent) => {
-  isMouseShow.value = true;
-  cursorX.value = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-  cursorY.value = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-};
-
-const updateCursorDown = (e: MouseEvent) => {
-  isMouseDown.value = true;
-};
-
-const updateCursorUp = (e: MouseEvent) => {
-  isMouseDown.value = false;
-};
-
-onMounted(() => {
+function addCursorEventListeners() {
   window.addEventListener('mousedown', updateCursorDown);
   window.addEventListener('mouseup', updateCursorUp);
   window.addEventListener('mousemove', updateCursorPosition);
-});
+}
 
-onUnmounted(() => {
+function removeCursorEventListeners() {
   window.removeEventListener('mousedown', updateCursorDown);
   window.removeEventListener('mouseup', updateCursorUp);
   window.removeEventListener('mousemove', updateCursorPosition);
-});
+}
+
+onMounted(initializeOverlayAnimation);
+onMounted(addCursorEventListeners);
+onUnmounted(removeCursorEventListeners);
 </script>
