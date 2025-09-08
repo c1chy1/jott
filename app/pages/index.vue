@@ -478,11 +478,13 @@ function scrollTo(event: Event): void {
 }
 
 // Initialize parallax after mount with performance optimization
-onMounted(() => {
+function initializeParallax() {
   if ('requestIdleCallback' in window) {
     requestIdleCallback(() => setupParallax(), {timeout: 1000})
   } else {
     setTimeout(setupParallax, 500)
   }
-})
+}
+
+onMounted(initializeParallax)
 </script>
