@@ -1,6 +1,6 @@
-import { defineNuxtPlugin } from '#app'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import {defineNuxtPlugin} from '#app'
+import {gsap} from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
 export default defineNuxtPlugin((nuxtApp) => {
     if (process.client) {
@@ -14,6 +14,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
         const router = useRouter()
         let isTransitioning = false
+        let isLanguageTransition = false
         let overlay: HTMLElement | null = null
 
         const getOverlay = (): HTMLElement => {
@@ -49,7 +50,7 @@ export default defineNuxtPlugin((nuxtApp) => {
                 const el = getOverlay()
 
                 gsap.timeline()
-                    .to({}, { duration: 0.4 })
+                    .to({}, {duration: 0.4})
                     .to(el, {
                         clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%, 0% 100%, 100% 100%, 100% 100%, 0% 100%)",
                         duration: 1.0,
@@ -57,15 +58,34 @@ export default defineNuxtPlugin((nuxtApp) => {
                         onComplete: () => {
                             el.style.opacity = '0'
                             isTransitioning = false
+                            isLanguageTransition = false
                             resolve()
                         }
                     })
             })
         }
 
-        // Router hooks
+        const animatedLanguageChange = async (setLocaleFunction: (locale: string) => Promise<void>, newLocale: string) => {
+            if (isTransitioning || isLanguageTransition) return
+
+            console.log(`Language change transition start: → ${newLocale}`)
+            isTransitioning = true
+            isLanguageTransition = true
+
+            await closeShutters()
+            console.log('Shutters closed - changing language')
+
+            await setLocaleFunction(newLocale)
+            console.log('Language changed')
+
+            await new Promise(resolve => setTimeout(resolve, 300))
+
+            await openShutters()
+            console.log('Language change transition complete!')
+        }
+
         router.beforeEach(async (to, from) => {
-            if (!from.name || isTransitioning) return
+            if (!from.name || isTransitioning || isLanguageTransition) return
 
             console.log(`Transition start: ${from.path} → ${to.path}`)
             isTransitioning = true
@@ -74,7 +94,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         })
 
         router.afterEach(async (to, from) => {
-            if (!isTransitioning || !from.name) return
+            if (!isTransitioning || !from.name || isLanguageTransition) return
 
             console.log(`Navigation complete: ${from.path} → ${to.path}`)
             await new Promise(resolve => setTimeout(resolve, 200))
@@ -88,7 +108,8 @@ export default defineNuxtPlugin((nuxtApp) => {
                     if (overlay?.parentNode) {
                         overlay.parentNode.removeChild(overlay)
                     }
-                }
+                },
+                animatedLanguageChange
             }
         }
     }
