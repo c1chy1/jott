@@ -45,7 +45,7 @@
   "startButton": "Let's get started together",
   "knowButton": "Get to know us",
   "we": {
-    "do": "This is what we do",
+    "do": "This is what we do ",
     "forYou": "for you",
     "development": "We develop and design",
     "digital": "digital\n premium solutions",
@@ -58,7 +58,7 @@
     "challenge": ", with which you can optimally",
     "master": " master your challenges.",
     "other": "In other words:",
-    "complicated": "we\n make complicated things simple",
+    "complicated": " we\n make complicated things simple",
     "obstacles": " – and remove growth obstacles.",
     "website": "Whether it's a website,\n Web application or App:",
     "solutions": " Our solutions are characterised by impressive functionality,\n inspiring user-friendliness and",
@@ -178,5 +178,7 @@
     "socialMediaText": "We maintain online presences within social networks and platforms in order to communicate with the customers, interested parties, and users active there and to inform them about our services. When calling up the respective networks and platforms, the terms and conditions and the data processing guidelines of their respective operators apply.\n\nUnless otherwise stated in our privacy policy, we process the data of users if they communicate with us within the social networks and platforms, e.g., write posts on our online presences or send us messages.",
     "thirdPartyServices": "Integration of third-party services and content",
     "thirdPartyServicesText": "We use content or service offers from third-party providers within our online offer based on our legitimate interests (i.e., interest in the analysis, optimization, and economic operation of our online offer in the sense of Art. 6 para. 1 lit. f GDPR) to integrate their content and services, such as videos or fonts (hereinafter uniformly referred to as \"content\").\n\nThis always requires that the third-party providers of this content perceive the IP address of the users, as they could not send the content to their browser without the IP address. The IP address is therefore required for the presentation of this content. We strive to use only such content whose respective providers use the IP address only for the delivery of the content. Third-party providers can also use so-called pixel tags (invisible graphics, also referred to as \"web beacons\") for statistical or marketing purposes. Through the \"pixel tags\", information such as visitor traffic on the pages of this website can be evaluated. The pseudonymous information can also be stored in cookies on the user's device and include, among other things, technical information about the browser and operating system, referring websites, visit time, and other information about the use of our online offer, as well as being linked to such information from other sources."
-  }
+  },
+  "AllRightsReserved": "All rights reserved\n",
+  "NoFurtherPosts": "No further posts\n"
 }
