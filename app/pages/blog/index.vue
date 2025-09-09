@@ -7,14 +7,11 @@
         </NuxtLink>
       </UContainer>
       <UContainer class="pt-16 max-w-(--container-7xl)">
-        <Headline class="pb-8 leading-8 lg:leading-5 text-4xl lowercase" type="h2">
-          <b class="text-(--color-jm-primary-brown) uppercase">Neues</b> aus der
-          <b class="text-(--color-jm-primary-brown) uppercase"> digitalen Welt </b>
+        <Headline class="pb-8 leading-8 lg:leading-5 text-3xl lowercase" type="h2">
+          <b class="text-jm-primary-brown uppercase">{{ t('world.new') }}</b> {{ t('world.from') }}
+          <b class="text-jm-primary-brown uppercase">{{ t('world.digital') }}</b>
         </Headline>
-        <Paragraph class="text-sm lg:text-tiny mb-8">Hier möchten wir gerne unser Wissen, über die digitale Zukunft,
-          Technologien, Design <br> und das Leben in einer digitalen Agentur, mit euch teilen, bleibt gespannt, wir sind
-          es auch.
-        </Paragraph>
+        <Paragraph class="text-sm lg:text-tiny mb-8 w-5/12">{{ t('blog.agency') }}</Paragraph>
         <UContainer class="max-w-(--container-6xl) px-0 sm:px-0 lg:px-0 space-x-4 space-y-4 ml-0">
           <UButton
               v-for="(category, index) in articleStore.categories"
@@ -40,28 +37,29 @@
                 class="bg-(--color-jm-secondary-grey-lighter)"
                 v-bind="article">
               <template #title>
-                <div class="py-2" v-html="article.title"></div>
+                <div class="px-4" v-html="article.title"></div>
               </template>
               <template #date>
-                <NuxtLink :to="`/team/${article?.meta?.author?.toLowerCase()}`"
-                          class="text-(--color-jm-primary-green) font-extrabold z-50">
-                  {{ article.meta.author }}
-                </NuxtLink>
+                <Paragraph class="px-4 text-(--color-jm-primary-green) mt-4 mb-2 text-sm font-light">{{ article.date }}
+                  {{ t('challenges.of') }}
+                  <b class="text-jm-primary-green uppercase">
+                    <NuxtLink :to="localePath(`/team/${article?.meta?.author?.toLowerCase()}`)"
+                              class="text-(--color-jm-primary-green) font-extrabold relative z-10"
+                              @click.stop>
+                      {{ article.meta.author }}
+                    </NuxtLink>
+                  </b>
+                </Paragraph>
               </template>
               <template #description>
-                <p class="text-sm font-light">{{
-                    articleStore.truncateText(article.seo.description as string, 250)
-                  }}
+                <p class="px-4 text-sm font-light">{{ truncateText(article.description, 250) }}
                 </p>
-              </template>
-              <template #badge>
-                <p class="text-sm font-light">{{ article.meta.date as string | Date | undefined }} von</p>
               </template>
               <template #authors>
                 <UBadge
                     v-for="(category, index) in (article.meta.categories as unknown[]).slice(1)"
                     :key="index"
-                    class="px-2 text-xs text-(--color-jm-secondary-white) bg-(--color-jm-primary-brown) font-extrabold uppercase"
+                    class="px-2 mb-4 mx-4 text-xs text-(--color-jm-secondary-white) bg-(--color-jm-primary-brown) font-extrabold uppercase"
                     color="primary"
                     size="xs"
                     variant="solid">{{ category }}
@@ -74,7 +72,7 @@
         <div class="text-center mt-16 mb-32">
           <UButton
               :disabled="articleStore.articles?.length < articleStore.pageMaxArticles"
-              :label="articleStore.loadMoreButtonLabel"
+              :label="t('NoFurtherPosts')"
               color="secondary"
               outline="true"
               size="lg"
@@ -91,10 +89,18 @@
 const articleStore = useArticleStore()
 await articleStore.fetchArticles()
 const localePath = useLocalePath()
-
+const {t} = useI18n()
 useHead({
   title: 'Blog - JOTT.MEDIA'
 })
+
+
+function truncateText(text: string, maxLength: number) {
+  if (text.length > maxLength) {
+    return text.substring(0, maxLength) + '...';
+  }
+  return text;
+}
 </script>
 
 <style scoped>
