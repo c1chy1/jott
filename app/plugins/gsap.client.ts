@@ -84,8 +84,19 @@ export default defineNuxtPlugin((nuxtApp) => {
             console.log('Language change transition complete!')
         }
 
+        const shouldSkipTransition = (from: any, to: any): boolean => {
+            const fromPath = from.path
+            const toPath = to.path
+
+            if (fromPath === toPath && to.hash) {
+                return true
+            }
+
+            return false
+        }
+
         router.beforeEach(async (to, from) => {
-            if (!from.name || isTransitioning || isLanguageTransition) return
+            if (!from.name || isTransitioning || isLanguageTransition || shouldSkipTransition(from, to)) return
 
             console.log(`Transition start: ${from.path} → ${to.path}`)
             isTransitioning = true
@@ -94,7 +105,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         })
 
         router.afterEach(async (to, from) => {
-            if (!isTransitioning || !from.name || isLanguageTransition) return
+            if (!isTransitioning || !from.name || isLanguageTransition || shouldSkipTransition(from, to)) return
 
             console.log(`Navigation complete: ${from.path} → ${to.path}`)
             await new Promise(resolve => setTimeout(resolve, 200))
