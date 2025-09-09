@@ -28,12 +28,4 @@ export default defineNuxtConfig({
             },
         ],
     },
-    build: {
-        transpile: ['reka-ui']
-    },
-    vite: {
-        optimizeDeps: {
-            exclude: ['reka-ui']
-        }
-    }
 })
