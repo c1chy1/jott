@@ -105,30 +105,39 @@
     .bg-header-green-top {
         background-image: url('../images/header-green-top.svg');
     }
+
     .bg-header-green-bottom {
         background-image: url('../images/header-green-bottom.svg');
     }
+
     .bg-header-grey {
         background-image: url('../images/header-grey.svg');
     }
+
     .bg-grey-top {
         background-image: url('../images/grey-top.svg');
     }
+
     .bg-grey-top {
         background-image: url('../images/grey-top.svg');
     }
+
     .bg-grey-bottom {
         background-image: url('../images/grey-bottom.svg');
     }
+
     .bg-green-top {
         background-image: url('../images/green-top.svg');
     }
+
     .bg-green-bottom {
         background-image: url('../images/green-bottom.svg');
     }
+
     .bg-footer-box {
         background-image: url('../images/footer-box.png');
     }
+
     .bg-footer-top {
         background-image: url('../images/footer-top.svg');
     }
@@ -166,7 +175,7 @@ body {
 
 h1 {
     color: var(--color-jm-contrast-black);
-    font-size: 2.25em;
+    font-size: 2.25rem;
     font-weight: 800;
     line-height: 1.1111111;
     margin-bottom: .8888889em;
@@ -175,16 +184,15 @@ h1 {
 
 p {
     color: var(--color-jm-contrast-black);
-    font-size: 0.75em;
     font-weight: 400;
 }
 
 h3 {
 
     color: var(--color-jm-contrast-black);
-    font-size: 1.25em;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.6;
+    font-size: 1.25rem;
     margin-bottom: .6em;
     margin-top: 1.6em;
 }
