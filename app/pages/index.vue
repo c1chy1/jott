@@ -74,14 +74,14 @@
       </UPageHero>
     </div>
 
-    <div class="bg-(--color-jm-primary-green) text-left relative overflow-hidden my-0">
+    <div class="bg-(--color-jm-primary-green)  leading-0 text-xl text-left relative overflow-hidden my-0">
       <UContainer
           id="machen"
-          class="min-h-[400px] z-10"
+          class="min-h-[400px] z-10 pt-8 leading-0 uppercase"
       >
-        <h6>
+        <h6 class="text-sm normal-case">
           {{ t('get.what') }}
-          <b class="uppercase">
+          <b class="uppercase font-bold">
             {{ t('get.fromUs') }}</b>
         </h6>
         <h3>
@@ -108,14 +108,14 @@
     </UContainer>
 
     <UContainer class="xl:max-w-(--container-2xl) w-2/3 mx-0 lg:mx-auto text-left relative py-10">
-      <h6 class="animated-bold animation-h1">
+      <h6 class="animated-bold animation-h1 text-sm">
         {{ t('question.important') }}<b class="uppercase">Frage</b>
       </h6>
-      <h2 class="font-[400]">
+      <h2 class="font-bold text-4xl pt-8">
         „<b class="uppercase">
-        {{ t('question.question') }}
+        {{ t('question.what') }}
       </b>
-        {{ t('question.exactly') }}
+        <span class="font-light"> {{ t('question.exactly') }} </span>
         <b class="uppercase">
           {{ t('question.need') }}</b>"
       </h2>
@@ -123,10 +123,10 @@
 
     <UContainer class="max-w-(--container-2xl) relative pt-4 text-left">
       <h6> {{ t('work.we') }}<b class="uppercase"> {{ t('work.forYou') }}</b></h6>
-      <h4 class="text-(--color-jm-primary-brown)">
+      <h4 class="text-(--color-jm-primary-brown) text-xl py-4 uppercase font-bold">
         <b>{{ t('work.honesty') }}</b>
       </h4>
-      <Paragraph>
+      <Paragraph class="text-base">
         {{ t('solution.problem') }}
         <b>
           {{ t('solution.solution') }}
