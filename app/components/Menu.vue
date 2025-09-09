@@ -22,7 +22,6 @@
         </UContainer>
         <UContainer class="sm:mt-12 flex flex-col sm:flex-row w-full justify-around  space-x-2 sm:space-x-4">
 
-          <!-- Lewa strona - wjeżdża z lewej -->
           <div ref="leftSideRef" class="flex flex-col justify-between">
             <ul class="uppercase font-extrabold text-left text-xl xl:text-3xl space-y-4 sm:space-y-8 text-(--color-jm-contrast-black)">
               <li ref="homeRef">
@@ -49,24 +48,25 @@
             </div>
           </div>
 
-          <!-- Prawa strona - wjeżdża z prawej -->
           <div ref="rightSideRef" class="text-left sm:text-right mt-8 sm:mt-0">
             <div ref="legalLinksRef">
-              <nuxt-link class="block font-extrabold text-sm sm:text-base" to="/privacy" @click="closeMenu">
+              <NuxtLink :to="localePath('/privacy')" class="block font-extrabold text-sm sm:text-base"
+                        @click="closeMenu">
                 .{{ t('privacy') }}
-              </nuxt-link>
-              <nuxt-link class="block font-extrabold text-sm sm:text-base" to="/imprint" @click="closeMenu">
+              </NuxtLink>
+              <NuxtLink :to="localePath('/imprint')" class="block font-extrabold text-sm sm:text-base"
+                        @click="closeMenu">
                 .{{ t('imprint') }}
-              </nuxt-link>
+              </NuxtLink>
             </div>
             <address ref="addressRef" class="not-italic text-sm  mt-6 sm:mt-16">
               JOTT.MEDIA GmbH<br>
               Bahnhofstraße 33<br>
               31675 Bückeburg<br>
               <br>
-              <nuxt-link href="tel:+4957229184984">+49 5722 9184984</nuxt-link>
+              <NuxtLink href="tel:+4957229184984">+49 5722 9184984</NuxtLink>
               <br>
-              <nuxt-link href="mailto:hallo@jott.media">hallo@jott.media</nuxt-link>
+              <NuxtLink href="mailto:hallo@jott.media">hallo@jott.media</NuxtLink>
               <br>
               <br>
               <div ref="socialRef" class="text-left sm:text-right flex sm:justify-end items-center space-x-1">
