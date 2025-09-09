@@ -1,130 +1,94 @@
 <template>
   <UPage>
     <UPageBody prose>
-      <UContainer class="max-w-(--container-2xl) text-center">
+      <UContainer class="max-w-(--container-2xl) flex justify-center">
         <NuxtLink class="inline-block no-underline border-0" to="/">
           <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH" class="w-[325px] mt-2" src="logo.svg"/>
         </NuxtLink>
       </UContainer>
       <UContainer class="max-w-(--container-2xl) py-10">
-        
-        <h1>Impressum</h1>
-        <h3>Angaben gemäß § 5 TMG:</h3>
+        <h1>{{ t('imprint') }}</h1>
+        <h3>{{ t('imprintSite.information') }}</h3>
         <p>
           JOTT.MEDIA GmbH<br>
           Bahnhofstraße 33<br>
           31675 Bückeburg
         </p>
 
-        <h3>Geschäftsführer:</h3>
+        <h3>{{ t('director') }}</h3>
         <p>
           Jan Jünemann<br>
           Jonathan Schneider
         </p>
 
-        <h3>Kontakt:</h3>
+        <h3>{{ t('imprintSite.contact') }}</h3>
         <p>
           Telefon: +49 5722 99790 70<br>
           E-Mail: hallo@jott.media
         </p>
 
-        <h3>Registereintrag:</h3>
+        <h3>{{ t('imprintSite.register') }}</h3>
         <p>
-          Eintragung im Handelsregister. <br>
-          Registergericht: Amtsgericht Stadthagen <br>
-          Registernummer: HRB 201430
+          {{ t('imprintSite.registerCommercial') }}<br>
+          {{ t('imprintSite.registerCourt') }} Stadthagen <br>
+          {{ t('imprintSite.registerNumber') }} HRB 201430
         </p>
 
-        <h3>Umsatzsteuer:</h3>
+        <h3>{{ t('imprintSite.vat') }}</h3>
         <p>
-          Umsatzsteuer-Identifikationsnummer gemäß §27 a
-          Umsatzsteuergesetz:<br>
+          {{ t('imprintSite.vatNumber') }}<br>
           DE314475093
         </p>
 
-        <h3>Angaben zur Berufshaftpflichtversicherung</h3>
+        <h3> {{ t('imprintSite.liability') }}</h3>
         <p>
-          Name und Sitz des Versicherers:<br>
+          {{ t('imprintSite.registeredName') }}<br>
           exali GmbH<br>
           Franz-Kobinger-Str. 9<br>
           86157 Augsburg
         </p>
-        <p>Geltungsraum der Versicherung: weltweit</p>
+        <p> {{ t('imprintSite.scope') }}</p>
 
-        <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 Medienstaatsvertrag (MStV):</h3>
+        <h3> {{ t('imprintSite.responsible') }}</h3>
         <p>
           Jonathan Schneider<br>
           Bahnhofstraße 33<br>
           31675 Bückeburg
         </p>
 
-        <h3>Streitschlichtung</h3>
+        <h3> {{ t('imprintSite.dispute') }}</h3>
         <p>
-          Die Europäische Kommission stellt eine Plattform zur
-          Online-Streitbeilegung (OS) bereit:
+          {{ t('imprintSite.eu') }}
           <a href="https://ec.europa.eu/consumers/odr" style="pointer-events: auto;">
             https://ec.europa.eu/consumers/odr</a><br>
-          Unsere E-Mail-Adresse finden Sie oben im Impressum.
+          {{ t('imprintSite.findUs') }}
         </p>
         <p>
-          Wir sind nicht bereit oder verpflichtet, an
-          Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
-          teilzunehmen.
+          {{ t('imprintSite.disputeResolution') }}
         </p>
 
-        <h3>Haftung für Inhalte</h3>
+        <h3> {{ t('imprintSite.liabilityContent') }}</h3>
         <p>
-          Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte
-          auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach
-          §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
-          verpflichtet, übermittelte oder gespeicherte fremde Informationen zu
-          überwachen oder nach Umständen zu forschen, die auf eine
-          rechtswidrige Tätigkeit hinweisen.
+          {{ t('imprintSite.liabilityText') }}
         </p>
         <p>
-          Verpflichtungen zur Entfernung oder Sperrung der Nutzung von
-          Informationen nach den allgemeinen Gesetzen bleiben hiervon
-          unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem
-          Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei
-          Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese
-          Inhalte umgehend entfernen.
+          {{ t('imprintSite.liabilityObligations') }}
         </p>
 
-        <h3>Haftung für Links</h3>
+        <h3>{{ t('imprintSite.liabilityLinks') }}</h3>
         <p>
-          Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren
-          Inhalte wir keinen Einfluss haben. Deshalb können wir für diese
-          fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der
-          verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber
-          der Seiten verantwortlich. Die verlinkten Seiten wurden zum
-          Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft.
-          Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht
-          erkennbar.
+          {{ t('imprintSite.liabilityLinksText') }}
         </p>
         <p>
-          Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist
-          jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht
-          zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir
-          derartige Links umgehend entfernen.
+          {{ t('imprintSite.liabilityLinksRemoval') }}
         </p>
 
-        <h3>Urheberrecht</h3>
+        <h3>{{ t('imprintSite.copyright') }}</h3>
         <p>
-          Die durch die Seitenbetreiber erstellten Inhalte und Werke auf
-          diesen Seiten unterliegen dem deutschen Urheberrecht. Die
-          Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
-          Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der
-          schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
-          Downloads und Kopien dieser Seite sind nur für den privaten, nicht
-          kommerziellen Gebrauch gestattet.
+          {{ t('imprintSite.copyrightContent') }}
         </p>
         <p>
-          Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt
-          wurden, werden die Urheberrechte Dritter beachtet. Insbesondere
-          werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie
-          trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten
-          wir um einen entsprechenden Hinweis. Bei Bekanntwerden von
-          Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+          {{ t('imprintSite.informUs') }}
         </p>
       </UContainer>
     </UPageBody>
@@ -135,4 +99,6 @@
 useHead({
   title: 'Impressum - JOTT.MEDIA'
 })
+
+const {t} = useI18n()
 </script>
