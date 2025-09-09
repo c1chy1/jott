@@ -17,14 +17,14 @@
             </address>
           </div>
           <div class="text-right z-10">
-            <nuxt-link
-                class="block font-[800] text-(--color-jm-primary-green) uppercase"
-                to="/imprint">.Impressum
-            </nuxt-link>
-            <nuxt-link
-                class="block font-[800] text-(--color-jm-primary-green) uppercase"
-                to="/privacy">.Datenschutz
-            </nuxt-link>
+            <NuxtLink :to="localePath('/privacy')"
+                      class="block font-[800] text-(--color-jm-primary-green) uppercase"
+            > .{{ t('imprint') }}
+            </NuxtLink>
+            <NuxtLink :to="localePath('/imprint')"
+                      class="block font-[800] text-(--color-jm-primary-green) uppercase"
+            >.{{ t('privacy') }}
+            </NuxtLink>
           </div>
         </div>
       </UContainer>
@@ -39,8 +39,8 @@
     </template>
     <template #bottom>
       <div class=" bg-(--color-jm-primary-green) text-xl py-6 flex items-center justify-center z-2">
-        <UContainer class="max-w-(--container-2xl) ">
-          <p>© {{ new Date().getFullYear() }} JOTT.MEDIA – Alle Rechte vorbehalten</p>
+        <UContainer class="max-w-(--container-2xl) text-sm">
+          <p>© {{ new Date().getFullYear() }} JOTT.MEDIA – {{ t('AllRightsReserved') }}</p>
         </UContainer>
       </div>
     </template>
@@ -57,6 +57,8 @@
 <script lang="ts" setup>
 import {gsap} from 'gsap'
 
+const localePath = useLocalePath()
+const {t} = useI18n()
 const footerTop = ref<HTMLElement | null>(null)
 
 const setupParallax = (): void => {
