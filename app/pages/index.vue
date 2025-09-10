@@ -246,11 +246,11 @@
         </h2>
         <div
             ref="greenTop"
-            class="absolute pointer-events-none w-screen h-[44rem] bg-repeat-x bottom-1/4 left-1/2 -translate-x-1/2 -z-1 bg-center bg-green-top"
+            class="absolute pointer-events-none w-screen h-[48rem] bg-repeat-x bottom-1/4 left-1/2 -translate-x-1/2 -z-1 bg-center bg-green-top"
         />
         <div
             ref="greenBottom"
-            class="absolute pointer-events-none w-screen h-[44rem] top-1/12 bg-repeat-x left-1/2 -translate-x-1/2 -z-1  bg-center bg-green-bottom"
+            class="absolute pointer-events-none w-screen h-[48rem] top-1/12 bg-repeat-x left-1/2 -translate-x-1/2 -z-1  bg-center bg-green-bottom"
         />
       </UContainer>
     </div>
