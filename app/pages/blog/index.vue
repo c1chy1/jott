@@ -17,6 +17,7 @@
               v-for="(category, index) in articleStore.categories"
               :key="index"
               :label="category"
+              class="cursor-pointer"
               color="secondary"
               outline="true"
               size="lg"
