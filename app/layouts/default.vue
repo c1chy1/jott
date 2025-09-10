@@ -1,10 +1,10 @@
 <template>
   <Menu/>
   <slot/>
-  <UFooter class="z-10 py-0 ">
+  <UFooter class="z-10 py-0 relative">
     <template #top>
-      <UContainer class="py-0 max-w-(--container-2xl) ">
-        <div class="flex justify-between items-end py-0 ">
+      <UContainer class="py-0 max-w-(--container-2xl)">
+        <div class="flex justify-between items-end py-0">
           <div class="z-10">
             <address class="not-italic">
               JOTT.MEDIA GmbH<br>
@@ -19,11 +19,11 @@
           <div class="text-right z-10">
             <NuxtLink :to="localePath('/privacy')"
                       class="block font-[800] text-(--color-jm-primary-green) uppercase"
-            > .{{ t('imprint') }}
+            >.{{ t('privacy') }}
             </NuxtLink>
             <NuxtLink :to="localePath('/imprint')"
                       class="block font-[800] text-(--color-jm-primary-green) uppercase"
-            >.{{ t('privacy') }}
+            >.{{ t('imprint') }}
             </NuxtLink>
           </div>
         </div>
@@ -32,13 +32,13 @@
     <template #right>
       <NuxtImg
           alt="Footer Bottom"
-          class="absolute pointer-events-none object-contain w-72 bottom-17.5 right-0 z-1 "
+          class="absolute pointer-events-none object-contain w-72 bottom-17.5 right-0 z-1"
           format="webp"
           src="/images/footer-box.png"
       />
     </template>
     <template #bottom>
-      <div class=" bg-(--color-jm-primary-green) text-xl py-6 flex items-center justify-center z-2">
+      <div class="bg-(--color-jm-primary-green) text-xl py-6 flex items-center justify-center z-2">
         <UContainer class="max-w-(--container-2xl) text-sm">
           <p>© {{ new Date().getFullYear() }} JOTT.MEDIA – {{ t('AllRightsReserved') }}</p>
         </UContainer>
@@ -81,10 +81,22 @@ const setupParallax = (): void => {
 }
 
 function initializeParallax() {
-  setTimeout(() => {
-    setupParallax()
-  }, 500)
+  nextTick(() => {
+    setTimeout(() => {
+      setupParallax()
+    }, 500)
+  })
 }
+
+// Cleanup ScrollTriggers gdy komponent jest unmountowany
+onUnmounted(() => {
+  const triggers = ScrollTrigger.getAll()
+  triggers.forEach(trigger => {
+    if (trigger.trigger === footerTop.value) {
+      trigger.kill()
+    }
+  })
+})
 
 onMounted(initializeParallax)
 </script>
