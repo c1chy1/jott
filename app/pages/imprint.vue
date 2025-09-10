@@ -1,46 +1,46 @@
 <template>
   <UPage>
-    <UPageBody prose>
+    <UPageBody class="bg-(--color-jm-secondary-white) mt-0" prose>
       <UContainer class="max-w-(--container-2xl) flex justify-center">
         <NuxtLink class="inline-block no-underline border-0" to="/">
           <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH" class="w-[325px] mt-2" src="logo.svg"/>
         </NuxtLink>
       </UContainer>
       <UContainer class="max-w-(--container-2xl) py-10">
-        <h1>{{ t('imprint') }}</h1>
-        <h3>{{ t('imprintSite.information') }}</h3>
+        <h1 class="font-bold">{{ t('imprint') }}</h1>
+        <h3 class="font-bold">{{ t('imprintSite.information') }}</h3>
         <p>
           JOTT.MEDIA GmbH<br>
           Bahnhofstraße 33<br>
           31675 Bückeburg
         </p>
 
-        <h3>{{ t('director') }}</h3>
+        <h3 class="font-bold">{{ t('director') }}</h3>
         <p>
           Jan Jünemann<br>
           Jonathan Schneider
         </p>
 
-        <h3>{{ t('imprintSite.contact') }}</h3>
+        <h3 class="font-bold">{{ t('imprintSite.contact') }}</h3>
         <p>
           Telefon: +49 5722 99790 70<br>
           E-Mail: hallo@jott.media
         </p>
 
-        <h3>{{ t('imprintSite.register') }}</h3>
+        <h3 class="font-bold">{{ t('imprintSite.register') }}</h3>
         <p>
           {{ t('imprintSite.registerCommercial') }}<br>
           {{ t('imprintSite.registerCourt') }} Stadthagen <br>
           {{ t('imprintSite.registerNumber') }} HRB 201430
         </p>
 
-        <h3>{{ t('imprintSite.vat') }}</h3>
+        <h3 class="font-bold">{{ t('imprintSite.vat') }}</h3>
         <p>
           {{ t('imprintSite.vatNumber') }}<br>
           DE314475093
         </p>
 
-        <h3> {{ t('imprintSite.liability') }}</h3>
+        <h3 class="font-bold"> {{ t('imprintSite.liability') }}</h3>
         <p>
           {{ t('imprintSite.registeredName') }}<br>
           exali GmbH<br>
@@ -49,14 +49,14 @@
         </p>
         <p> {{ t('imprintSite.scope') }}</p>
 
-        <h3> {{ t('imprintSite.responsible') }}</h3>
+        <h3 class="font-bold"> {{ t('imprintSite.responsible') }}</h3>
         <p>
           Jonathan Schneider<br>
           Bahnhofstraße 33<br>
           31675 Bückeburg
         </p>
 
-        <h3> {{ t('imprintSite.dispute') }}</h3>
+        <h3 class="font-bold"> {{ t('imprintSite.dispute') }}</h3>
         <p>
           {{ t('imprintSite.eu') }}
           <a href="https://ec.europa.eu/consumers/odr" style="pointer-events: auto;">
@@ -67,7 +67,7 @@
           {{ t('imprintSite.disputeResolution') }}
         </p>
 
-        <h3> {{ t('imprintSite.liabilityContent') }}</h3>
+        <h3 class="font-bold"> {{ t('imprintSite.liabilityContent') }}</h3>
         <p>
           {{ t('imprintSite.liabilityText') }}
         </p>
@@ -75,7 +75,7 @@
           {{ t('imprintSite.liabilityObligations') }}
         </p>
 
-        <h3>{{ t('imprintSite.liabilityLinks') }}</h3>
+        <h3 class="font-bold">{{ t('imprintSite.liabilityLinks') }}</h3>
         <p>
           {{ t('imprintSite.liabilityLinksText') }}
         </p>
@@ -83,7 +83,7 @@
           {{ t('imprintSite.liabilityLinksRemoval') }}
         </p>
 
-        <h3>{{ t('imprintSite.copyright') }}</h3>
+        <h3 class="font-bold">{{ t('imprintSite.copyright') }}</h3>
         <p>
           {{ t('imprintSite.copyrightContent') }}
         </p>
