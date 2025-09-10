@@ -11,12 +11,24 @@
 
       <UContainer class="max-w-(--container-2xl)">
         <UPageHeader class="text-2xl sm:text-3xl xl:text-5xl xl:leading-14" v-html="article?.title"/>
+        <div class="flex flex-col">
+          <div class="flex space-x-4 py-2">
+            <UBadge
+                v-for="(category, index) in (article.meta.categories as unknown[])"
+                :key="index"
+                class="text-xs flex justify-center text-(--color-jm-secondary-white) w-24 bg-(--color-jm-primary-brown) font-extrabold uppercase"
+                color="primary"
+                size="xs"
+                variant="solid">{{ category }}
+            </UBadge>
+          </div>
+          <small>{{ article?.date }} von
+            <NuxtLink :to="localePath(`/team/${article?.meta?.author?.toLowerCase()}`)">
+              <b class="text-(--color-jm-primary-green)">{{ article?.meta?.author }}</b>
+            </NuxtLink>
+          </small>
+        </div>
 
-        <small>{{ article?.date }} von
-          <NuxtLink :to="localePath(`/team/${article?.meta?.author?.toLowerCase()}`)">
-            <b class="text-(--color-jm-primary-green)">{{ article?.meta?.author }}</b>
-          </NuxtLink>
-        </small>
         <p class="lead pt-6">{{ article?.description }}</p>
       </UContainer>
 
@@ -41,7 +53,7 @@
 import {useArticleStore} from '~/stores/articleStore'
 
 definePageMeta({
-  layout: 'minimal'
+  layout: 'default'
 });
 
 const articleStore = useArticleStore()
@@ -49,13 +61,9 @@ const route = useRoute()
 const localePath = useLocalePath()
 const {slug} = route.params
 
-console.log('Current route path:', slug)
-
 await articleStore.fetchArticle(slug as string)
 
 const article = computed(() => articleStore.article)
-
-console.log('Article from store:', article.value)
 
 useHead({
   title: () => article.value?.title ? `${article.value.title} - Blog - JOTT.MEDIA` : 'Blog - JOTT.MEDIA',
