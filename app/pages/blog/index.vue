@@ -94,6 +94,9 @@ useHead({
   title: 'Blog - JOTT.MEDIA'
 })
 
+definePageMeta({
+  layout: 'default'
+})
 
 function truncateText(text: string, maxLength: number) {
   if (text.length > maxLength) {
