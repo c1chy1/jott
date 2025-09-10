@@ -8,7 +8,8 @@ export default defineNuxtConfig({
             name: 'page',
             mode: 'out-in'
         },
-        layoutTransition: false
+        layoutTransition: false,
+        keepalive: false
     },
     i18n: {
         defaultLocale: 'de',
@@ -28,4 +29,5 @@ export default defineNuxtConfig({
             },
         ],
     },
+    ssr: true
 })
