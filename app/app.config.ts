@@ -2,13 +2,13 @@ export default defineAppConfig({
     uiPro: {
         footer: {
             slots: {
-                root: '',
+                root: 'relative', // Dodaj relative positioning
                 top: 'lg:pt-4 contents',
-                bottom: 'py-8 lg:py-0',
+                bottom: 'py-8 lg:py-0 z-2', // Zwiększ z-index
                 left: 'max-w-(--container-5xl)',
-                right: ''
             }
         },
+
         blogPost: {
             slots: {
                 authors: 'pt-4',
