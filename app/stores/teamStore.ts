@@ -16,10 +16,9 @@ export const useTeamStore = defineStore('teamStore', {
             }, {
                 watch: [locale],
                 key: `team-${locale.value}`,
-                server: true, // SSR dla wydajności
+                server: true
             })
             this.team = team.value || []
-            console.log('Team fetched:', this.team)
         },
 
         async fetchPerson(slug: string) {
@@ -43,7 +42,6 @@ export const useTeamStore = defineStore('teamStore', {
                 watch: [locale],
             })
 
-            console.log('Person query result:', person.value)
             this.person = person.value
             return this.person
         },
