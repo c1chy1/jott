@@ -77,8 +77,6 @@ export const useArticleStore = defineStore('articleStore', {
             } else {
                 this.article = null
             }
-
-            console.log('Article query result:', this.article)
             return this.article
         },
 
