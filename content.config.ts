@@ -14,6 +14,7 @@ export default defineContentConfig({
                         title: z.string(),
                         description: z.string(),
                         slug: z.string(),
+                        buttonHover: z.string().optional(),
                     }),
                 }),
             ],
