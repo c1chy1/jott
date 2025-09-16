@@ -96,7 +96,19 @@ export default defineNuxtPlugin((nuxtApp) => {
         }
 
         router.beforeEach(async (to, from) => {
-            if (!from.name || isTransitioning || isLanguageTransition || shouldSkipTransition(from, to)) return
+            console.log('beforeEach called:', {
+                to: to.fullPath,
+                from: from.fullPath,
+                fromName: from.name,
+                isTransitioning,
+                isLanguageTransition,
+                shouldSkip: shouldSkipTransition(from, to)
+            })
+
+            if (!from.name || isTransitioning || isLanguageTransition || shouldSkipTransition(from, to)) {
+                console.log('Skipping beforeEach')
+                return
+            }
 
             console.log(`Transition start: ${from.path} → ${to.path}`)
             isTransitioning = true
@@ -105,14 +117,29 @@ export default defineNuxtPlugin((nuxtApp) => {
         })
 
         router.afterEach(async (to, from) => {
-            if (!isTransitioning || !from.name || isLanguageTransition || shouldSkipTransition(from, to)) return
+            // Sprawdź czy to jest przeładowanie strony (brak from.name oznacza przeładowanie)
+            if (!from.name) {
+                console.log('Page reload detected, skipping open animation')
+                // Po prostu ukryj overlay bez animacji
+                if (overlay) {
+                    overlay.style.opacity = '0'
+                }
+                isTransitioning = false
+                isLanguageTransition = false
+                return
+            }
+
+            if (!isTransitioning || isLanguageTransition || shouldSkipTransition(from, to)) {
+                console.log('Skipping afterEach')
+                return
+            }
 
             console.log(`Navigation complete: ${from.path} → ${to.path}`)
             await new Promise(resolve => setTimeout(resolve, 200))
             await openShutters()
             console.log('Transition complete!')
         })
-
+        
         return {
             provide: {
                 cleanupTransitions: () => {
