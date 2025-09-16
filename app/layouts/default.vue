@@ -55,32 +55,33 @@
 </template>
 
 <script lang="ts" setup>
-import {gsap} from 'gsap'
-
 const localePath = useLocalePath()
 const {t} = useI18n()
+const {$gsap} = useNuxtApp()
 const footerTop = ref<HTMLElement | null>(null)
 
 const setupParallax = (): void => {
-  if (footerTop.value) {
-    gsap.fromTo(
-        footerTop.value,
-        {backgroundPositionX: '0px'},
-        {
-          backgroundPositionX: '-300px',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: footerTop.value,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1.5,
-          },
-        }
-    )
-  }
+  if (!process.client || !footerTop.value || !$gsap) return
+
+  $gsap.fromTo(
+      footerTop.value,
+      {backgroundPositionX: '0px'},
+      {
+        backgroundPositionX: '-300px',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: footerTop.value,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.5,
+        },
+      }
+  )
 }
 
 function initializeParallax() {
+  if (!process.client) return
+
   nextTick(() => {
     setTimeout(() => {
       setupParallax()
@@ -88,14 +89,15 @@ function initializeParallax() {
   })
 }
 
-// Cleanup ScrollTriggers gdy komponent jest unmountowany
 onUnmounted(() => {
-  const triggers = ScrollTrigger.getAll()
-  triggers.forEach(trigger => {
-    if (trigger.trigger === footerTop.value) {
-      trigger.kill()
-    }
-  })
+  if (process.client && $gsap?.ScrollTrigger) {
+    const triggers = $gsap.ScrollTrigger.getAll()
+    triggers.forEach(trigger => {
+      if (trigger.trigger === footerTop.value) {
+        trigger.kill()
+      }
+    })
+  }
 })
 
 onMounted(initializeParallax)
