@@ -1,7 +1,7 @@
 <template>
   <div class="fixed flex flex-col justify-center -bottom-2 sm:bottom-0 right-4 sm:right-8 z-50 ">
     <button
-        class="h-10 w-10 sm:h-12 sm:w-12 flex justify-center items-center bg-(--color-jm-contrast-black) transition-all duration-700 bg-opacity-70 hover:bg-opacity-100  rounded-full z-50 cursor-pointer"
+        class="h-10 w-10 sm:h-12 sm:w-12 flex justify-center items-center bg-black/90 transition-opacity duration-300 opacity-80 hover:opacity-100  rounded-full z-50 cursor-pointer"
         @click="toggleMenu">
       <UIcon v-if="!open" class="text-lg sm:text-2xl text-(--color-jm-primary-brown) transition-all z-50"
              name="i-mdi-menu"/>
