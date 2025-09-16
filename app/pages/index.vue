@@ -185,10 +185,10 @@
                       class="p-0"
                   >
                     <button
-                        class="w-12 h-12 bg-black/70 hover:bg-black/100 flex justify-center items-center rounded-full absolute sm:-right-6 top-0 sm:top-auto sm:-bottom-5 transition-all z-10"
+                        class="w-12 h-12 bg-black/90 flex justify-center items-center rounded-full absolute sm:-right-6 top-0 sm:top-auto sm:-bottom-6 transition-opacity duration-300 z-10 opacity-80 hover:opacity-100"
                     >
                       <UIcon
-                          class="text-2xl h-9 w-9 text-(--color-jm-primary-brown)"
+                          class="text-2xl h-9 w-9 text-(--color-jm-primary-brown) cursor-pointer"
                           name="i-mdi-plus"
                       />
                     </button>
@@ -222,7 +222,7 @@
       </div>
     </UContainer>
 
-    <UContainer class="max-w-(--container-2xl) relative xl:pt-4 z-10">
+    <UContainer class="max-w-(--container-2xl) relative xl:pt-4 mb-32 z-10">
       <UButton
           :label="t('knowButton')"
           class="mt-40"
@@ -399,10 +399,10 @@ const greyBottom = ref<HTMLElement | null>(null)
 const greenTop = ref<HTMLElement | null>(null)
 const greenBottom = ref<HTMLElement | null>(null)
 
-// ABOVE-THE-FOLD: Team data - SSR z Pinia cache
+// ABOVE-THE-FOLD: Team data - SSR with Pinia cache
 await teamStore.fetchTeam()
 
-// BELOW-THE-FOLD: Latest articles - lazy loaded z Pinia cache
+// BELOW-THE-FOLD: Latest articles - lazy loaded with Pinia cache
 const latestArticles = await articleStore.fetchLatestArticles()
 
 // Carousel items
@@ -445,7 +445,7 @@ const setupParallax = (): void => {
     {ref: greyTop, config: {from: '0', to: '-380px', scrub: 1.4}},
     {ref: greyBottom, config: {from: '0', to: '320px', scrub: 1.7}},
     {ref: greenTop, config: {from: '0', to: '-260px', scrub: 1.5}},
-    {ref: greenBottom, config: {from: '0', to: '290px', scrub: 1.3}}
+    {ref: greenBottom, config: {from: '-200px', to: '290px', scrub: 1.3}}
   ]
 
   elements.forEach(({ref, config}) => {
