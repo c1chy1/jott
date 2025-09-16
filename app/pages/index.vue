@@ -235,7 +235,7 @@
       />
     </UContainer>
 
-    <div class="bg-(--color-jm-primary-green) mt-64">
+    <div class="bg-(--color-jm-primary-green)">
       <UContainer class="max-w-(--container-2xl) relative text-left pt-4 z-10">
         <h6> {{ t('we.do') }}<b class="uppercase"> {{ t('we.forYou') }}</b></h6>
         <h2 class="font-[400] uppercase text-3xl pt-4">
