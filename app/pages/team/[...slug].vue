@@ -28,7 +28,7 @@
           <UContainer class="relative pt-0 z-10 text-center">
             <NuxtLink href="https://calendar.app.google/rBDjAnPNYEQpfMvJ9" target="_blank">
               <UButton
-                  :class="['border-2 rounded', 'text-xs lg:text-base px-4 py-2 uppercase font-bold cursor-pointer hover:text-(--color-jm-secondary-white)', person?.meta.button]">
+                  :class="['border-2 rounded', 'text-xs lg:text-base px-4 py-2 uppercase font-bold cursor-pointer hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)', person?.meta.button]">
                 Lerne uns kennen
               </UButton>
             </NuxtLink>
