@@ -68,7 +68,7 @@ export default defineAppConfig({
             }
         },
         container: {
-            base: 'max-w-(--container-3xl) mx-auto px-4 sm:px-6 lg:px-8 py-0', // <- py-0 usuwa padding-block
+            base: 'max-w-(--container-3xl) mx-auto px-4 sm:px-6 lg:px-8 py-0',
         },
         colors: {
             primary: 'nuxt-ui-primary',
@@ -79,7 +79,7 @@ export default defineAppConfig({
                 color: "secondary",
             },
             slots: {
-                base: 'inline-block border-[3px] border-jm-primary-brown rounded px-3 py-2 uppercase font-[800] text-sm text-jm-primary-brown hover:text-jm-secondary-white hover:bg-jm-primary-brown transition',
+                base: 'inline-block border-[3px] border-jm-primary-brown hover:border-(--color-jm-primary-brown) rounded px-3 py-2 uppercase font-[800] text-sm text-(--color-jm-primary-brown) hover:text-(--color-jm-secondary-white) hover:bg-(--color-jm-primary-brown) transition',
             }
         },
         size: {
