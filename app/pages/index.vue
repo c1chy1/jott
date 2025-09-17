@@ -26,7 +26,8 @@
               ref="headerGrey"
               class="absolute pointer-events-none w-screen h-[35rem] bottom-0 -z-[2] bg-header-grey"
           />
-          <NuxtLink class="inline-block no-underline w-full mt-6 sm:w-[325px] border-0" to="/"
+          <NuxtLink :to="localePath('/')"
+                    class="inline-block no-underline w-full mt-6 sm:w-[325px] border-0"
           >
             <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH" class="w-full"
                    src="logo.svg"/>
