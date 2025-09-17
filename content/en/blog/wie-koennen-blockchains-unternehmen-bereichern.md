@@ -1,6 +1,6 @@
 ---
 id: 4
-title: How can <b class="text-jm-primary-brown uppercase">Blockchains</b> Enrich your company?
+title: How can <b class="text-(--color-jm-primary-brown) uppercase">Blockchains</b> Enrich your company?
 seoTitle: How can blockchains enrich companies?
 description: Sending ten million euros to the other side of the world for a fraction of a cent - several thousand times within a few seconds? Blockchain technologies are revolutionising all sectors of the economy at breakneck speed. But what are blockchains? How exactly is this changing the way we do business and how do companies benefit from it?
 date: 2024-07-10

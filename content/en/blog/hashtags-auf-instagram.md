@@ -1,6 +1,6 @@
 ---
 id: 3
-title: <b class="text-jm-primary-brown uppercase">Hashtags auf Instagram:</b> A guide to effective use
+title: <b class="text-(--color-jm-primary-brown) uppercase">Hashtags auf Instagram:</b> A guide to effective use
 seoTitle: 'Hashtags auf Instagram: Eine Anleitung zur effektiven Nutzung'
 description: Hashtags are an important tool for making your Instagram posts accessible to a wider audience. In this article, you will learn how to use hashtags effectively to maximise the visibility of your posts and boost your Instagram presence.
 date: 2024-07-01

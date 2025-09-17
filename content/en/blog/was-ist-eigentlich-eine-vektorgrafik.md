@@ -1,6 +1,6 @@
 ---
 id: 2
-title: <b class="text-jm-primary-brown uppercase">“Mystery vector graphics“</b> or “Why is my logo pixelated?”
+title: <b class="text-(--color-jm-primary-brown) uppercase">“Mystery vector graphics“</b> or “Why is my logo pixelated?”
 seoTitle: “Vector graphics mystery“ or “Why is my logo pixelated?“
 description: |
   “We need a vector graphic of the logo!“ Many people have certainly heard this sentence before when they want to work with a service provider. But what exactly is a vector graphic? This blog article is about what a vector graphic is and what it is needed for. First things first: it's not enough to rename your Logo.png file to Logo.svg or Logo.eps - too bad, but first things first.
