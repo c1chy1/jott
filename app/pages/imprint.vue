@@ -2,7 +2,7 @@
   <UPage>
     <UPageBody class="bg-(--color-jm-secondary-white) mt-0" prose>
       <UContainer class="max-w-(--container-2xl) flex justify-center">
-        <NuxtLink class="inline-block no-underline border-0" to="/">
+        <NuxtLink :to="localePath('/')" class="inline-block no-underline border-0">
           <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH" class="w-[325px] mt-2" src="logo.svg"/>
         </NuxtLink>
       </UContainer>
@@ -99,6 +99,7 @@
 useHead({
   title: 'Impressum - JOTT.MEDIA'
 })
+const localePath = useLocalePath()
 
 const {t} = useI18n()
 </script>
