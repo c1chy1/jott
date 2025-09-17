@@ -2,7 +2,7 @@
   <UPage class="m-0 p-0 bg-(--color-jm-secondary-white)">
     <UPageBody>
       <UContainer class="max-w-(--container-2xl) text-center">
-        <NuxtLink class="inline-block no-underline border-0" to="/">
+        <NuxtLink :to="localePath('/')" class="inline-block no-underline border-0">
           <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH" class="w-[325px] mt-2" src="logo.svg"/>
         </NuxtLink>
       </UContainer>
