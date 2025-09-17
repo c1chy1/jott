@@ -8,7 +8,6 @@ src: team/alex.jpg
 slug: alex
 imageAlt: Alex
 bg: bg-(--color-jm-primary-green)
-button: border-(--color-jm-primary-brown) text-(--color-jm-primary-brown)
-buttonHover: hover:bg-[#8B4513] hover:text-[#ffffff]
+button: border-(--color-jm-primary-brown) text-(--color-jm-primary-brown) bg-(--color-jm-primary-green)
 align: right
 ---

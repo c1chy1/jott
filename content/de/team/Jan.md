@@ -8,6 +8,5 @@ slug: jan
 imageAlt: Jan
 bg: bg-(--color-jm-primary-brown)
 button: border-(--color-jm-primary-green) text-(--color-jm-primary-green)
-buttonHover: hover:bg-(--color-jm-primary-green) hover:text-(--color-jm-secondary-white) hover:border-(--color-jm-primary-green)
 align: left
 ---

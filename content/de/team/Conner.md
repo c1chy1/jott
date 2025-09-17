@@ -7,7 +7,6 @@ src: team/conner.jpg
 slug: conner
 imageAlt: Conner
 bg: bg-(--color-jm-secondary-grey)
-button: border-(--color-jm-primary-green) text-(--color-jm-primary-green)
-buttonHover: hover:bg-(--color-jm-primary-green) hover:text-(--color-jm-secondary-white) hover:border-(--color-jm-primary-green)
+button: border-(--color-jm-primary-green) text-(--color-jm-primary-green)  bg-(--color-jm-primary-white)
 align: left
 ---

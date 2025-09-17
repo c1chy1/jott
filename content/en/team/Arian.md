@@ -7,7 +7,6 @@ src: team/arian.jpg
 slug: arian
 imageAlt: Arian
 bg: bg-(--color-jm-primary-green)
-button: border-(--color-jm-primary-brown) text-(--color-jm-primary-brown)
-buttonHover: hover:bg-(--color-jm-primary-brown) hover:text-(--color-jm-secondary-white)
+button: border-(--color-jm-primary-brown) text-(--color-jm-primary-brown) bg-(--color-jm-primary-green)
 align: right
 ---
