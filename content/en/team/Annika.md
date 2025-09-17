@@ -7,7 +7,6 @@ src: team/annika.jpg
 slug: annika
 imageAlt: Annika
 bg: bg-(--color-jm-secondary-grey)
-button: border-(--color-jm-primary-green) text-(--color-jm-primary-green)
-buttonHover: hover:bg-(--color-jm-primary-green) hover:text-(--color-jm-secondary-white)
+button: border-(--color-jm-primary-green) text-(--color-jm-primary-green)  bg-(--color-jm-primary-white)
 align: left
 ---
