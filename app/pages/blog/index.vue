@@ -17,8 +17,9 @@
               v-for="(category, index) in articleStore.categories"
               :key="index"
               :label="category"
-              class="cursor-pointer"
+              class="hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown) cursor-pointer"
               color="secondary"
+
               outline="true"
               size="lg"
               variant="outline"
