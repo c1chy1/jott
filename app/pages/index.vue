@@ -141,6 +141,7 @@
 
     <UButton
         :label="t('startButton')"
+        class="hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
         color="secondary"
         outline="true"
         size="lg"
@@ -225,7 +226,7 @@
     <UContainer class="max-w-(--container-2xl) relative xl:pt-4 mb-32 z-10">
       <UButton
           :label="t('knowButton')"
-          class="mt-40"
+          class="mb-10 mt-40 hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
           color="secondary"
           outline="true"
           size="lg"
@@ -288,6 +289,7 @@
 
     <UButton
         :label=" t('goButton') "
+        class="hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
         color="secondary"
         outline="true"
         size="lg"
@@ -349,7 +351,7 @@
         <UButton
             :label="t('blogButton')"
             :to="localePath('/blog')"
-            class="mt-8"
+            class="mt-8 hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
             color="secondary"
             outline="true"
             size="lg"
