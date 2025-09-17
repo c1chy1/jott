@@ -11,7 +11,7 @@
               format="webp"/>
         </div>
         <div
-            :class="`bg-(--color-${person?.meta.bg})`"
+            :class="person?.meta.bg"
             class="sm:w-1/2 h-1/2 sm:h-full flex flex-col justify-center px-4 space-y-4 lg:px-6 lg:space-y-6 xl:space-y-8 xl:px-8 2xl:space-y-12 2xl:px-20">
           <NuxtLink
               :to="localePath('/')"
@@ -27,10 +27,10 @@
           <p class="font-light text-base!"> {{ person?.description }}</p>
           <UContainer class="relative pt-0 z-10 text-center">
             <NuxtLink href="https://calendar.app.google/rBDjAnPNYEQpfMvJ9" target="_blank">
-              <button
-                  :class="['border-2 rounded', 'text-xs lg:text-base px-4 py-2 uppercase font-bold cursor-pointer', person?.meta.button, person?.meta.buttonHover]">
+              <UButton
+                  :class="['border-2 rounded', 'text-xs lg:text-base px-4 py-2 uppercase font-bold cursor-pointer hover:text-(--color-jm-secondary-white)', person?.meta.button]">
                 Lerne uns kennen
-              </button>
+              </UButton>
             </NuxtLink>
           </UContainer>
         </div>
