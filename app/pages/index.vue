@@ -172,15 +172,14 @@
                 <template #header>
                   <NuxtImg
                       :alt="(person as any).meta?.imageAlt || (person as any).meta?.name"
-                      :aspect-ratio="16/9"
-                      :height="416"
                       :src="(person as any).meta?.src"
                       :width="416"
-                      class="w-full h-full block m-0 cover bg-center"
+                      class="w-full block m-0 cover bg-center"
                       format="webp"
                       loading="lazy"
                   />
                 </template>
+
                 <template #badge>
                   <NuxtLink
                       :to="localePath(`/team/${(person as any).slug || (person as any).meta?.name?.toLowerCase()}`)"
@@ -311,12 +310,21 @@
           <UBlogPost
               v-for="(article, index) in latestArticles"
               :key="index"
-              :image="{ src: article.meta?.image, width: 418, height: 418, format: 'webp', aspectRatio: 'cover' }"
               :to="localePath(`/blog/${article.slug}`)"
-              class="text-left ring-0"
+              class="text-left ring-0 bg-(--color-jm-secondary-grey-lighter)"
           >
+            <template #header>
+              <NuxtImg
+                  :alt="(article as any).meta?.imageAlt || (article as any).meta?.name"
+                  :src="(article as any).meta?.image"
+                  :width="416"
+                  class="w-full h-full! block m-0 cover bg-center"
+                  format="webp"
+                  loading="lazy"
+              />
+            </template>
             <template #title>
-              <div v-html="article.title"/>
+              <div class="pt-2" v-html="article.title"/>
             </template>
             <template #date>
               <NuxtLink
