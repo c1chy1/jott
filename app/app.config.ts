@@ -2,9 +2,9 @@ export default defineAppConfig({
     uiPro: {
         footer: {
             slots: {
-                root: 'relative', // Dodaj relative positioning
+                root: 'relative',
                 top: 'lg:pt-4 contents',
-                bottom: 'py-8 lg:py-0 z-2', // Zwiększ z-index
+                bottom: 'py-8 lg:py-0 z-2',
                 left: 'max-w-(--container-5xl)',
             }
         },
@@ -12,15 +12,15 @@ export default defineAppConfig({
         blogPost: {
             slots: {
                 authors: 'pt-4',
-                body: 'sm:p-3!  lg:p-0! mt:4',
-                description: 'mb-0 text-xs text-pretty jm-contrast-black color-jm-contrast-black',
-                image: 'w-full h-full block m-0 cover bg-center',
-                meta: 'px-0 mb-0',
-                root: 'relative group/blog-post flex flex-col overflow-hidden p-0',
-                title: 'text-xl uppercase font-extrabold leading-6',
-                header: 'h-full block m-0 bg-cover bg-center'
+                body: 'p-3 m-0',
+                description: 'mb-0 text-xs text-pretty text-(--color-jm-contrast-black) p-0',
+                meta: 'px-0 mb-0 p-0',
+                root: 'relative group/blog-post flex flex-col overflow-hidden p-0 m-0',
+                title: 'text-xl uppercase font-extrabold leading-6 p-0',
+                header: 'block m-0 p-0 bg-cover bg-center'
             },
         },
+
         pageHero: {
             slots: {
                 root: 'relative isolate',
@@ -68,7 +68,7 @@ export default defineAppConfig({
             }
         },
         container: {
-            base: 'max-w-(--container-3xl) mx-auto px-4 sm:px-6 lg:px-8 py-0', // <- py-0 usuwa padding-block
+            base: 'max-w-(--container-3xl) mx-auto px-4 sm:px-6 lg:px-8 py-0',
         },
         colors: {
             primary: 'nuxt-ui-primary',
