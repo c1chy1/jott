@@ -93,7 +93,20 @@ let currentY = 0
 let animationId: number
 
 
-const showFooter = useState('showFooter', () => true)
+onMounted(() => {
+  if (process.client) {
+
+    document.addEventListener('click', () => {
+    }, {once: true})
+
+    setTimeout(() => {
+      window.scrollTo({top: 1, behavior: 'smooth'})
+      setTimeout(() => {
+        window.scrollTo({top: 0, behavior: 'smooth'})
+      }, 100)
+    }, 1000)
+  }
+})
 
 const updateCursorPosition = (e: MouseEvent) => {
   if (process.client) {
@@ -192,7 +205,6 @@ async function initializeOverlayAnimation() {
 
     tl.call(() => {
       contentVisible.value = true
-      console.log('Content now visible under closed shutters')
     }, [], 0.2)
 
         .to(overlay, {
