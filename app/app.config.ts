@@ -8,17 +8,26 @@ export default defineAppConfig({
                 left: 'max-w-(--container-5xl)',
             }
         },
-
         blogPost: {
             slots: {
-                authors: 'pt-4',
-                body: 'p-3 m-0',
-                description: 'mb-0 text-xs text-pretty text-(--color-jm-contrast-black) p-0',
-                meta: 'px-0 mb-0 p-0',
-                root: 'relative group/blog-post flex flex-col overflow-hidden p-0 m-0',
-                title: 'text-xl uppercase font-extrabold leading-6 p-0',
-                header: 'block m-0 p-0 bg-cover bg-center'
+                title: 'text-xl font-bold uppercase',
+                body: 'px-2! pb-0!',
+                date: 'mt-0!'
             },
+            variants: {
+                variant: {
+                    soft: {
+                        body: 'hidden',
+                        header: 'block h-full m-0 p-0 bg-cover bg-center flex-1'
+                    },
+                    subtle: {
+                        body: 'p-4!',
+                        header: 'block m-0 p-0 gap-0! bg-cover bg-center',
+                        description: 'mb-0 text-xs text-pretty text-(--color-jm-contrast-black) p-2',
+                        title: 'text-lg uppercase font-bold leading-6',
+                    },
+                }
+            }
         },
 
         pageHero: {
@@ -82,47 +91,5 @@ export default defineAppConfig({
                 base: 'inline-block border-[3px] border-jm-primary-brown rounded px-3 py-2 uppercase font-[800] text-sm text-jm-primary-brown hover:text-jm-secondary-white hover:bg-jm-primary-brown  transition-all duration-300',
             }
         },
-        size: {
-            xs: {
-                base: 'px-2 py-1 text-xs gap-1',
-                leadingIcon: 'size-4',
-                leadingAvatarSize: '3xs',
-                trailingIcon: 'size-4'
-            },
-            sm: {
-                base: 'px-2.5 py-1.5 text-xs gap-1.5',
-                leadingIcon: 'size-4',
-                leadingAvatarSize: '3xs',
-                trailingIcon: 'size-4'
-            },
-            md: {
-                base: 'px-2.5 py-1.5 text-sm gap-1.5',
-                leadingIcon: 'size-5',
-                leadingAvatarSize: '2xs',
-                trailingIcon: 'size-5'
-            },
-            lg: {
-                base: 'px-3 py-2 text-sm gap-2',
-                leadingIcon: 'size-5',
-                leadingAvatarSize: '2xs',
-                trailingIcon: 'size-5'
-            },
-            xl: {
-                base: 'px-3 py-2 text-base gap-2',
-                leadingIcon: 'size-6',
-                leadingAvatarSize: 'xs',
-                trailingIcon: 'size-6'
-            }
-        },
-        variables: {
-            light: {
-                background: '255 255 255',
-                foreground: '000 000 000'
-            },
-            dark: {
-                background: '255 255 255',
-                foreground: '000 000 000'
-            },
-        }
-    },
+    }
 })
