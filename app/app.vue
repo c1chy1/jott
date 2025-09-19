@@ -83,8 +83,9 @@ const isMouseShow = ref(true)
 const overlayVisible = ref(true)
 const contentVisible = ref(false)
 
-const {t} = useI18n()
-const localePath = useLocalePath()
+/*const {t} = useI18n()
+const localePath = useLocalePath()*/
+
 
 let mouseX = 0
 let mouseY = 0
