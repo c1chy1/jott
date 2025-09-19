@@ -19,6 +19,57 @@
         </NuxtLayout>
       </div>
     </UMain>
+    <!--    <UFooter class="z-10 py-0 relative">
+          <template #top>
+            <UContainer class="py-0 max-w-(&#45;&#45;container-2xl)">
+              <div class="flex justify-between items-end py-0">
+                <div class="z-10">
+                  <address class="not-italic">
+                    JOTT.MEDIA GmbH<br>
+                    Bahnhofstraße 33<br>
+                    31675 Bückeburg<br>
+                    <br>
+                    <nuxt-link href="tel:+4957229184984">+49 5722 9184984</nuxt-link>
+                    <br>
+                    <nuxt-link href="mailto:hallo@jott.media">hallo@jott.media</nuxt-link>
+                  </address>
+                </div>
+                <div class="text-right z-10">
+                  <NuxtLink :to="localePath('/privacy')"
+                            class="block font-[800] text-(&#45;&#45;color-jm-primary-green) uppercase"
+                  >.{{ t('privacy') }}
+                  </NuxtLink>
+                  <NuxtLink :to="localePath('/imprint')"
+                            class="block font-[800] text-(&#45;&#45;color-jm-primary-green) uppercase"
+                  >.{{ t('imprint') }}
+                  </NuxtLink>
+                </div>
+              </div>
+            </UContainer>
+          </template>
+          <template #right>
+            <NuxtImg
+                alt="Footer Bottom"
+                class="absolute pointer-events-none object-contain w-72 bottom-17.5 right-0 z-1"
+                format="webp"
+                src="/images/footer-box.png"
+            />
+          </template>
+          <template #bottom>
+            <div class="bg-(&#45;&#45;color-jm-primary-green) text-xl py-6 flex items-center justify-center z-2">
+              <UContainer class="max-w-(&#45;&#45;container-2xl) text-sm">
+                <p>© {{ new Date().getFullYear() }} JOTT.MEDIA – {{ t('AllRightsReserved') }}</p>
+              </UContainer>
+            </div>
+          </template>
+          <template #left>
+            <div class="absolute left-0 bottom-14 w-full h-full bg-(&#45;&#45;color-jm-secondary-grey-lighter) -z-20"></div>
+            <div
+                ref="footerTop"
+                class="absolute pointer-events-none left-1/2 bg-repeat-x -translate-x-1/2 w-screen h-[35rem] bottom-0 -z-0 bg-center bg-footer-top"
+            />
+          </template>
+        </UFooter>-->
   </UApp>
 </template>
 
@@ -32,11 +83,17 @@ const isMouseShow = ref(true)
 const overlayVisible = ref(true)
 const contentVisible = ref(false)
 
+const {t} = useI18n()
+const localePath = useLocalePath()
+
 let mouseX = 0
 let mouseY = 0
 let currentX = 0
 let currentY = 0
 let animationId: number
+
+
+const showFooter = useState('showFooter', () => true)
 
 const updateCursorPosition = (e: MouseEvent) => {
   if (process.client) {
@@ -152,13 +209,23 @@ onMounted(() => {
     initializeOverlayAnimation()
 
     if (cursorElement.value) {
+      const centerX = window.innerWidth / 2 - 10
+      const centerY = window.innerHeight / 2 - 10
+
+      mouseX = centerX
+      mouseY = centerY
+      currentX = centerX
+      currentY = centerY
+
       gsap.set(cursorElement.value, {
-        x: -100,
-        y: -100,
-        opacity: 0,
+        x: centerX,
+        y: centerY,
+        opacity: 1,
         scale: 1
       })
     }
+
+    isMouseShow.value = true
 
     animateCursor()
 
@@ -169,6 +236,7 @@ onMounted(() => {
     document.addEventListener('mouseenter', updateCursorEnter)
   }
 })
+
 
 onUnmounted(() => {
   if (process.client) {
@@ -211,6 +279,12 @@ onUnmounted(() => {
 
   .cursor-show .cursor-dot {
     opacity: 1;
+  }
+
+  .minimal-layout .cursor-dot {
+    background-color: var(--color-jm-primary-brown) !important;
+    mix-blend-mode: normal !important;
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 }
 </style>
