@@ -1,6 +1,6 @@
 ---
 id: 4
-title: <b class="text-(--color-jm-primary-brown) uppercase">GitHub Copilot:</b> Your new AI programming assistant
+title: <b class="text-(--color-jm-primary-brown) uppercase">GitHub Copilot:</b> <b>Your new AI programming assistant </b>
 seoTitle: 'GitHub Copilot: Dein neuer KI-Programmierassistent '
 description: Have you heard of GitHub Copilot? This intelligent programming assistant could become your new best friend if you're involved in programming and software development. Let's dive into the world of GitHub Copilot and see how this AI-powered helper works, where it can support us and what advantages and disadvantages come with it.
 date: 2024-09-27
