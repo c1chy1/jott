@@ -68,20 +68,16 @@ export default defineNuxtPlugin((nuxtApp) => {
         const animatedLanguageChange = async (setLocaleFunction: (locale: string) => Promise<void>, newLocale: string) => {
             if (isTransitioning || isLanguageTransition) return
 
-            console.log(`Language change transition start: → ${newLocale}`)
             isTransitioning = true
             isLanguageTransition = true
 
             await closeShutters()
-            console.log('Shutters closed - changing language')
 
             await setLocaleFunction(newLocale)
-            console.log('Language changed')
 
             await new Promise(resolve => setTimeout(resolve, 300))
 
             await openShutters()
-            console.log('Language change transition complete!')
         }
 
         const shouldSkipTransition = (from: any, to: any): boolean => {
@@ -96,31 +92,17 @@ export default defineNuxtPlugin((nuxtApp) => {
         }
 
         router.beforeEach(async (to, from) => {
-            console.log('beforeEach called:', {
-                to: to.fullPath,
-                from: from.fullPath,
-                fromName: from.name,
-                isTransitioning,
-                isLanguageTransition,
-                shouldSkip: shouldSkipTransition(from, to)
-            })
 
             if (!from.name || isTransitioning || isLanguageTransition || shouldSkipTransition(from, to)) {
-                console.log('Skipping beforeEach')
                 return
             }
 
-            console.log(`Transition start: ${from.path} → ${to.path}`)
             isTransitioning = true
             await closeShutters()
-            console.log('Shutters closed - navigation can proceed')
         })
 
         router.afterEach(async (to, from) => {
-            // Sprawdź czy to jest przeładowanie strony (brak from.name oznacza przeładowanie)
             if (!from.name) {
-                console.log('Page reload detected, skipping open animation')
-                // Po prostu ukryj overlay bez animacji
                 if (overlay) {
                     overlay.style.opacity = '0'
                 }
@@ -130,16 +112,13 @@ export default defineNuxtPlugin((nuxtApp) => {
             }
 
             if (!isTransitioning || isLanguageTransition || shouldSkipTransition(from, to)) {
-                console.log('Skipping afterEach')
                 return
             }
 
-            console.log(`Navigation complete: ${from.path} → ${to.path}`)
             await new Promise(resolve => setTimeout(resolve, 200))
             await openShutters()
-            console.log('Transition complete!')
         })
-        
+
         return {
             provide: {
                 cleanupTransitions: () => {
