@@ -11,6 +11,7 @@ export default defineNuxtConfig({
         layoutTransition: false,
         keepalive: false
     },
+
     i18n: {
         defaultLocale: 'de',
         langDir: 'locales',
