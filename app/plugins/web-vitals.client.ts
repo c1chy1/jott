@@ -2,19 +2,39 @@ export default defineNuxtPlugin(() => {
     console.log('🔥 WEB VITALS PLUGIN STARTED!')
 
     if (process.client) {
-        console.log('🌐 Client side detected')
+        const getDeviceInfo = () => {
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+            const connection = (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection
+
+            return {
+                mobile: isMobile,
+                screen: `${window.screen.width}x${window.screen.height}`,
+                viewport: `${window.innerWidth}x${window.innerHeight}`,
+                connection: connection ? connection.effectiveType : 'unknown',
+                userAgent: navigator.userAgent.substring(0, 100)
+            }
+        }
+
+        console.log('📱 Device Info:', getDeviceInfo())
 
         import('web-vitals').then((webVitals) => {
             console.log('📦 Web-vitals library loaded!')
 
             const sendToAPI = (metric: any) => {
-                console.log(`📊 METRIC: ${metric.name} = ${metric.value}`, metric)
+                const deviceInfo = getDeviceInfo()
+                const deviceEmoji = deviceInfo.mobile ? '📱' : '💻'
+
+                console.log(`📊 ${deviceEmoji} METRIC: ${metric.name} = ${metric.value}`, {
+                    metric,
+                    device: deviceInfo
+                })
 
                 const savedMetrics = JSON.parse(localStorage.getItem('webVitals') || '[]')
                 savedMetrics.unshift({
                     ...metric,
                     timestamp: new Date().toLocaleString('de-DE'),
-                    page: window.location.pathname
+                    page: window.location.pathname,
+                    device: deviceInfo
                 })
                 localStorage.setItem('webVitals', JSON.stringify(savedMetrics.slice(0, 50)))
 
@@ -24,10 +44,11 @@ export default defineNuxtPlugin(() => {
                         name: metric.name,
                         value: metric.value,
                         url: window.location.href,
-                        timestamp: Date.now()
+                        timestamp: Date.now(),
+                        device: deviceInfo
                     }
                 }).then(response => {
-                    console.log(`✅ ${metric.name} sent!`, response)
+                    console.log(`✅ ${deviceEmoji} ${metric.name} sent!`, response)
                 }).catch(error => {
                     console.error(`❌ ${metric.name} error:`, error)
                 })
