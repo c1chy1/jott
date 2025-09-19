@@ -1,21 +1,21 @@
 <template>
-  <p ref="target" :class="{'p-animation-bigger': targetIsVisible || targetIsAlreadyVisible}" class="mb-16">
-    <slot />
+  <p ref="target" :class="{'p-animation-bigger': targetIsVisible || targetIsAlreadyVisible}">
+    <slot/>
   </p>
 </template>
 
-<script setup lang="ts">
-import { useIntersectionObserver } from '@vueuse/core'
+<script lang="ts" setup>
+import {useIntersectionObserver} from '@vueuse/core'
 
 const target = ref(null)
 const targetIsVisible = ref(false)
 const targetIsAlreadyVisible = ref(false)
-const { stop } = useIntersectionObserver(
-  target,
-  ([{ isIntersecting }], observerElement) => {
-    targetIsVisible.value = isIntersecting
-    if (isIntersecting) targetIsAlreadyVisible.value = true
-  },
+const {stop} = useIntersectionObserver(
+    target,
+    ([{isIntersecting}], observerElement) => {
+      targetIsVisible.value = isIntersecting
+      if (isIntersecting) targetIsAlreadyVisible.value = true
+    },
 )
 </script>
 
