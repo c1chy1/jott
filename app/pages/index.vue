@@ -74,7 +74,6 @@
         </template>
       </UPageHero>
     </div>
-
     <div class="bg-(--color-jm-primary-green)  leading-0 text-xl text-left relative overflow-hidden my-0">
       <UContainer
           id="machen"
@@ -110,7 +109,7 @@
 
     <UContainer class="xl:max-w-(--container-2xl) w-2/3 mx-0 lg:mx-auto text-left relative py-10">
       <h6 class="animated-bold animation-h1 text-sm">
-        {{ t('question.important') }}<b class="uppercase">Frage</b>
+        {{ t('question.important') }}<b class="uppercase"> {{ t('question.question') }}</b>
       </h6>
       <h2 class="font-bold text-4xl pt-8">
         „<b class="uppercase">
@@ -168,36 +167,34 @@
                   :key="index"
                   :to="localePath(`/team/${(person as any).slug || (person as any).meta?.name?.toLowerCase()}`)"
                   class="text-left ring-0 overflow-visible h-[416px] relative"
+                  variant="soft"
               >
                 <template #header>
                   <NuxtImg
                       :alt="(person as any).meta?.imageAlt || (person as any).meta?.name"
                       :src="(person as any).meta?.src"
                       :width="416"
-                      class="w-full block m-0 cover bg-center"
                       format="webp"
                       loading="lazy"
                   />
                 </template>
 
-                <template #badge>
-                  <NuxtLink
-                      :to="localePath(`/team/${(person as any).slug || (person as any).meta?.name?.toLowerCase()}`)"
-                      class="p-0"
-                  >
-                    <button
-                        class="w-12 h-12 bg-black/90 flex justify-center items-center rounded-full absolute sm:-right-6 top-0 sm:top-auto sm:-bottom-6 transition-opacity duration-300 z-10 opacity-80 hover:opacity-100"
-                    >
-                      <UIcon
-                          class="text-2xl h-9 w-9 text-(--color-jm-primary-brown) cursor-pointer"
-                          name="i-mdi-plus"
-                      />
-                    </button>
-                  </NuxtLink>
-                </template>
               </UBlogPost>
 
               <div class="md:absolute">
+                <NuxtLink
+                    :to="localePath(`/team/${(person as any).slug || (person as any).meta?.name?.toLowerCase()}`)"
+                    class="p-0 z-20"
+                >
+                  <button
+                      class="w-12 h-12 bg-black/90 flex justify-center items-center rounded-full absolute sm:-right-6 -top-6  transition-opacity duration-300 z-10 opacity-80 hover:opacity-100"
+                  >
+                    <UIcon
+                        class="text-2xl h-9 w-9 text-(--color-jm-primary-brown) cursor-pointer"
+                        name="i-mdi-plus"
+                    />
+                  </button>
+                </NuxtLink>
                 <h5
                     class="text-lg uppercase h-animation-bigger pt-4"
                     v-html="(person as any).meta?.quote"
@@ -237,7 +234,7 @@
     </UContainer>
 
     <div class="bg-(--color-jm-primary-green)">
-      <UContainer class="max-w-(--container-2xl) h-[13rem] relative text-left pt-4 z-10">
+      <UContainer class="max-w-(--container-2xl) h-52 relative text-left pt-4 z-10">
         <h6> {{ t('we.do') }}<b class="uppercase"> {{ t('we.forYou') }}</b></h6>
         <h2 class="font-[400] uppercase text-3xl pt-4">
           {{ t('we.development') }}
@@ -301,10 +298,11 @@
     <!-- Articles Section - Pinia powered with lazy loading -->
     <Suspense>
       <UContainer class="max-w-(--container-5xl) py-20">
-        <h2 class="pb-8 leading-9 xl:leading-5 text-3xl xl:text-4xl lowercase">
-          <b class="text-(--color-jm-primary-brown) uppercase">{{ t('world.new') }}</b> {{ t('world.from') }}
-          <b class="text-(--color-jm-primary-brown) uppercase"> {{ t('world.digital') }} </b>
-        </h2>
+        <Headline class="pb-8 leading-8 lg:leading-5 text-4xl lowercase font-bold" type="h2">
+          <b class="text-(--color-jm-primary-brown) uppercase">{{ t('world.new') }}</b>
+          <span class="font-medium px-2">{{ t('world.from') }}</span>
+          <b class="text-(--color-jm-primary-brown) uppercase">{{ t('world.digital') }}</b>
+        </Headline>
 
         <UBlogPosts class="mt-10 gap-y-8 grid-cols-1! lg:grid-cols-2! 2xl:grid-cols-3!" orientation="horizontal">
           <UBlogPost
@@ -312,13 +310,12 @@
               :key="index"
               :to="localePath(`/blog/${article.slug}`)"
               class="text-left ring-0 bg-(--color-jm-secondary-grey-lighter)"
+              variant="subtle"
           >
             <template #header>
               <NuxtImg
                   :alt="(article as any).meta?.imageAlt || (article as any).meta?.name"
                   :src="(article as any).meta?.image"
-                  :width="416"
-                  class="w-full h-full! block m-0 cover bg-center"
                   format="webp"
                   loading="lazy"
               />
@@ -327,24 +324,19 @@
               <div class="pt-2" v-html="article.title"/>
             </template>
             <template #date>
-              <NuxtLink
-                  :to="localePath(`/team/${article.meta?.author?.toLowerCase()}`)"
-                  class="text-(--color-jm-primary-green) font-extrabold z-10"
-              >
-                {{ article.meta?.author }}
-              </NuxtLink>
-            </template>
-            <template #description>
-              <div/>
-            </template>
-            <template #badge>
-              <p class="text-sm font-light">
-                {{ article.date }} von
-              </p>
+              <div class="flex gap-1">
+                <p class="text-sm font-light">
+                  {{ article.date }} von
+                </p>
+                <NuxtLink
+                    :to="localePath(`/team/${article.meta?.author?.toLowerCase()}`)"
+                    class="text-(--color-jm-primary-green) uppercase font-extrabold z-10">{{ article.meta?.author }}
+                </NuxtLink>
+              </div>
             </template>
             <template #authors>
               <UBadge
-                  v-for="(category, categoryIndex) in (article.meta?.categories as string[])?.slice(0, 2)"
+                  v-for="(category, categoryIndex) in (article.meta?.categories as string[])?.slice(1)"
                   :key="categoryIndex"
                   class="px-2 text-xs text-(--color-jm-secondary-white) bg-(--color-jm-primary-brown) font-extrabold uppercase"
                   color="primary"
@@ -356,7 +348,6 @@
             </template>
           </UBlogPost>
         </UBlogPosts>
-
         <UButton
             :label="t('blogButton')"
             :to="localePath('/blog')"
