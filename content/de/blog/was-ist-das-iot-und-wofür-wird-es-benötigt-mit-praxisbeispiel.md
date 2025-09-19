@@ -1,6 +1,6 @@
 ---
 id: 1
-title: <b class="text-(--color-jm-primary-brown) uppercase">Was ist das IoT</b> und wofür wird es <b class="text-(--color-jm-primary-brown) uppercase">benötigt</b> – mit Praxisbeispiel
+title: <b class="text-(--color-jm-primary-brown) uppercase">Was ist das IoT</b><b> und wofür wird es </b> <b class="text-(--color-jm-primary-brown) uppercase">benötigt</b><b> – mit Praxisbeispiel </b>
 seoTitle: Was ist das IoT und wofür wird es benötigt – mit Praxisbeispiel
 description: Das Internet of Things (IoT) bezeichnet ein Netzwerk physischer Objekte („Things“), die mit Sensoren, Software und anderer Technologie ausgestattet sind. Diese Objekte können sich über das Internet mit anderen Geräten und Systemen vernetzen und Daten austauschen.
 date: 2024-06-21

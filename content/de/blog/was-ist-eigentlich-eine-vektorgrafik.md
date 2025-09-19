@@ -1,6 +1,6 @@
 ---
 id: 2
-title: <b class="text-(--color-jm-primary-brown) uppercase">“Mysterium Vektorgrafik“</b> oder “Warum wird mein Logo pixelig?”
+title: <b class="text-(--color-jm-primary-brown) uppercase">“Mysterium Vektorgrafik“</b> <b>oder “Warum wird mein Logo pixelig?”</b>
 seoTitle: “Mysterium Vektorgrafik“ oder “Warum wird mein Logo pixelig?”
 description: |
   “Wir benötigen eine Vektorgrafik von dem Logo!” Diesen Satz haben sicherlich viele schon einmal gehört, wenn sie mit einem Dienstleister zusammenarbeiten möchten. Aber was ist das eigentlich, eine Vektorgrafik? In diesem Blogartikel geht es darum, was eine Vektorgrafik ist und wofür diese benötigt wird. Eins gleich vorne weg: Es reicht nicht, seine Datei Logo.png in Logo.svg oder Logo.eps umzubenennen - schade, aber nun der Reihe nach.
