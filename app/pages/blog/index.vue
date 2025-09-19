@@ -6,12 +6,13 @@
           <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH" class="w-[325px] mt-2" src="logo.svg"/>
         </NuxtLink>
       </UContainer>
-      <UContainer class="pt-16 max-w-(--container-7xl)">
-        <Headline class="pb-8 leading-8 lg:leading-5 text-3xl lowercase" type="h2">
-          <b class="text-jm-primary-brown uppercase">{{ t('world.new') }}</b> {{ t('world.from') }}
-          <b class="text-jm-primary-brown uppercase">{{ t('world.digital') }}</b>
+      <UContainer class="pt-6 max-w-(--container-7xl)">
+        <Headline class="pb-8 leading-8 lg:leading-5 text-4xl lowercase font-bold" type="h2">
+          <b class="text-(--color-jm-primary-brown) uppercase">{{ t('world.new') }}</b>
+          <span class="font-medium px-2">{{ t('world.from') }}</span>
+          <b class="text-(--color-jm-primary-brown) uppercase">{{ t('world.digital') }}</b>
         </Headline>
-        <Paragraph class="text-sm lg:text-tiny mb-8 w-5/12">{{ t('blog.agency') }}</Paragraph>
+        <Paragraph class="text-sm lg:text-tiny mb-8 w-1/2">{{ t('blog.agency') }}</Paragraph>
         <UContainer class="max-w-(--container-6xl) px-0 sm:px-0 lg:px-0 space-x-4 space-y-4 ml-0">
           <UButton
               v-for="(category, index) in articleStore.categories"
@@ -33,16 +34,24 @@
                 v-for="(article, index) in articleStore.filteredArticles"
                 :key="index"
                 :authors="[{ name: article.meta.author as string , class: 'text-(--color-jm-primary-green)' }]"
-                :image="{ src: article.meta.image, width: 480, height: 274, format: 'webp' , aspectRatio: 'cover' }"
                 :to="localePath(`/blog/${article.slug}`)"
                 as="li"
-                class="bg-(--color-jm-secondary-grey-lighter)"
+                class="bg-(--color-jm-secondary-grey-lighter) mt-6"
                 v-bind="article">
+
+              <template #header>
+                <NuxtImg
+                    :alt="(article as any).meta?.imageAlt || (article as any).meta?.name"
+                    :src="(article as any).meta?.image"
+                    format="webp"
+                    loading="lazy"
+                />
+              </template>
               <template #title>
                 <div class="px-4" v-html="article.title"></div>
               </template>
               <template #date>
-                <Paragraph class="px-4 text-(--color-jm-primary-green) mt-4 mb-2 text-sm font-light">{{ article.date }}
+                <Paragraph class="px-4 text-(--color-jm-primary-green) text-sm font-light">{{ article.date }}
                   {{ t('challenges.of') }}
                   <b class="text-jm-primary-green uppercase">
                     <NuxtLink :to="localePath(`/team/${article?.meta?.author?.toLowerCase()}`)"
