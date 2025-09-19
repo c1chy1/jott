@@ -29,7 +29,6 @@ export function useElementAnimation() {
         h4: width.value > 768 ? 'text-xl uppercase' : 'text-lg uppercase',
         h5: width.value > 768 ? 'text-lg uppercase' : 'text-base uppercase',
         h6: width.value > 768 ? 'text-sm mb-8' : 'text-sm mb-6',
-        p: 'mb-16'
     }))
 
     function getClassForType(type: string): string {
