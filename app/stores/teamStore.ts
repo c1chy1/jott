@@ -23,7 +23,6 @@ export const useTeamStore = defineStore('teamStore', {
 
         async fetchPerson(slug: string) {
             const {locale} = useI18n()
-            console.log('Fetching person for slug:', slug)
 
             const {data: person} = await useAsyncData(async () => {
                 return await queryCollection(`team_${locale.value}`)
