@@ -6,10 +6,17 @@ export default defineNuxtPlugin(() => {
 
         import('web-vitals').then((webVitals) => {
             console.log('📦 Web-vitals library loaded!')
-            console.log('🔍 Available functions:', Object.keys(webVitals))
 
             const sendToAPI = (metric: any) => {
                 console.log(`📊 METRIC: ${metric.name} = ${metric.value}`, metric)
+
+                const savedMetrics = JSON.parse(localStorage.getItem('webVitals') || '[]')
+                savedMetrics.unshift({
+                    ...metric,
+                    timestamp: new Date().toLocaleString('de-DE'),
+                    page: window.location.pathname
+                })
+                localStorage.setItem('webVitals', JSON.stringify(savedMetrics.slice(0, 50)))
 
                 $fetch('/api/vitals', {
                     method: 'POST',
@@ -25,6 +32,7 @@ export default defineNuxtPlugin(() => {
                     console.error(`❌ ${metric.name} error:`, error)
                 })
             }
+
             const {onCLS, onFCP, onLCP, onTTFB, onINP} = webVitals
 
             onCLS?.(sendToAPI)
