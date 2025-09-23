@@ -1,13 +1,14 @@
 <template>
   <div class="fixed flex flex-col justify-center -bottom-2 sm:bottom-0 right-4 sm:right-8 z-50 ">
-    <button
-        class="h-10 w-10 sm:h-12 sm:w-12 flex justify-center items-center bg-black/90 transition-opacity duration-300 opacity-80 hover:opacity-100  rounded-full z-50 cursor-pointer"
+    <UButton
+        class="absolute sm:right-6 bottom-6 h-10 w-10 sm:h-12 sm:w-12 flex justify-center items-center  bg-black/75 hover:bg-black/75 transition-opacity duration-300 opacity-80 hover:opacity-100  rounded-full z-50 cursor-pointer"
+        variant="ghost"
         @click="toggleMenu">
       <UIcon v-if="!open" class="text-lg sm:text-2xl text-(--color-jm-primary-brown) transition-all z-50"
              name="i-mdi-menu"/>
       <UIcon v-else class="text-lg sm:text-2xl  text-(--color-jm-primary-brown) transition-all z-50"
              name="i-mdi-close-thick"/>
-    </button>
+    </UButton>
     <div class="relative py-3 mx-auto ">
       <div
           v-if="open"
@@ -32,19 +33,19 @@
               </li>
             </ul>
             <div ref="languageRef" class="mt-8 text-left">
-              <button
+              <UButton
                   :class="{ 'font-bold': currentLocale === 'de' }"
                   class="mr-2 text-lg text-(--color-jm-contrast-black) hover:font-bold transition-all duration-200 cursor-pointer"
                   @click="handleLanguageChange('de')">
                 DE
-              </button>
+              </UButton>
               <span class="text-(--color-jm-contrast-black) text-lg">|</span>
-              <button
+              <UButton
                   :class="{ 'font-bold': currentLocale === 'en' }"
                   class="ml-2 text-lg text-(--color-jm-contrast-black) hover:font-bold transition-all duration-200 cursor-pointer"
                   @click="handleLanguageChange('en')">
                 EN
-              </button>
+              </UButton>
             </div>
           </div>
 
