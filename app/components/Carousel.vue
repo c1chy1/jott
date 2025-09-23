@@ -6,8 +6,11 @@
         :items="items"
         :next="{ onClick: onClickNext }"
         :prev="{ onClick: onClickPrev }"
+        :skip-snaps="true"
+        :ui="{item: 'basis-1/2 snap-start'}"
         arrows
-        class="w-full max-w-xs mx-auto z-20"
+        class="w-full max-w-4xl mx-auto z-20"
+        contain-scroll="trimSnaps"
         @select="onSelect"
     >
       <Image
