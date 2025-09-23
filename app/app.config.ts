@@ -84,12 +84,18 @@ export default defineAppConfig({
             secondary: 'nuxt-ui-brown',
         },
         button: {
+
             defaultVariants: {
-                color: "secondary",
+                color: "primary",
             },
             slots: {
-                base: 'inline-block border-[3px] border-jm-primary-brown rounded px-3 py-2 uppercase font-[800] text-sm text-jm-primary-brown hover:text-jm-secondary-white hover:bg-jm-primary-brown  transition-all duration-300',
-            }
+                base: 'inline-block border-[3px] rounded px-3 py-2 uppercase font-[800] text-sm transition-all duration-300',
+            },
+            variants: {
+                variant: {
+                    ghost: 'w-12 h-12 border-transparent transition-opacity duration-300 opacity-80 hover:opacity-100  rounded-full z-50 cursor-pointer flex justify-center items-center rounded-full'
+                }
+            },
         },
     }
 })
