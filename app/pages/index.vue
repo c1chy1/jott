@@ -45,7 +45,7 @@
           <UButton
               :label="t('makeSimpleButton')"
               :to="{ path: '/', hash: '#machen' }"
-              class="mb-10 mt-4 hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
+              class="mb-10 mt-4  hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
               color="secondary"
               outline="false"
               size="lg"
@@ -141,7 +141,7 @@
 
     <UButton
         :label="t('startButton')"
-        class="hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
+        class=" hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
         color="secondary"
         outline="true"
         size="lg"
@@ -186,14 +186,15 @@
                     :to="localePath(`/team/${(person as any).slug || (person as any).meta?.name?.toLowerCase()}`)"
                     class="p-0 z-20"
                 >
-                  <button
-                      class="w-12 h-12 bg-black/90 flex justify-center items-center rounded-full absolute sm:-right-6 -top-6  transition-opacity duration-300 z-10 opacity-80 hover:opacity-100"
+                  <UButton
+                      class="bg-black/75 hover:bg-black/75 absolute sm:-right-6 -top-6"
+                      variant="ghost"
                   >
                     <UIcon
-                        class="text-2xl h-9 w-9 text-(--color-jm-primary-brown) cursor-pointer"
+                        class="h-12 w-12 text-(--color-jm-primary-brown) cursor-pointer"
                         name="i-mdi-plus"
                     />
-                  </button>
+                  </UButton>
                 </NuxtLink>
                 <h5
                     class="text-lg uppercase h-animation-bigger pt-4"
@@ -223,7 +224,7 @@
     <UContainer class="max-w-(--container-2xl) relative xl:pt-4 mb-32 z-10">
       <UButton
           :label="t('knowButton')"
-          class="mb-10 mt-40 hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
+          class="mb-10 mt-40  hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
           color="secondary"
           outline="true"
           size="lg"
@@ -286,7 +287,7 @@
 
     <UButton
         :label=" t('goButton') "
-        class="hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
+        class=" hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
         color="secondary"
         outline="true"
         size="lg"
@@ -381,7 +382,6 @@ import {gsap} from 'gsap'
 const localePath = useLocalePath()
 const {t, locale} = useI18n()
 
-// SEO & Meta
 useHead({
   title: () => locale.value === 'de' ? 'Dein Büro für Entwicklung und Design – JOTT.MEDIA' : 'Your Office for Development and Design – JOTT.MEDIA'
 })
@@ -392,7 +392,6 @@ const LazyCarousel = defineAsyncComponent(() => import('~/components/Carousel.vu
 const teamStore = useTeamStore()
 const articleStore = useArticleStore()
 
-// Refs for parallax
 const headerGrey = ref<HTMLElement | null>(null)
 const headerGreenTop = ref<HTMLElement | null>(null)
 const headerGreenBottom = ref<HTMLElement | null>(null)
@@ -407,7 +406,7 @@ await teamStore.fetchTeam()
 // BELOW-THE-FOLD: Latest articles - lazy loaded with Pinia cache
 const latestArticles = await articleStore.fetchLatestArticles()
 
-// Carousel items
+
 const carouselItems = ref([
   {
     id: '1',
@@ -436,7 +435,6 @@ const carouselItems = ref([
   },
 ])
 
-// Parallax setup - optimized with requestIdleCallback
 const setupParallax = (): void => {
   if (typeof window === 'undefined') return
 
@@ -470,7 +468,6 @@ const setupParallax = (): void => {
   })
 }
 
-// Smooth scroll function
 function scrollTo(event: Event): void {
   event.preventDefault()
   const target = document.getElementById('machen')
