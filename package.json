@@ -13,7 +13,7 @@
   "dependencies": {
     "@nuxt/content": "^3.7.1",
     "@nuxt/image": "^1.11.0",
-    "@nuxt/ui-pro": "^3.3.4",
+    "@nuxt/ui-pro": "^3.3.5",
     "@nuxtjs/i18n": "10.1.0",
     "@pinia/nuxt": "^0.11.2",
     "better-sqlite3": "^12.4.1",
