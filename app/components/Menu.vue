@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed flex flex-col justify-center -bottom-2 sm:bottom-0 right-4 sm:right-8 z-50 ">
+  <div class="fixed flex flex-col justify-center -bottom-4 sm:bottom-2 right-12 sm:right-8 z-50 ">
     <UButton
         class="absolute sm:right-6 bottom-6 h-10 w-10 sm:h-12 sm:w-12 flex justify-center items-center  bg-black/75 hover:bg-black/75 transition-opacity duration-300 opacity-80 hover:opacity-100  rounded-full z-50 cursor-pointer"
         variant="ghost"
@@ -14,10 +14,11 @@
           v-if="open"
           ref="menuBackgroundRef"
           class="top-0 left-0 w-screen h-screen flex flex-col justify-start  z-30 bg-(--color-jm-primary-brown) fixed">
-        <UContainer class="my-8 flex justify-center">
-          <NuxtLink :to="localePath({path: '/'})" class="inline-block no-underline w-full mt-2 sm:w-[325px] border-0"
+        <UContainer class="my-5 flex justify-center">
+          <NuxtLink :to="localePath({path: '/'})"
+                    class="inline-block no-underline w-64 mt-0 sm:w-[325px] border-0"
                     @click="closeMenu">
-            <Image ref="logoRef" :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH" class="w-full"
+            <Image ref="logoRef" :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
                    src="logo-overlay.svg"/>
           </NuxtLink>
         </UContainer>
@@ -34,15 +35,15 @@
             </ul>
             <div ref="languageRef" class="mt-8 text-left">
               <UButton
-                  :class="{ 'font-bold': currentLocale === 'de' }"
-                  class="mr-2 text-lg text-(--color-jm-contrast-black) hover:font-bold transition-all duration-200 cursor-pointer"
+                  :class="{ 'font-bold bg-(--color-jm-primary-green)': currentLocale === 'de' }"
+                  class="mr-2 text-xs text-(--color-jm-contrast-black) hover:font-bold transition-all duration-200 cursor-pointer"
                   @click="handleLanguageChange('de')">
                 DE
               </UButton>
               <span class="text-(--color-jm-contrast-black) text-lg">|</span>
               <UButton
-                  :class="{ 'font-bold': currentLocale === 'en' }"
-                  class="ml-2 text-lg text-(--color-jm-contrast-black) hover:font-bold transition-all duration-200 cursor-pointer"
+                  :class="{ 'font-bold bg-(--color-jm-primary-green)': currentLocale === 'en' }"
+                  class="ml-2 text-xs text-(--color-jm-contrast-black) hover:font-bold transition-all duration-200 cursor-pointer"
                   @click="handleLanguageChange('en')">
                 EN
               </UButton>

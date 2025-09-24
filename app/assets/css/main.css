@@ -181,6 +181,11 @@ h1 {
     margin-top: 0;
 }
 
+b {
+
+    font-weight: 800;
+}
+
 p {
     color: var(--color-jm-contrast-black);
     font-weight: 400;

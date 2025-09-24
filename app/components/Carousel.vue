@@ -7,18 +7,18 @@
         :next="{ onClick: onClickNext }"
         :prev="{ onClick: onClickPrev }"
         :skip-snaps="true"
-        :ui="{item: 'basis-1/2 snap-start'}"
-        arrows
+        :ui="{item: 'basis-full sm:basis-1/2 snap-start', }"
         class="w-full max-w-4xl mx-auto z-20"
-        contain-scroll="trimSnaps"
         @select="onSelect"
     >
+
       <Image
           :alt="item.alt"
           :parallax="false"
           :shine="false"
           :src="item.src"
       />
+
     </UCarousel>
 
     <div class="flex gap-1 justify-between pt-4 max-w-xs mx-auto">
@@ -36,6 +36,7 @@
             :src="item.src"
         />
       </div>
+
     </div>
   </div>
 </template>

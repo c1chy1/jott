@@ -27,14 +27,14 @@
               class="absolute pointer-events-none w-screen h-[35rem] bottom-0 -z-[2] bg-header-grey"
           />
           <NuxtLink :to="localePath('/')"
-                    class="inline-block no-underline w-full mt-6 sm:w-[325px] border-0"
+                    class="inline-block no-underline w-64 sm:mt-6 border-0"
           >
-            <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH" class="w-full"
+            <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
                    src="logo.svg"/>
           </NuxtLink>
         </template>
         <template #headline>
-          <h5 class="animated-bold text-6xl mt-4">
+          <h5 class="animated-bold text-5xl leading-12 sm:mt-4">
             {{ t('make.we') }}<br>
             <span class="text-(--color-nuxt-ui-primary-50) uppercase">
               {{ t('make.simple') }}</span>
@@ -45,7 +45,7 @@
           <UButton
               :label="t('makeSimpleButton')"
               :to="{ path: '/', hash: '#machen' }"
-              class="mb-10 mt-4  hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
+              class="sm:mb-10 sm:mt-4  hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
               color="secondary"
               outline="false"
               size="lg"
@@ -54,7 +54,7 @@
         </template>
         <template #footer>
           <div>
-            <h2 class="animated-bold uppercase text-2xl xl:text-3xl mt-8 mb-3">
+            <h2 class="animated-bold uppercase text-2xl xl:text-3xl sm:mt-8 mb-3">
               {{ t('office.your') }}
               <span class="lowercase">
                        {{ t('office.for') }}
@@ -66,7 +66,7 @@
                 @click="scrollTo"
             >
               <UIcon
-                  class="text-(--color-jm-secondary-grey) text-[60px]"
+                  class="text-(--color-jm-secondary-white)"
                   name="cil:arrow-thick-bottom"
               />
             </NuxtLink>
@@ -107,7 +107,7 @@
       />
     </UContainer>
 
-    <UContainer class="xl:max-w-(--container-2xl) w-2/3 mx-0 lg:mx-auto text-left relative py-10">
+    <UContainer class="xl:max-w-(--container-2xl) w-2/3 mx-0 lg:mx-auto text-left relative">
       <h6 class="animated-bold animation-h1 text-sm">
         {{ t('question.important') }}<b class="uppercase"> {{ t('question.question') }}</b>
       </h6>
@@ -159,21 +159,21 @@
               :key="index"
               :class="[
               'flex',
-              (person as any).meta?.align === 'right' ? 'justify-end' : 'justify-start'
+              (person as any).meta?.align === 'right' ? 'sm:justify-end' : 'sm:justify-start'
             ]"
           >
-            <div class="md:w-2/5 relative">
+            <div class="w-full md:w-2/5 relative">
               <UBlogPost
                   :key="index"
                   :to="localePath(`/team/${(person as any).slug || (person as any).meta?.name?.toLowerCase()}`)"
-                  class="text-left ring-0 overflow-visible h-[416px] relative"
+                  class="text-left ring-0 overflow-visible w-full object-cover relative"
                   variant="soft"
               >
                 <template #header>
                   <NuxtImg
                       :alt="(person as any).meta?.imageAlt || (person as any).meta?.name"
                       :src="(person as any).meta?.src"
-                      :width="416"
+                      class="h-64 w-full object-cover"
                       format="webp"
                       loading="lazy"
                   />
@@ -181,13 +181,13 @@
 
               </UBlogPost>
 
-              <div class="md:absolute">
+              <div class="md:absolute pb-12">
                 <NuxtLink
                     :to="localePath(`/team/${(person as any).slug || (person as any).meta?.name?.toLowerCase()}`)"
                     class="p-0 z-20"
                 >
                   <UButton
-                      class="bg-black/75 hover:bg-black/75 absolute sm:-right-6 -top-6"
+                      class="bg-black/75 hover:bg-black/75 absolute -left-2 -top-2"
                       variant="ghost"
                   >
                     <UIcon
@@ -224,7 +224,7 @@
     <UContainer class="max-w-(--container-2xl) relative xl:pt-4 mb-32 z-10">
       <UButton
           :label="t('knowButton')"
-          class="mb-10 mt-40  hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
+          class="mb-10 sm:mt-40 hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
           color="secondary"
           outline="true"
           size="lg"
@@ -235,7 +235,7 @@
     </UContainer>
 
     <div class="bg-(--color-jm-primary-green)">
-      <UContainer class="max-w-(--container-2xl) h-52 relative text-left pt-4 z-10">
+      <UContainer class="max-w-(--container-2xl) relative text-left pt-4 z-10">
         <h6> {{ t('we.do') }}<b class="uppercase"> {{ t('we.forYou') }}</b></h6>
         <h2 class="font-[400] uppercase text-3xl pt-4">
           {{ t('we.development') }}
@@ -266,7 +266,7 @@
       </template>
     </Suspense>
 
-    <UContainer class="max-w-(--container-2xl) pt-6 text-left z-10">
+    <UContainer class="max-w-(--container-2xl) sm:pt-6 text-left z-10">
       <Paragraph>
         <b class="text-(--color-jm-primary-brown) uppercase">
           {{ t('challenges.conception') }}
@@ -298,14 +298,14 @@
 
     <!-- Articles Section - Pinia powered with lazy loading -->
     <Suspense>
-      <UContainer class="max-w-(--container-5xl) py-20">
-        <Headline class="pb-8 leading-8 lg:leading-5 text-4xl lowercase font-bold" type="h2">
+      <UContainer class="sm:py-20">
+        <Headline class="pb-8 leading-10 lg:leading-5 text-4xl lowercase font-bold text-left" type="h2">
           <b class="text-(--color-jm-primary-brown) uppercase">{{ t('world.new') }}</b>
           <span class="font-medium px-2">{{ t('world.from') }}</span>
           <b class="text-(--color-jm-primary-brown) uppercase">{{ t('world.digital') }}</b>
         </Headline>
 
-        <UBlogPosts class="mt-10 gap-y-8 grid-cols-1! lg:grid-cols-2! 2xl:grid-cols-3!" orientation="horizontal">
+        <UBlogPosts class="sm:mt-10 gap-y-8 grid-cols-1! lg:grid-cols-2! 2xl:grid-cols-3!" orientation="horizontal">
           <UBlogPost
               v-for="(article, index) in latestArticles"
               :key="index"
