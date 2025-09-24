@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed flex flex-col justify-center -bottom-4 sm:bottom-2 right-12 sm:right-8 z-50 ">
+  <div class="fixed flex flex-col justify-center -bottom-2.5 sm:bottom-2 right-12 sm:right-8 z-50 ">
     <UButton
         class="absolute sm:right-6 bottom-6 h-10 w-10 sm:h-12 sm:w-12 flex justify-center items-center  bg-black/75 hover:bg-black/75 transition-opacity duration-300 opacity-80 hover:opacity-100  rounded-full z-50 cursor-pointer"
         variant="ghost"
