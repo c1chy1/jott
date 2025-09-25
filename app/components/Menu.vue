@@ -13,7 +13,7 @@
       <div
           v-if="open"
           ref="menuBackgroundRef"
-          class="top-0 left-0 w-screen h-screen flex flex-col justify-start  z-30 bg-(--color-jm-primary-brown) fixed">
+          class="top-0 left-0 w-screen h-screen flex flex-col justify-start z-30 bg-(--color-jm-primary-brown) fixed">
         <UContainer class="my-5 flex justify-center">
           <NuxtLink :to="localePath({path: '/'})"
                     class="inline-block no-underline w-64 mt-0 sm:w-[325px] border-0"
