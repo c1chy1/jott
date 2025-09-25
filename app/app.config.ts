@@ -49,9 +49,9 @@ export default defineAppConfig({
     uiPro: {
         footer: {
             slots: {
-                root: 'relative z-10',
+                root: 'relative',
                 top: 'lg:pt-4 contents',
-                bottom: 'py-0 z-2',
+                bottom: 'py-0  z-30',
                 left: 'max-w-(--container-5xl)',
             }
         },
@@ -82,7 +82,7 @@ export default defineAppConfig({
         pageHero: {
             slots: {
                 root: 'relative isolate',
-                wrapper: 'mt-0',
+                wrapper: 'mt-4',
                 container: 'mx-auto px-4 py-8 sm:px-6 lg:px-8 ',
                 headline: 'mb-4 mt-0',
                 body: 'mt-6',

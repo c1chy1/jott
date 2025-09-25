@@ -27,14 +27,14 @@
               class="absolute pointer-events-none w-screen h-[35rem] bottom-0 -z-[2] bg-header-grey"
           />
           <NuxtLink :to="localePath('/')"
-                    class="inline-block no-underline w-64 sm:mt-6 border-0"
+                    class="inline-block no-underline w-52 sm:mt-6 border-0"
           >
             <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
                    src="logo.svg"/>
           </NuxtLink>
         </template>
         <template #headline>
-          <h5 class="animated-bold text-5xl leading-12 sm:mt-4">
+          <h5 class="animated-bold text-4xl leading-12 sm:mt-4">
             {{ t('make.we') }}<br>
             <span class="text-(--color-nuxt-ui-primary-50) uppercase">
               {{ t('make.simple') }}</span>
@@ -66,7 +66,7 @@
                 @click="scrollTo"
             >
               <UIcon
-                  class="text-(--color-jm-secondary-white)"
+                  class="text-(--color-jm-secondary-white) text-2xl"
                   name="cil:arrow-thick-bottom"
               />
             </NuxtLink>
@@ -111,7 +111,7 @@
       <h6 class="animated-bold animation-h1 text-sm">
         {{ t('question.important') }}<b class="uppercase"> {{ t('question.question') }}</b>
       </h6>
-      <h2 class="font-bold text-4xl pt-8">
+      <h2 class="font-bold text-3xl pt-8">
         „<b class="uppercase">
         {{ t('question.what') }}
       </b>
@@ -237,7 +237,7 @@
     <div class="bg-(--color-jm-primary-green)">
       <UContainer class="max-w-(--container-2xl) relative text-left pt-4 z-10">
         <h6> {{ t('we.do') }}<b class="uppercase"> {{ t('we.forYou') }}</b></h6>
-        <h2 class="font-[400] uppercase text-3xl pt-4">
+        <h2 class="font-[400] uppercase text-2xl pt-4">
           {{ t('we.development') }}
           <b class="text-(--color-jm-primary-brown)">
             {{ t('we.digital') }}</b>
