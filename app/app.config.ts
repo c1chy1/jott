@@ -49,6 +49,8 @@ export default defineAppConfig({
     uiPro: {
         footer: {
             slots: {
+                container: 'py-0 w-full! max-w-(--container-5xl)',
+                body: 'w-full!',
                 root: 'relative',
                 top: 'lg:pt-4 contents',
                 bottom: 'py-0  z-30',
@@ -66,7 +68,9 @@ export default defineAppConfig({
                 variant: {
                     soft: {
                         body: 'hidden',
-                        header: 'block h-full m-0 p-0 bg-cover bg-center flex-1'
+                        root: '',
+                        description: 'h-full',
+                        header: 'block h-full m-0 p-0 bg-cover bg-center'
                     },
                     subtle: {
                         body: 'p-4!',
@@ -81,41 +85,22 @@ export default defineAppConfig({
 
         pageHero: {
             slots: {
-                root: 'relative isolate',
+                root: 'relative isolate h-screen',
                 wrapper: 'mt-4',
-                container: 'mx-auto px-4 py-8 sm:px-6 lg:px-8 ',
-                headline: 'mb-4 mt-0',
+                container: 'mx-auto px-4 py-0! py-8 sm:px-6 lg:px-8 ',
+                headline: 'mb-4 mt-0 ',
                 body: 'mt-6',
-                footer: 'mt-8',
+                footer: 'mt-8 sm:mt-2',
             },
-            variants: {
-                orientation: {
-                    horizontal: {
-                        container: 'lg:grid-cols-2 lg:items-center',
-                        description: 'text-pretty'
-                    },
-                    vertical: {
-                        container: '',
-                        headline: 'justify-center',
-                        wrapper: 'text-center',
-                        description: 'text-balance',
-                        links: 'justify-center'
-                    }
-                },
-                reverse: {
-                    true: {
-                        wrapper: 'order-last'
-                    }
-                },
-                headline: {
-                    true: {
-                        headline: 'font-semibold text-primary flex items-center gap-1.5'
-                    }
-                },
-                title: {
-                    true: {
-                        description: 'mt-6'
-                    }
+
+            headline: {
+                true: {
+                    headline: 'font-semibold text-primary flex items-center gap-1.5'
+                }
+            },
+            title: {
+                true: {
+                    description: 'mt-6'
                 }
             }
         }

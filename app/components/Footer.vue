@@ -1,8 +1,8 @@
 <template>
-  <UFooter class="z-10 py-0 relative">
+  <UFooter class="z-10 py-0 pt-8 relative">
     <template #top>
-      <UContainer class="py-0 max-w-(--container-2xl)">
-        <div class="flex justify-between items-end py-0">
+      <UContainer class="py-0 text-sm">
+        <div class="flex justify-between items-end gap-x-6  py-0">
           <div class="z-10">
             <address class="not-italic">
               JOTT.MEDIA GmbH<br>
@@ -30,7 +30,7 @@
     <template #right>
       <NuxtImg
           alt="Footer Bottom"
-          class="absolute pointer-events-none object-contain w-36 sm:w-72 bottom-17.5 right-0 -z-1"
+          class="absolute pointer-events-none object-contain w-36 sm:w-72 bottom-10 right-0 -z-1"
           format="webp"
           src="/images/footer-box.png"
       />
@@ -38,8 +38,8 @@
     <template #bottom>
 
       <UContainer
-          class="bg-(--color-jm-primary-green) py-6  z-2 max-w-(--container-2xl) pl-2 text-xs sm:text-sm">
-        <p class="w-11/12">© {{ new Date().getFullYear() }} JOTT.MEDIA – {{ t('AllRightsReserved') }}</p>
+          class="bg-(--color-jm-primary-green) py-6  z-2  pl-2 sm:pl-4 text-xs sm:text-sm">
+        <p class="w-11/12 sm:w-full">© {{ new Date().getFullYear() }} JOTT.MEDIA – {{ t('AllRightsReserved') }}</p>
       </UContainer>
 
     </template>

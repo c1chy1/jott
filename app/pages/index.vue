@@ -1,5 +1,5 @@
 <template>
-  <UPageBody class="text-center bg-(--color-jm-secondary-white) mt-0">
+  <UPageBody class="text-center bg-(--color-jm-secondary-white) mt-0 ">
     <div class="mb-0 bg-(--color-jm-secondary-grey-lighter) overflow-hidden relative">
       <NuxtImg
           ref="headerBox"
@@ -14,7 +14,7 @@
       />
 
       <UPageHero
-          class="py-4 relative z-10 h-screen"
+          class="py-4 relative z-10 h-screen flex flex-col justify-evenly"
           orientation="vertical"
       >
         <template #top>
@@ -27,14 +27,14 @@
               class="absolute pointer-events-none w-screen h-[35rem] bottom-0 -z-[2] bg-header-grey"
           />
           <NuxtLink :to="localePath('/')"
-                    class="inline-block no-underline w-52 sm:mt-6 border-0"
+                    class="block no-underline mx-auto w-64 sm:w-1/2 sm:mt-6 border-0"
           >
             <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
                    src="logo.svg"/>
           </NuxtLink>
         </template>
         <template #headline>
-          <h5 class="animated-bold text-4xl leading-12 sm:mt-4">
+          <h5 class="animated-bold text-4xl sm:text-5xl leading-tight sm:mt-4">
             {{ t('make.we') }}<br>
             <span class="text-(--color-nuxt-ui-primary-50) uppercase">
               {{ t('make.simple') }}</span>
@@ -54,7 +54,7 @@
         </template>
         <template #footer>
           <div>
-            <h2 class="animated-bold uppercase text-2xl xl:text-3xl sm:mt-8 mb-3">
+            <h2 class="animated-bold uppercase text-2xl xl:text-3xl mb-3">
               {{ t('office.your') }}
               <span class="lowercase">
                        {{ t('office.for') }}
@@ -173,7 +173,7 @@
                   <NuxtImg
                       :alt="(person as any).meta?.imageAlt || (person as any).meta?.name"
                       :src="(person as any).meta?.src"
-                      class="h-64 w-full object-cover"
+                      class="h-64 sm:h-full w-full object-inherit sm:object-scale-down"
                       format="webp"
                       loading="lazy"
                   />
@@ -208,6 +208,7 @@
                 </Paragraph>
               </div>
             </div>
+
           </div>
           <div
               ref="greyTop"
@@ -224,7 +225,7 @@
     <UContainer class="max-w-(--container-2xl) relative xl:pt-4 mb-32 z-10">
       <UButton
           :label="t('knowButton')"
-          class="mb-10 sm:mt-40 hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
+          class="mb-10 sm:mt-0 hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
           color="secondary"
           outline="true"
           size="lg"
@@ -352,7 +353,7 @@
         <UButton
             :label="t('blogButton')"
             :to="localePath('/blog')"
-            class="mt-8 hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
+            class="my-12 hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
             color="secondary"
             outline="true"
             size="lg"
