@@ -1,7 +1,7 @@
 <template>
-  <div class="fixed -bottom-3 right-12 sm:right-0 z-50 ">
+  <div class="fixed bottom-7 sm:bottom-8 xl:-bottom-5 right-0 xl:-right-4  z-50 ">
     <UButton
-        class="absolute right-2 sm:right-3 xl:right-8 xl:bottom-8 h-10 w-10 sm:h-12 sm:w-12 xl:w-16 xl:h-16 flex justify-center items-center  bg-black/75 hover:bg-black/75 transition-opacity duration-300 opacity-80 hover:opacity-100  rounded-full z-50 cursor-pointer"
+        class="absolute right-2 sm:right-3 xl:right-8 xl:bottom-8 h-10 w-10 sm:h-12 sm:w-12  flex justify-center items-center  bg-black/75 hover:bg-black/75 transition-opacity duration-300 opacity-80 hover:opacity-100  rounded-full z-50 cursor-pointer"
         variant="ghost"
         @click="toggleMenu">
       <UIcon v-if="!open" class="text-lg sm:text-2xl text-(--color-jm-primary-brown) transition-all z-50"
@@ -13,8 +13,8 @@
       <div
           v-if="open"
           ref="menuBackgroundRef"
-          class="top-0 left-0 w-screen h-screen flex flex-col justify-around z-30 bg-(--color-jm-primary-brown) fixed">
-        <UContainer class="my-5 flex justify-center">
+          class="top-0 left-0 w-screen h-screen flex flex-col justify-around xl:justify-start z-30 bg-(--color-jm-primary-brown) fixed">
+        <UContainer class="my-5 flex justify-center ">
           <NuxtLink :to="localePath({path: '/'})"
                     class="inline-block no-underline min-w-52 mt-0 sm:w-[325px] border-0"
                     @click="closeMenu">
@@ -22,7 +22,7 @@
                    src="logo-overlay.svg"/>
           </NuxtLink>
         </UContainer>
-        <UContainer class="sm:mt-12 flex sm:flex-row w-full justify-around  space-x-2 sm:space-x-4">
+        <UContainer class="sm:mt-12 flex sm:flex-row w-full justify-around  xl:justify-between  space-x-2 sm:space-x-4">
 
           <div ref="leftSideRef" class="flex flex-col justify-between">
             <ul class="uppercase font-extrabold text-left text-lg xl:text-3xl sm:space-y-4  text-(--color-jm-contrast-black)">
@@ -51,7 +51,7 @@
           </div>
 
           <div ref="rightSideRef" class="text-left sm:text-right sm:mt-8">
-            <div ref="legalLinksRef" class="font-extrabold text-xs">
+            <div ref="legalLinksRef" class="font-extrabold text-xs xl:text-lg">
               <NuxtLink :to="localePath('/privacy')" class="block"
                         @click="closeMenu">
                 {{ t('privacy') }}
@@ -61,7 +61,7 @@
                 {{ t('imprint') }}
               </NuxtLink>
             </div>
-            <address ref="addressRef" class="not-italic text-xs mt-6 sm:mt-16">
+            <address ref="addressRef" class="not-italic text-xs mt-6 sm:mt-16 text-sm lg:text-base">
               JOTT.MEDIA GmbH<br>
               Bahnhofstraße 33<br>
               31675 Bückeburg<br>

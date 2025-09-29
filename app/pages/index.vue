@@ -14,7 +14,7 @@
       />
 
       <UPageHero
-          class="py-4 relative z-10 h-screen flex flex-col justify-evenly"
+          class="py-4 relative z-10 h-screen flex flex-col justify-evenly xl:justify-center gap-y-24"
           orientation="vertical"
       >
         <template #top>
@@ -27,14 +27,14 @@
               class="absolute pointer-events-none w-screen h-[35rem] bottom-0 -z-[2] bg-header-grey"
           />
           <NuxtLink :to="localePath('/')"
-                    class="block no-underline mx-auto w-64 sm:w-1/2 sm:mt-6 border-0"
+                    class="block no-underline mx-auto w-64 sm:w-1/2 xl:w-1/5 sm:mt-6 border-0"
           >
             <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
                    src="logo.svg"/>
           </NuxtLink>
         </template>
         <template #headline>
-          <h5 class="animated-bold text-4xl sm:text-5xl leading-tight sm:mt-4">
+          <h5 class="animated-bold text-4xl sm:text-5xl xl:text-6xl leading-tight sm:mt-4">
             {{ t('make.we') }}<br>
             <span class="text-(--color-nuxt-ui-primary-50) uppercase">
               {{ t('make.simple') }}</span>
@@ -66,7 +66,7 @@
                 @click="scrollTo"
             >
               <UIcon
-                  class="text-(--color-jm-secondary-white) text-2xl"
+                  class="text-(--color-jm-secondary-white) text-2xl xl:text-4xl"
                   name="cil:arrow-thick-bottom"
               />
             </NuxtLink>
@@ -166,14 +166,14 @@
               <UBlogPost
                   :key="index"
                   :to="localePath(`/team/${(person as any).slug || (person as any).meta?.name?.toLowerCase()}`)"
-                  class="text-left ring-0 overflow-visible w-full object-cover relative"
+                  class="text-left ring-0 overflow-visible xl:h-[418px] w-full object-cover relative"
                   variant="soft"
               >
                 <template #header>
                   <NuxtImg
                       :alt="(person as any).meta?.imageAlt || (person as any).meta?.name"
                       :src="(person as any).meta?.src"
-                      class="h-64 sm:h-full w-full object-inherit sm:object-scale-down"
+                      class="h-64 sm:h-full xl:h-[418px] w-full object-inherit sm:object-scale-down xl:object-fill"
                       format="webp"
                       loading="lazy"
                   />
@@ -187,7 +187,7 @@
                     class="p-0 z-20"
                 >
                   <UButton
-                      class="bg-black/75 hover:bg-black/75 absolute -left-2 -top-2"
+                      class="bg-black/75 hover:bg-black/75 absolute -left-2 -top-2 sm:left-auto  sm:-top-6 sm:-right-4 lg:-right-6"
                       variant="ghost"
                   >
                     <UIcon
@@ -222,7 +222,7 @@
       </div>
     </UContainer>
 
-    <UContainer class="max-w-(--container-2xl) relative xl:pt-4 mb-32 z-10">
+    <UContainer class="max-w-(--container-2xl) relative xl:pt-0 mb-32 xl:mt-52 z-10">
       <UButton
           :label="t('knowButton')"
           class="mb-10 sm:mt-0 hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
@@ -236,7 +236,7 @@
     </UContainer>
 
     <div class="bg-(--color-jm-primary-green)">
-      <UContainer class="max-w-(--container-2xl) relative text-left pt-4 z-10">
+      <UContainer class="max-w-(--container-2xl) relative text-left z-10">
         <h6> {{ t('we.do') }}<b class="uppercase"> {{ t('we.forYou') }}</b></h6>
         <h2 class="font-[400] uppercase text-2xl pt-4">
           {{ t('we.development') }}
@@ -246,11 +246,11 @@
         </h2>
         <div
             ref="greenTop"
-            class="absolute pointer-events-none w-screen h-[48rem] bg-repeat-x bottom-1/4 left-1/2 -translate-x-1/2 -z-1 bg-center bg-green-top"
+            class="absolute pointer-events-none w-screen h-[44rem] bg-repeat-x bottom-1/4 left-1/2 -translate-x-1/2 -z-1 bg-center bg-green-top"
         />
         <div
             ref="greenBottom"
-            class="absolute pointer-events-none w-screen h-[48rem] top-1/12 bg-repeat-x left-1/2 -translate-x-1/2 -z-1  bg-center bg-green-bottom"
+            class="absolute pointer-events-none w-screen h-[24rem] bg-repeat-x left-1/2 -translate-x-1/2 -z-1  bg-center bg-green-bottom"
         />
       </UContainer>
     </div>
@@ -446,7 +446,7 @@ const setupParallax = (): void => {
     {ref: greyTop, config: {from: '0', to: '-380px', scrub: 1.4}},
     {ref: greyBottom, config: {from: '0', to: '320px', scrub: 1.7}},
     {ref: greenTop, config: {from: '0', to: '-260px', scrub: 1.5}},
-    {ref: greenBottom, config: {from: '-200px', to: '290px', scrub: 1.3}}
+    {ref: greenBottom, config: {from: '0', to: '290px', scrub: 1.3}}
   ]
 
   elements.forEach(({ref, config}) => {

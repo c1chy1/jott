@@ -1,8 +1,8 @@
 <template>
   <UFooter class="z-10 py-0 pt-8 relative">
     <template #top>
-      <UContainer class="py-0 text-sm">
-        <div class="flex justify-between items-end gap-x-6  py-0">
+      <UContainer class="py-0 text-sm xl:text-base max-w-(--container-full)">
+        <div class="flex justify-between lg:justify-evenly items-end py-0">
           <div class="z-10">
             <address class="not-italic">
               JOTT.MEDIA GmbH<br>
@@ -37,17 +37,17 @@
     </template>
     <template #bottom>
 
-      <UContainer
+      <div
           class="bg-(--color-jm-primary-green) py-6  z-2  pl-2 sm:pl-4 text-xs sm:text-sm">
         <p class="w-11/12 sm:w-full">© {{ new Date().getFullYear() }} JOTT.MEDIA – {{ t('AllRightsReserved') }}</p>
-      </UContainer>
+      </div>
 
     </template>
     <template #left>
-      <div class="absolute left-0 bottom-14 w-full h-full bg-(--color-jm-secondary-grey-lighter) -z-20"></div>
+      <div class="absolute left-0 bottom-0 w-full h-[24rem] bg-(--color-jm-secondary-grey-lighter) -z-20"></div>
       <div
           ref="footerTop"
-          class="absolute pointer-events-none left-1/2 bg-repeat-x -translate-x-1/2 w-screen h-[35rem] bottom-0 -z-0 bg-center bg-footer-top"
+          class="absolute pointer-events-none left-1/2 bg-repeat-x -translate-x-1/2 w-screen h-[52rem] bottom-0 -z-0 bg-center bg-footer-top"
       />
     </template>
   </UFooter>

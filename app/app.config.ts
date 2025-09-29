@@ -50,10 +50,10 @@ export default defineAppConfig({
         footer: {
             slots: {
                 container: 'py-0 w-full! max-w-(--container-5xl)',
-                body: 'w-full!',
-                root: 'relative',
-                top: 'lg:pt-4 contents',
-                bottom: 'py-0  z-30',
+                body: 'w-full! px-0!',
+                root: 'relative px-0!',
+                top: 'lg:pt-4 contents px-0!',
+                bottom: 'py-0 lg:py-0  z-30',
                 left: 'max-w-(--container-5xl)',
             }
         },
