@@ -1,31 +1,32 @@
 <template>
-  <div class="fixed bottom-7 sm:bottom-8 xl:-bottom-5 right-0 xl:-right-4  z-50 ">
+  <div class="fixed bottom-12 sm:bottom-14 xl:-bottom-5 right-0 xl:-right-4  z-50 ">
     <UButton
         class="absolute right-2 sm:right-3 xl:right-8 xl:bottom-8 h-10 w-10 sm:h-12 sm:w-12  flex justify-center items-center  bg-black/75 hover:bg-black/75 transition-opacity duration-300 opacity-80 hover:opacity-100  rounded-full z-50 cursor-pointer"
         variant="ghost"
         @click="toggleMenu">
       <UIcon v-if="!open" class="text-lg sm:text-2xl text-(--color-jm-primary-brown) transition-all z-50"
              name="i-mdi-menu"/>
-      <UIcon v-else class="text-lg sm:text-2xl  text-(--color-jm-primary-brown) transition-all z-50"
+      <UIcon v-else class="text-lg sm:text-2xl text-(--color-jm-primary-brown) transition-all z-50"
              name="i-mdi-close-thick"/>
     </UButton>
-    <div class="relative py-3 mx-auto">
+    <div class="relative mx-auto">
       <div
           v-if="open"
           ref="menuBackgroundRef"
-          class="top-0 left-0 w-screen h-screen flex flex-col justify-around xl:justify-start z-30 bg-(--color-jm-primary-brown) fixed">
-        <UContainer class="my-5 flex justify-center ">
-          <NuxtLink :to="localePath({path: '/'})"
-                    class="inline-block no-underline min-w-52 mt-0 sm:w-[325px] border-0"
-                    @click="closeMenu">
-            <Image ref="logoRef" :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
-                   src="logo-overlay.svg"/>
+          class="top-0 left-0 w-screen h-screen flex flex-col justify-evenly sm:justify-around xl:justify-start z-30 bg-(--color-jm-primary-brown) fixed">
+        <UContainer class="mt-4 flex justify-center">
+          <NuxtLink :to="localePath('/')"
+                    class="block no-underline mx-auto w-52 sm:w-1/3 xl:w-2/5  border-0"
+          >
+            <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
+                   src="logo.svg"/>
           </NuxtLink>
         </UContainer>
-        <UContainer class="sm:mt-12 flex sm:flex-row w-full justify-around  xl:justify-between  space-x-2 sm:space-x-4">
+        <UContainer
+            class="pb-12 sm:mt-4 lg:mt-12 flex justify-around xl:justify-between space-x-2 sm:space-x-4">
 
           <div ref="leftSideRef" class="flex flex-col justify-between">
-            <ul class="uppercase font-extrabold text-left text-lg xl:text-3xl sm:space-y-4  text-(--color-jm-contrast-black)">
+            <ul class="uppercase font-extrabold text-left text-lg xl:text-3xl sm:space-y-4 text-(--color-jm-contrast-black)">
               <li ref="homeRef">
                 <NuxtLink :to="localePath({ name: 'index' })" @click="closeMenu">{{ t('menu.home') }}</NuxtLink>
               </li>
@@ -61,7 +62,7 @@
                 {{ t('imprint') }}
               </NuxtLink>
             </div>
-            <address ref="addressRef" class="not-italic text-xs mt-6 sm:mt-16 text-sm lg:text-base">
+            <address ref="addressRef" class="not-italic text-xs mt-6 xl:mt-16 sm:text-sm lg:text-base">
               JOTT.MEDIA GmbH<br>
               Bahnhofstraße 33<br>
               31675 Bückeburg<br>

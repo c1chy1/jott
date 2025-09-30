@@ -3,7 +3,7 @@
     <template #top>
       <UContainer class="py-0 text-sm xl:text-base max-w-(--container-full)">
         <div class="flex justify-between lg:justify-evenly items-end py-0">
-          <div class="z-10">
+          <div>
             <address class="not-italic">
               JOTT.MEDIA GmbH<br>
               Bahnhofstraße 33<br>

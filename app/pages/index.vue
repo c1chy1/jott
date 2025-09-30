@@ -14,7 +14,7 @@
       />
 
       <UPageHero
-          class="py-4 relative z-10 h-screen flex flex-col justify-evenly xl:justify-center gap-y-24"
+          class="py-4 relative z-10 h-screen flex flex-col justify-evenly xl:justify-center xl:gap-y-24"
           orientation="vertical"
       >
         <template #top>
@@ -27,14 +27,14 @@
               class="absolute pointer-events-none w-screen h-[35rem] bottom-0 -z-[2] bg-header-grey"
           />
           <NuxtLink :to="localePath('/')"
-                    class="block no-underline mx-auto w-64 sm:w-1/2 xl:w-1/5 sm:mt-6 border-0"
+                    class="block no-underline mx-auto w-52 sm:w-1/3 xl:w-1/5 sm:mt-6 border-0"
           >
             <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
                    src="logo.svg"/>
           </NuxtLink>
         </template>
         <template #headline>
-          <h5 class="animated-bold text-4xl sm:text-5xl xl:text-6xl leading-tight sm:mt-4">
+          <h5 class="animated-bold text-4xl lg:text-5xl xl:text-6xl leading-tight sm:mt-4">
             {{ t('make.we') }}<br>
             <span class="text-(--color-nuxt-ui-primary-50) uppercase">
               {{ t('make.simple') }}</span>
@@ -45,10 +45,9 @@
           <UButton
               :label="t('makeSimpleButton')"
               :to="{ path: '/', hash: '#machen' }"
-              class="sm:mb-10 sm:mt-4  hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
+              class="text-xs sm:text-sm lg:mb-10 lg:mt-4  hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
               color="secondary"
               outline="false"
-              size="lg"
               variant="outline"
           />
         </template>

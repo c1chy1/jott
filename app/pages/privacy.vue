@@ -1,9 +1,12 @@
 <template>
   <UPage>
-    <UPageBody class="bg-(--color-jm-secondary-white) mt-0" prose>
+    <UPageBody class="bg-(--color-jm-secondary-white) mt-0 mb-24" prose>
       <UContainer class="max-w-(--container-2xl) flex justify-center pt-8">
-        <NuxtLink :to="localePath('/')" class="inline-block no-underline border-0">
-          <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH" class="w-[325px]" src="logo.svg"/>
+        <NuxtLink :to="localePath('/')"
+                  class="block no-underline mx-auto w-52 sm:w-2/3 xl:w-3/5 sm:mt-6 border-0"
+        >
+          <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
+                 src="logo.svg"/>
         </NuxtLink>
       </UContainer>
       <UContainer class="max-w-(--container-2xl) py-10">
