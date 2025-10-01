@@ -73,9 +73,9 @@ export default defineAppConfig({
                         header: 'block h-full m-0 p-0 bg-cover bg-center'
                     },
                     subtle: {
-                        body: 'p-4!',
-                        root: 'h-auto',
-                        header: 'block m-0 p-0 gap-0! bg-cover bg-center',
+                        body: 'p-4! ',
+                        root: 'h-auto w-full',
+                        header: 'block w-full m-0 p-0 gap-0! bg-cover bg-center',
                         description: 'mb-0 text-xs text-pretty text-(--color-jm-contrast-black) p-2',
                         title: 'text-lg uppercase font-bold leading-6',
                     },
@@ -90,7 +90,7 @@ export default defineAppConfig({
                 container: 'mx-auto px-4 py-0! py-8 sm:px-6 lg:px-8 ',
                 headline: 'mb-4 mt-0 ',
                 body: 'mt-6',
-                footer: 'mt-8 sm:mt-2',
+                footer: 'mt-8 sm:mt-2 2xl:mt-44',
             },
 
             headline: {

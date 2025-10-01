@@ -1,14 +1,12 @@
 <template>
   <UPage>
     <UPageBody class="bg-(--color-jm-secondary-white) mt-0 mb-24" prose>
-      <UContainer class="max-w-(--container-2xl) flex justify-center">
-        <NuxtLink :to="localePath('/')"
-                  class="block no-underline mx-auto w-52 sm:w-2/3 xl:w-3/5 sm:mt-6 border-0"
-        >
-          <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
-                 src="logo.svg"/>
-        </NuxtLink>
-      </UContainer>
+      <NuxtLink :to="localePath('/')"
+                class="block no-underline pt-4 mx-auto w-52 sm:w-1/3 xl:w-2/5 2xl:w-1/6  border-0"
+      >
+        <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
+               src="logo.svg"/>
+      </NuxtLink>
       <UContainer class="max-w-(--container-2xl) py-10">
         <h1 class="font-bold">{{ t('imprint') }}</h1>
         <h3 class="font-bold">{{ t('imprintSite.information') }}</h3>
@@ -102,6 +100,12 @@
 useHead({
   title: 'Impressum - JOTT.MEDIA'
 })
+
+
+definePageMeta({
+  layout: 'default'
+});
+
 const localePath = useLocalePath()
 
 const {t} = useI18n()

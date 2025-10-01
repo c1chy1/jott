@@ -1,5 +1,5 @@
 <template>
-  <UPageBody class="text-center bg-(--color-jm-secondary-white) mt-0 ">
+  <UPageBody class="text-center bg-(--color-jm-secondary-white) mt-0 mb-24">
     <div class="mb-0 bg-(--color-jm-secondary-grey-lighter) overflow-hidden relative">
       <NuxtImg
           ref="headerBox"
@@ -9,12 +9,13 @@
           format="webp"
           height="1100"
           loading="eager"
+          sizes="sm:90vw md:760px lg:760px"
           src="/images/header-box.png"
           width="760"
       />
 
       <UPageHero
-          class="py-4 relative z-10 h-screen flex flex-col justify-evenly xl:justify-center xl:gap-y-24"
+          class="py-4 relative z-10 h-screen flex flex-col justify-evenly xl:justify-center 2xl:justify-start xl:gap-y-24"
           orientation="vertical"
       >
         <template #top>
@@ -27,7 +28,7 @@
               class="absolute pointer-events-none w-screen h-[35rem] bottom-0 -z-[2] bg-header-grey"
           />
           <NuxtLink :to="localePath('/')"
-                    class="block no-underline mx-auto w-52 sm:w-1/3 xl:w-1/5 sm:mt-6 border-0"
+                    class="block no-underline mx-auto w-52 sm:w-1/3 xl:w-2/5 2xl:w-1/6  border-0"
           >
             <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
                    src="logo.svg"/>
@@ -40,36 +41,32 @@
               {{ t('make.simple') }}</span>
             <b class="uppercase"> digital</b>.
           </h5>
-        </template>
-        <template #body>
           <UButton
               :label="t('makeSimpleButton')"
               :to="{ path: '/', hash: '#machen' }"
-              class="text-xs sm:text-sm lg:mb-10 lg:mt-4  hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
+              class="text-xs sm:text-sm xl:text-lg lg:mb-10 mt-2 lg:mt-4 2xl:mt-8  hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown)"
               color="secondary"
               outline="false"
               variant="outline"
           />
         </template>
         <template #footer>
-          <div>
-            <h2 class="animated-bold uppercase text-2xl xl:text-3xl mb-3">
-              {{ t('office.your') }}
-              <span class="lowercase">
+          <h2 class="animated-bold uppercase text-2xl xl:text-3xl mb-3 xl:mb-6">
+            {{ t('office.your') }}
+            <span class="lowercase">
                        {{ t('office.for') }}
               </span>
-              <b>{{ t('office.development') }}</b>
-            </h2>
-            <NuxtLink
-                :to="{ path: '/', hash: '#machen' }"
-                @click="scrollTo"
-            >
-              <UIcon
-                  class="text-(--color-jm-secondary-white) text-2xl xl:text-4xl"
-                  name="cil:arrow-thick-bottom"
-              />
-            </NuxtLink>
-          </div>
+            <b>{{ t('office.development') }}</b>
+          </h2>
+          <NuxtLink
+              :to="{ path: '/', hash: '#machen' }"
+              @click="scrollTo"
+          >
+            <UIcon
+                class="text-(--color-jm-secondary-white) text-2xl xl:text-4xl"
+                name="cil:arrow-thick-bottom"
+            />
+          </NuxtLink>
         </template>
       </UPageHero>
     </div>
@@ -298,8 +295,8 @@
 
     <!-- Articles Section - Pinia powered with lazy loading -->
     <Suspense>
-      <UContainer class="sm:py-20">
-        <Headline class="pb-8 leading-10 lg:leading-5 text-4xl lowercase font-bold text-left" type="h2">
+      <UContainer class="sm:py-20 max-w-(--container-6xl)">
+        <Headline class="pb-8 leading-10 lg:leading-5 text-4xl lowercase font-bold text-left xl:text-center" type="h2">
           <b class="text-(--color-jm-primary-brown) uppercase">{{ t('world.new') }}</b>
           <span class="font-medium px-2">{{ t('world.from') }}</span>
           <b class="text-(--color-jm-primary-brown) uppercase">{{ t('world.digital') }}</b>

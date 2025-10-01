@@ -4,9 +4,9 @@
         class="absolute right-2 sm:right-3 xl:right-8 xl:bottom-8 h-10 w-10 sm:h-12 sm:w-12  flex justify-center items-center  bg-black/75 hover:bg-black/75 transition-opacity duration-300 opacity-80 hover:opacity-100  rounded-full z-50 cursor-pointer"
         variant="ghost"
         @click="toggleMenu">
-      <UIcon v-if="!open" class="text-lg sm:text-2xl text-(--color-jm-primary-brown) transition-all z-50"
+      <UIcon v-if="!open" class="text-lg sm:text-2xl  transition-all z-50"
              name="i-mdi-menu"/>
-      <UIcon v-else class="text-lg sm:text-2xl text-(--color-jm-primary-brown) transition-all z-50"
+      <UIcon v-else class="text-lg sm:text-2xl transition-all z-50"
              name="i-mdi-close-thick"/>
     </UButton>
     <div class="relative mx-auto">
@@ -14,14 +14,12 @@
           v-if="open"
           ref="menuBackgroundRef"
           class="top-0 left-0 w-screen h-screen flex flex-col justify-evenly sm:justify-around xl:justify-start z-30 bg-(--color-jm-primary-brown) fixed">
-        <UContainer class="mt-4 flex justify-center">
-          <NuxtLink :to="localePath('/')"
-                    class="block no-underline mx-auto w-52 sm:w-1/3 xl:w-2/5  border-0"
-          >
-            <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
-                   src="logo.svg"/>
-          </NuxtLink>
-        </UContainer>
+        <NuxtLink :to="localePath('/')"
+                  class="block no-underline pt-4 mx-auto w-52 sm:w-1/3 xl:w-2/5 2xl:w-1/6  border-0"
+        >
+          <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
+                 src="logo.svg"/>
+        </NuxtLink>
         <UContainer
             class="pb-12 sm:mt-4 lg:mt-12 flex justify-around xl:justify-between space-x-2 sm:space-x-4">
 
@@ -62,7 +60,7 @@
                 {{ t('imprint') }}
               </NuxtLink>
             </div>
-            <address ref="addressRef" class="not-italic text-xs mt-6 xl:mt-16 sm:text-sm lg:text-base">
+            <address ref="addressRef" class="not-italic text-xs lg:text-lg xl:text-base mt-6 md:mt-2 xl:mt-16">
               JOTT.MEDIA GmbH<br>
               Bahnhofstraße 33<br>
               31675 Bückeburg<br>
