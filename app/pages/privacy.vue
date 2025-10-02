@@ -1,11 +1,12 @@
 <template>
   <UPage>
-    <UPageBody class="bg-(--color-jm-secondary-white) mt-0" prose>
-      <UContainer class="max-w-(--container-2xl) flex justify-center pt-8">
-        <NuxtLink :to="localePath('/')" class="inline-block no-underline border-0">
-          <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH" class="w-[325px]" src="logo.svg"/>
-        </NuxtLink>
-      </UContainer>
+    <UPageBody class="bg-(--color-jm-secondary-white) mt-0 mb-24" prose>
+      <NuxtLink :to="localePath('/')"
+                class="block no-underline pt-4 mx-auto w-52 sm:w-1/3 xl:w-2/5 2xl:w-1/6  border-0"
+      >
+        <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
+               src="logo.svg"/>
+      </NuxtLink>
       <UContainer class="max-w-(--container-2xl) py-10">
         <h1 class="font-bold">{{ t('privacySite.title') }} </h1>
         <p>
@@ -132,6 +133,11 @@
 useHead({
   title: 'Datenschutz - JOTT.MEDIA'
 })
+
+definePageMeta({
+  layout: 'default'
+});
+
 const localePath = useLocalePath()
 
 const {t} = useI18n()

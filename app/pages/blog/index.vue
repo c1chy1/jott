@@ -1,18 +1,19 @@
 <template>
   <UPage class="m-0 p-0 bg-(--color-jm-secondary-white)">
     <UPageBody>
-      <UContainer class="max-w-(--container-2xl) text-center">
-        <NuxtLink :to="localePath('/')" class="inline-block no-underline border-0">
-          <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH" class="w-[325px] mt-2" src="logo.svg"/>
-        </NuxtLink>
-      </UContainer>
+      <NuxtLink :to="localePath('/')"
+                class="block no-underline pt-4 mx-auto w-52 sm:w-1/3 xl:w-2/5 2xl:w-1/6  border-0"
+      >
+        <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
+               src="logo.svg"/>
+      </NuxtLink>
       <UContainer class="pt-6 max-w-(--container-7xl)">
-        <Headline class="pb-8 leading-8 lg:leading-5 text-4xl lowercase font-bold" type="h2">
+        <Headline class="pb-8 leading-8 lg:leading-5 text-3xl sm:text-4xl lowercase font-bold" type="h2">
           <b class="text-(--color-jm-primary-brown) uppercase">{{ t('world.new') }}</b>
           <span class="font-medium px-2">{{ t('world.from') }}</span>
           <b class="text-(--color-jm-primary-brown) uppercase">{{ t('world.digital') }}</b>
         </Headline>
-        <Paragraph class="text-sm lg:text-tiny mb-8 w-1/2">{{ t('blog.agency') }}</Paragraph>
+        <Paragraph class="leading-5 text-xs sm:text-sm lg:text-tiny mb-8 xl:w-1/2">{{ t('blog.agency') }}</Paragraph>
         <UContainer class="max-w-(--container-6xl) px-0 sm:px-0 lg:px-0 space-x-4 space-y-4 ml-0">
           <UButton
               v-for="(category, index) in articleStore.categories"
@@ -20,9 +21,7 @@
               :label="category"
               class="hover:bg-(--color-jm-primary-brown)/75 hover:text-(--ui-bg) hover:border-(--color-jm-primary-brown) cursor-pointer"
               color="secondary"
-
               outline="true"
-              size="lg"
               variant="outline"
               @click="articleStore.setSelectedCategory(category)"
           />
@@ -37,7 +36,8 @@
                 :to="localePath(`/blog/${article.slug}`)"
                 as="li"
                 class="bg-(--color-jm-secondary-grey-lighter) mt-6"
-                v-bind="article">
+                v-bind="article"
+                variant="subtle">
 
               <template #header>
                 <NuxtImg
@@ -63,7 +63,7 @@
                 </Paragraph>
               </template>
               <template #description>
-                <p class="px-4 text-sm font-light">{{ truncateText(article.description, 250) }}
+                <p class="px-2 text-sm font-light">{{ truncateText(article.description, 250) }}
                 </p>
               </template>
               <template #authors>

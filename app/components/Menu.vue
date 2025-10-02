@@ -1,29 +1,30 @@
 <template>
-  <div class="fixed flex flex-col justify-center -bottom-2 sm:bottom-0 right-4 sm:right-8 z-50 ">
-    <button
-        class="h-10 w-10 sm:h-12 sm:w-12 flex justify-center items-center bg-black/90 transition-opacity duration-300 opacity-80 hover:opacity-100  rounded-full z-50 cursor-pointer"
+  <div class="fixed bottom-12 sm:bottom-14 xl:-bottom-5 right-0 xl:-right-4  z-50 ">
+    <UButton
+        class="absolute right-2 sm:right-3 xl:right-8 xl:bottom-8 h-10 w-10 sm:h-12 sm:w-12  flex justify-center items-center  bg-black/75 hover:bg-black/75 transition-opacity duration-300 opacity-80 hover:opacity-100  rounded-full z-50 cursor-pointer"
+        variant="ghost"
         @click="toggleMenu">
-      <UIcon v-if="!open" class="text-lg sm:text-2xl text-(--color-jm-primary-brown) transition-all z-50"
+      <UIcon v-if="!open" class="text-lg sm:text-2xl  transition-all z-50"
              name="i-mdi-menu"/>
-      <UIcon v-else class="text-lg sm:text-2xl  text-(--color-jm-primary-brown) transition-all z-50"
+      <UIcon v-else class="text-lg sm:text-2xl transition-all z-50"
              name="i-mdi-close-thick"/>
-    </button>
-    <div class="relative py-3 mx-auto ">
+    </UButton>
+    <div class="relative mx-auto">
       <div
           v-if="open"
           ref="menuBackgroundRef"
-          class="top-0 left-0 w-screen h-screen flex flex-col justify-start  z-30 bg-(--color-jm-primary-brown) fixed">
-        <UContainer class="my-8 flex justify-center">
-          <NuxtLink :to="localePath({path: '/'})" class="inline-block no-underline w-full mt-2 sm:w-[325px] border-0"
-                    @click="closeMenu">
-            <Image ref="logoRef" :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH" class="w-full"
-                   src="logo-overlay.svg"/>
-          </NuxtLink>
-        </UContainer>
-        <UContainer class="sm:mt-12 flex flex-col sm:flex-row w-full justify-around  space-x-2 sm:space-x-4">
+          class="top-0 left-0 w-screen h-screen flex flex-col justify-evenly sm:justify-around xl:justify-start z-30 bg-(--color-jm-primary-brown) fixed">
+        <NuxtLink :to="localePath('/')"
+                  class="block no-underline pt-4 mx-auto w-52 sm:w-1/3 xl:w-2/5 2xl:w-1/6  border-0"
+        >
+          <Image :parallax="false" :shine="false" alt="JOTT.MEDIA GmbH"
+                 src="logo.svg"/>
+        </NuxtLink>
+        <UContainer
+            class="pb-12 sm:mt-4 lg:mt-12 flex justify-around xl:justify-between space-x-2 sm:space-x-4">
 
           <div ref="leftSideRef" class="flex flex-col justify-between">
-            <ul class="uppercase font-extrabold text-left text-xl xl:text-3xl space-y-4 sm:space-y-8 text-(--color-jm-contrast-black)">
+            <ul class="uppercase font-extrabold text-left text-lg xl:text-3xl sm:space-y-4 text-(--color-jm-contrast-black)">
               <li ref="homeRef">
                 <NuxtLink :to="localePath({ name: 'index' })" @click="closeMenu">{{ t('menu.home') }}</NuxtLink>
               </li>
@@ -32,34 +33,34 @@
               </li>
             </ul>
             <div ref="languageRef" class="mt-8 text-left">
-              <button
-                  :class="{ 'font-bold': currentLocale === 'de' }"
-                  class="mr-2 text-lg text-(--color-jm-contrast-black) hover:font-bold transition-all duration-200 cursor-pointer"
+              <UButton
+                  :class="{ 'font-bold bg-(--color-jm-primary-green)': currentLocale === 'de' }"
+                  class="mr-2 text-xs text-(--color-jm-contrast-black) hover:font-bold transition-all duration-200 cursor-pointer"
                   @click="handleLanguageChange('de')">
                 DE
-              </button>
+              </UButton>
               <span class="text-(--color-jm-contrast-black) text-lg">|</span>
-              <button
-                  :class="{ 'font-bold': currentLocale === 'en' }"
-                  class="ml-2 text-lg text-(--color-jm-contrast-black) hover:font-bold transition-all duration-200 cursor-pointer"
+              <UButton
+                  :class="{ 'font-bold bg-(--color-jm-primary-green)': currentLocale === 'en' }"
+                  class="ml-2 text-xs text-(--color-jm-contrast-black) hover:font-bold transition-all duration-200 cursor-pointer"
                   @click="handleLanguageChange('en')">
                 EN
-              </button>
+              </UButton>
             </div>
           </div>
 
-          <div ref="rightSideRef" class="text-left sm:text-right mt-8 sm:mt-0">
-            <div ref="legalLinksRef">
-              <NuxtLink :to="localePath('/privacy')" class="block font-extrabold text-sm sm:text-base"
+          <div ref="rightSideRef" class="text-left sm:text-right sm:mt-8">
+            <div ref="legalLinksRef" class="font-extrabold text-xs xl:text-lg">
+              <NuxtLink :to="localePath('/privacy')" class="block"
                         @click="closeMenu">
-                .{{ t('privacy') }}
+                {{ t('privacy') }}
               </NuxtLink>
-              <NuxtLink :to="localePath('/imprint')" class="block font-extrabold text-sm sm:text-base"
+              <NuxtLink :to="localePath('/imprint')" class="block"
                         @click="closeMenu">
-                .{{ t('imprint') }}
+                {{ t('imprint') }}
               </NuxtLink>
             </div>
-            <address ref="addressRef" class="not-italic text-sm  mt-6 sm:mt-16">
+            <address ref="addressRef" class="not-italic text-xs lg:text-lg xl:text-base mt-6 md:mt-2 xl:mt-16">
               JOTT.MEDIA GmbH<br>
               Bahnhofstraße 33<br>
               31675 Bückeburg<br>
