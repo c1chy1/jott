@@ -482,5 +482,11 @@ function initializeParallax() {
   }
 }
 
-onMounted(initializeParallax)
+
+onMounted(() => {
+
+  initializeParallax()
+});
+
+
 </script>
