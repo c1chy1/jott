@@ -11,7 +11,6 @@ export const useTeamStore = defineStore('teamStore', {
         async fetchTeam(forceRefresh = false) {
             const {locale} = useI18n()
 
-            // ✅ Prostsze sprawdzenie - jeśli locale się zmienił, wymuś refresh
             const shouldRefresh = forceRefresh || this.currentLocale !== locale.value || this.team.length === 0
 
             if (!shouldRefresh) {
@@ -19,7 +18,6 @@ export const useTeamStore = defineStore('teamStore', {
             }
 
             try {
-                // ✅ Bezpieczne czyszczenie cache tylko po stronie klienta
                 if (process.client && this.currentLocale && this.currentLocale !== locale.value) {
                     try {
                         await clearNuxtData(`team-${this.currentLocale}`)
@@ -33,11 +31,10 @@ export const useTeamStore = defineStore('teamStore', {
                     return queryCollection(collection).all() as Collections['team_en'][] | Collections['team_de'][]
                 }, {
                     key: `team-${locale.value}`,
-                    server: true, // ✅ Pozwól na SSR
-                    default: () => [], // ✅ Domyślna wartość
+                    server: true,
+                    default: () => [],
                 })
 
-                // ✅ Refresh tylko po stronie klienta jeśli potrzebny
                 if (process.client && shouldRefresh && refresh) {
                     try {
                         await refresh()
