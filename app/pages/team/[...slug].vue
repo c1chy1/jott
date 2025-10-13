@@ -55,10 +55,11 @@ const router = useRouter()
 
 const {slug} = route.params;
 
-await teamStore.fetchPerson(slug)
 
 const person = computed(() => teamStore.person)
-
+onMounted(() => {
+  teamStore.fetchPerson(slug)
+})
 
 const handleClick = async (event: Event) => {
   event.preventDefault()
