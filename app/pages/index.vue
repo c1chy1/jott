@@ -408,7 +408,6 @@ teamStore.fetchTeam()
 console.log('latestArticles:', latestArticles)*/
 
 const teamData = computed(() => {
-  // Gdy locale się zmieni, automatycznie pobierz nowe dane
   if (process.client) {
     teamStore.fetchTeam()
   }
