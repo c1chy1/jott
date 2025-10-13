@@ -15,7 +15,7 @@
       />
 
       <UPageHero
-          class="py-4 relative z-10 h-screen flex flex-col justify-evenly xl:justify-center 2xl:justify-start xl:gap-y-24"
+          class="py-4 relative z-10 h-screen flex flex-col justify-evenly xl:justify-center"
           orientation="vertical"
       >
         <template #top>
@@ -151,12 +151,12 @@
       <div class="mt-16">
         <UBlogPosts class="!flex !gap-y-0">
           <div
-              v-for="(person, index) in teamStore.team"
-              :key="index"
+              v-for="(person, index) in teamData"
+              :key="`${locale}-${index}`"
               :class="[
-              'flex',
-              (person as any).meta?.align === 'right' ? 'sm:justify-end' : 'sm:justify-start'
-            ]"
+                          'flex',
+                          (person as any).meta?.align === 'right' ? 'sm:justify-end' : 'sm:justify-start'
+                        ]"
           >
             <div class="w-full md:w-2/5 relative">
               <UBlogPost
@@ -206,15 +206,16 @@
             </div>
 
           </div>
-          <div
-              ref="greyTop"
-              class="absolute pointer-events-none w-screen h-[44rem]  bg-repeat-x left-1/2 -translate-x-1/2 -z-1 bg-center bg-grey-top"
-          />
-          <div
-              ref="greyBottom"
-              class="absolute pointer-events-none w-screen h-[44rem] bottom-1/6  bg-repeat-x left-1/2 -translate-x-1/2 -z-1 bg-center bg-grey-bottom"
-          />
+
         </UBlogPosts>
+        <div
+            ref="greyTop"
+            class="absolute pointer-events-none w-screen h-[44rem]  bg-repeat-x left-1/2 top-0 -translate-x-1/2 -z-1 bg-center bg-grey-top"
+        />
+        <div
+            ref="greyBottom"
+            class="absolute pointer-events-none w-screen h-[44rem] bottom-1/6  bg-repeat-x left-1/2 -translate-x-1/2 -z-1 bg-center bg-grey-bottom"
+        />
       </div>
     </UContainer>
 
@@ -302,50 +303,50 @@
           <b class="text-(--color-jm-primary-brown) uppercase">{{ t('world.digital') }}</b>
         </Headline>
 
-        <UBlogPosts class="sm:mt-10 gap-y-8 grid-cols-1! lg:grid-cols-2! 2xl:grid-cols-3!" orientation="horizontal">
-          <UBlogPost
-              v-for="(article, index) in latestArticles"
-              :key="index"
-              :to="localePath(`/blog/${article.slug}`)"
-              class="text-left ring-0 bg-(--color-jm-secondary-grey-lighter)"
-              variant="subtle"
-          >
-            <template #header>
-              <NuxtImg
-                  :alt="(article as any).meta?.imageAlt || (article as any).meta?.name"
-                  :src="(article as any).meta?.image"
-                  format="webp"
-                  loading="lazy"
-              />
-            </template>
-            <template #title>
-              <div class="pt-2" v-html="article.title"/>
-            </template>
-            <template #date>
-              <div class="flex gap-1">
-                <p class="text-sm font-light">
-                  {{ article.date }} von
-                </p>
-                <NuxtLink
-                    :to="localePath(`/team/${article.meta?.author?.toLowerCase()}`)"
-                    class="text-(--color-jm-primary-green) uppercase font-extrabold z-10">{{ article.meta?.author }}
-                </NuxtLink>
-              </div>
-            </template>
-            <template #authors>
-              <UBadge
-                  v-for="(category, categoryIndex) in (article.meta?.categories as string[])?.slice(1)"
-                  :key="categoryIndex"
-                  class="px-2 text-xs text-(--color-jm-secondary-white) bg-(--color-jm-primary-brown) font-extrabold uppercase"
-                  color="primary"
-                  size="xs"
-                  variant="solid"
-              >
-                {{ category }}
-              </UBadge>
-            </template>
-          </UBlogPost>
-        </UBlogPosts>
+        <!--        <UBlogPosts class="sm:mt-10 gap-y-8 grid-cols-1! lg:grid-cols-2! 2xl:grid-cols-3!" orientation="horizontal">
+                  <UBlogPost
+                      v-for="(article, index) in latestArticles"
+                      :key="index"
+                      :to="localePath(`/blog/${article.slug}`)"
+                      class="text-left ring-0 bg-(&#45;&#45;color-jm-secondary-grey-lighter)"
+                      variant="subtle"
+                  >
+                    <template #header>
+                      <NuxtImg
+                          :alt="(article as any).meta?.imageAlt || (article as any).meta?.name"
+                          :src="(article as any).meta?.image"
+                          format="webp"
+                          loading="lazy"
+                      />
+                    </template>
+                    <template #title>
+                      <div class="pt-2" v-html="article.title"/>
+                    </template>
+                    <template #date>
+                      <div class="flex gap-1">
+                        <p class="text-sm font-light">
+                          {{ article.date }} von
+                        </p>
+                        <NuxtLink
+                            :to="localePath(`/team/${article.meta?.author?.toLowerCase()}`)"
+                            class="text-(&#45;&#45;color-jm-primary-green) uppercase font-extrabold z-10">{{ article.meta?.author }}
+                        </NuxtLink>
+                      </div>
+                    </template>
+                    <template #authors>
+                      <UBadge
+                          v-for="(category, categoryIndex) in (article.meta?.categories as string[])?.slice(1)"
+                          :key="categoryIndex"
+                          class="px-2 text-xs text-(&#45;&#45;color-jm-secondary-white) bg-(&#45;&#45;color-jm-primary-brown) font-extrabold uppercase"
+                          color="primary"
+                          size="xs"
+                          variant="solid"
+                      >
+                        {{ category }}
+                      </UBadge>
+                    </template>
+                  </UBlogPost>
+                </UBlogPosts>-->
         <UButton
             :label="t('blogButton')"
             :to="localePath('/blog')"
@@ -372,8 +373,6 @@
 </template>
 
 <script lang="ts" setup>
-import {useTeamStore} from '~/stores/teamStore'
-import {useArticleStore} from '~/stores/articleStore'
 import {gsap} from 'gsap'
 
 const localePath = useLocalePath()
@@ -387,7 +386,9 @@ useHead({
 const LazyCarousel = defineAsyncComponent(() => import('~/components/Carousel.vue'))
 
 const teamStore = useTeamStore()
-const articleStore = useArticleStore()
+
+/*console.log(teamStore)*/
+/*const articleStore = useArticleStore()*/
 
 const headerGrey = ref<HTMLElement | null>(null)
 const headerGreenTop = ref<HTMLElement | null>(null)
@@ -398,11 +399,21 @@ const greenTop = ref<HTMLElement | null>(null)
 const greenBottom = ref<HTMLElement | null>(null)
 
 // ABOVE-THE-FOLD: Team data - SSR with Pinia cache
-await teamStore.fetchTeam()
+teamStore.fetchTeam()
 
 // BELOW-THE-FOLD: Latest articles - lazy loaded with Pinia cache
-const latestArticles = await articleStore.fetchLatestArticles()
+/*const latestArticles = articleStore.fetchLatestArticles()*/
 
+/*console.log('articleStore:', articleStore)
+console.log('latestArticles:', latestArticles)*/
+
+const teamData = computed(() => {
+  // Gdy locale się zmieni, automatycznie pobierz nowe dane
+  if (process.client) {
+    teamStore.fetchTeam()
+  }
+  return teamStore.team
+})
 
 const carouselItems = ref([
   {
@@ -483,4 +494,13 @@ function initializeParallax() {
 }
 
 onMounted(initializeParallax)
+
+onMounted(() => {
+  teamStore.fetchTeam()
+})
+onBeforeUnmount(() => {
+  if (typeof window !== 'undefined' && window.ScrollTrigger) {
+    window.ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+  }
+})
 </script>
