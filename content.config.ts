@@ -19,7 +19,7 @@ export default defineContentConfig({
                 }),
             ],
             [
-                `articles_${locale}`,
+                `blog_${locale}`,
                 defineCollection({
                     source: `${locale}/blog/**/*.md`,
                     type: 'page',
